@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("./fonts.css");
+
+body{
+  font-family: font-custom1;
+  background-color: rgb(200, 200, 184);
+}
