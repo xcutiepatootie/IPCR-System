@@ -10,7 +10,7 @@ export default function Dashboard() {
   return (
     <>
       <Navbar />
-      <h1 className="font-custom1 text-9xl">Tanginamo Daniel</h1>
+      <h1 className="font-custom1 text-9xl"> Hello</h1>
     </>
   );
 }

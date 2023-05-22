@@ -24,7 +24,7 @@ export default async function handler(req, res) {
     // Store the values from the request
     const { email, password, role } = req.body
     const User = models[role]
-    console.log(email)
+  
     try {
       // Find user in database
       const user = await User.findOne({ email })
