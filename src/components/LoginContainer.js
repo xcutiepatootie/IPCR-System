@@ -21,7 +21,7 @@ const LoginContainer = () => {
         case 'faculty':
         case 'admin':
         case 'dean':
-        case 'RIUH':
+        case 'riuh':
             loginForm = <LoginForm selectedPosition={selectedPosition} />;
             break;
         default:
@@ -40,7 +40,7 @@ const LoginContainer = () => {
                             <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-16 rounded w-full" onClick={() => handleButtonClick('admin')}>Admin</button>
                         </div>
                         <div>
-                            <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-16 rounded w-full" onClick={() => handleButtonClick('RIUH')}>RIUH</button>
+                            <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-16 rounded w-full" onClick={() => handleButtonClick('riuh')}>RIUH</button>
                         </div>
                         <div>
                             <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-16 rounded w-full" onClick={() => handleButtonClick('dean')}>Dean</button>

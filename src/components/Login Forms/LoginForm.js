@@ -43,9 +43,9 @@ const LoginForm = ({ selectedPosition }) => {
 
   return (
     <>
-      <h1>{selectedPosition}</h1>
+      
       <form onSubmit={handleSubmit} method='post'>
-        <div className='m-0 overflow-y-hidden'>
+        <div className='m-0 mt-2 overflow-y-hidden'>
           <div className='flex flex-col justify-center'>
             <div className='flex justify-center'>
               <h1 ><HiUserCircle size='2rem' color='blue' /></h1>

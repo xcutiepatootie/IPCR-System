@@ -1,25 +1,24 @@
+import Userstable from "../SuperAdmin/Usertable"
 
-const Superadmindashboard = () => {
+const Superadmindashboard = ({ users }) => {
   return (
-    
-    <>
+    <div>
+      <h1>User List</h1>
+      <Userstable users={users} />
+    </div>
+  );
+};
 
-        <div className="flex flex-row justify-end">
-            <h1 className="font-custom1 mx-24 text-[3.25rem]">Individual Performance Commitment And Review</h1>
-        </div>
+export async function getStaticProps() {
+  const { data } = await axios.get('/api/users');
+  const users = data || [];
 
-        <div className="flex justify-end bg-emerald-800">
-            <div className="flex justify-center"> 
-            <h1 className="font-custom1 mx-24 text-[3.25rem]">IPCR</h1>
-            </div>
-        </div>
-    
-    </>
-
-
-
-
-  )
+  return {
+    props: {
+      users,
+    },
+  };
 }
+
 
 export default Superadmindashboard
