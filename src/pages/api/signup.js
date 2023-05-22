@@ -1,5 +1,5 @@
 import connectDB from '@/utils/connectDB'
-import { Faculty, Admin, Dean, Superadmin } from '@/model/models'
+import { Faculty, Admin, Dean, Superadmin, Riuh } from '@/model/models'
 import bcrypt from 'bcrypt'
 
 
@@ -7,7 +7,8 @@ const models = {
   superadmin: Superadmin,
   faculty: Faculty,
   dean: Dean,
-  admin: Admin
+  admin: Admin,
+  riuh: Riuh
 }
 
 export default async function handler(req, res) {
