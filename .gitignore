@@ -32,3 +32,5 @@ yarn-error.log*
 .vercel
 src/middleware/authMiddleware.js
 middleware.js
+node_modules
+node_modules
