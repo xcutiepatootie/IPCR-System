@@ -1,6 +1,6 @@
 
 import Navbar from "@/components/Navbar";
-import { authMiddleware } from '../../middleware/authMiddleware'
+//import { authMiddleware } from '../../middleware/authMiddleware'
 import axios from 'axios'
 
 
@@ -14,7 +14,7 @@ export default function Dashboard() {
     </>
   );
 }
-
+/*
 // Apply the authMiddleware to the protected page
 export const getServerSideProps = async (context) => {
   const { req, res } = context;
@@ -26,4 +26,4 @@ export const getServerSideProps = async (context) => {
   return {
     props: { user },
   };
-}; 
+}; */
