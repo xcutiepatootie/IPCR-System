@@ -50,7 +50,6 @@ const facultySchema = new mongoose.Schema({
 
 
 const Superadmin = mongoose.models.Superadmin || mongoose.model('Superadmin', superadminSchema)
-
 const Faculty = mongoose.models.Faculty || mongoose.model('Faculty', facultySchema)
 const Dean = mongoose.models.Dean || mongoose.model('Dean', deanSchema)
 const Riuh = mongoose.models.Riuh || mongoose.model('Riuh', riuhSchema)
