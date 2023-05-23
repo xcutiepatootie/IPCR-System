@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function listUserPage() {
+function ListUserPage() {
   const [collections, setCollections] = useState([]);
   const [selectedCollection, setSelectedCollection] = useState(null)
   const [users, setUsers] = useState([])
