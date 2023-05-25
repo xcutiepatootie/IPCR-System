@@ -30,7 +30,7 @@ const superadminSchema = new mongoose.Schema({
     ...userSchema.obj
 })
 
-const adminSchema = new mongoose.Schema({
+const campusDirectorSchema = new mongoose.Schema({
     ...userSchema.obj
 })
 
@@ -42,17 +42,23 @@ const riuhSchema = new mongoose.Schema({
     ...userSchema.obj
 })
 
+const eiuhSchema = new mongoose.Schema({
+    ...userSchema.obj
+})
+
 const facultySchema = new mongoose.Schema({
     ...userSchema.obj
-  
+
 })
 
 
 
 const Superadmin = mongoose.models.Superadmin || mongoose.model('Superadmin', superadminSchema)
+const Campusdirector = mongoose.models.Campusdirector || mongoose.model('Campusdirector', campusDirectorSchema)
 const Faculty = mongoose.models.Faculty || mongoose.model('Faculty', facultySchema)
 const Dean = mongoose.models.Dean || mongoose.model('Dean', deanSchema)
 const Riuh = mongoose.models.Riuh || mongoose.model('Riuh', riuhSchema)
-const Admin = mongoose.models.Admin || mongoose.model('Admin', adminSchema)
+const Eiuh = mongoose.models.Eiuh || mongoose.model('Eiuh', eiuhSchema)
 
-export { Faculty, Superadmin, Dean, Admin, Riuh } 
+
+export { Superadmin, Campusdirector, Faculty, Dean, Riuh, Eiuh } 
