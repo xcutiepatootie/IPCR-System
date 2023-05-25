@@ -1,13 +1,14 @@
 import connectDB from '@/utils/connectDB'
-import { Faculty, Admin, Dean, Superadmin, Riuh } from '@/model/models'
+import { Superadmin, Campusdirector, Faculty, Dean, Riuh, Eiuh } from '@/model/models'
 import bcrypt from 'bcrypt'
 
 
 const models = {
   superadmin: Superadmin,
+  campusdirector: Campusdirector,
   faculty: Faculty,
   dean: Dean,
-  admin: Admin,
+  eiuh: Eiuh,
   riuh: Riuh
 }
 
