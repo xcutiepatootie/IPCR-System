@@ -1,16 +1,16 @@
-import Superadmindashboard from "@/components/Dashboards/Superadmindashboard";
-
+import Dashboard from "@/components/SuperAdmin/Dashboard";
 import Navbar from "@/components/Navbar";
-import Sidebar from "@/components/SuperAdmin/Sidebar";
 
-export default function Dashboard() {
+import React, { useState } from "react";
+
+
+export default function dashboard() {
+  
   return (
 
     <div>
       <Navbar />
-
-      
-      <Superadmindashboard />
+      <Dashboard />
     </div>
 
 
