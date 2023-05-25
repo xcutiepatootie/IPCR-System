@@ -19,7 +19,7 @@ export default async function handler(req, res) {
   try {
     const User = models[role]
     // Checks if the user has role
-    if (!User) {
+    if (!User || !(req.method === "POST")) {
       return res.status(401).send('Unauthorized');
     }
 
