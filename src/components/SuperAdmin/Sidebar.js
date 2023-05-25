@@ -1,64 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
-const Sidebar = ({ setSelectedCollection, clearUsers }) => {
-  const handleCollectionClick = (collection) => {
-    setSelectedCollection(collection);
-    clearUsers()
-    console.log(collection)
-  };
+const Sidebar = ({ handleItemClick }) => {
+
 
   return (
     <aside className="bg-lime-700 text-white w-64 h-screen">
       <nav>
         <ul className="p-4">
-          <li className="mb-2">
-            <Link href="/">Dashboard</Link>
+          <li className="mb-2" onClick={() => handleItemClick('Dashboard') }>
+            <Link href={'#'}>Dashboard</Link>
           </li>
-          <li className="mb-2">
-            <h1>Manage Users</h1>
-            <ul className="pl-4">
-              <li className="mb-1">
-                <button onClick={() => handleCollectionClick('superadmins')}>
-                  Superadmin
-                </button>
-              </li>
-              <li className="mb-1">
-                <button onClick={() => handleCollectionClick('campusdirectors')}>
-                  Campus Director
-                </button>
-              </li>
-              <li className="mb-1">
-                <button onClick={() => handleCollectionClick('deans')}>
-                  Dean
-                </button>
-              </li>
-              <li className="mb-1">
-                <button onClick={() => handleCollectionClick('faculties')}>
-                  Faculty
-                </button>
-              </li>
-              <li className="mb-1">
-                <button onClick={() => handleCollectionClick('eiuhs')}>
-                  EIUH
-                </button>
-              </li>
-              <li className="mb-1">
-                <button onClick={() => handleCollectionClick('riuhs')}>
-                  RIUH
-                </button>
-              </li>
-            </ul>
+          <li className="mb-2" onClick={() => handleItemClick('Manage User') }>
+            <Link href={'#'}>Manage User</Link>
           </li>
-          <li className="mb-1">
-            <button onClick={() => handleCollectionClick('riuhs')}>
-              Create New User
-            </button>
-          </li>
-          <li className="mb-1">
-            <button onClick={() => handleCollectionClick('riuhs')}>
-              Reset Password
-            </button>
+          <li className="mb-2" onClick={() => handleItemClick('Create New User') }>
+            <Link href={'#'}>Create New User</Link>
           </li>
         </ul>
       </nav>
