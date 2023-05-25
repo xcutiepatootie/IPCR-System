@@ -18,9 +18,10 @@ const LoginContainer = () => {
 
     let loginForm = null;
     switch (selectedPosition) {
+        case 'campusdirector':
         case 'faculty':
-        case 'admin':
         case 'dean':
+        case 'eiuh':
         case 'riuh':
             loginForm = <LoginForm selectedPosition={selectedPosition} />;
             break;
@@ -34,17 +35,21 @@ const LoginContainer = () => {
                 {showAllbuttons ? (
                     <>
                         <div>
+                            <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-16 rounded w-full" onClick={() => handleButtonClick('campusdirector')}>Campus Director</button>
+                        </div>
+                        <div>
                             <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-16 rounded w-full" onClick={() => handleButtonClick('faculty')}>Faculty</button>
-                        </div>
-                        <div>
-                            <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-16 rounded w-full" onClick={() => handleButtonClick('admin')}>Admin</button>
-                        </div>
-                        <div>
-                            <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-16 rounded w-full" onClick={() => handleButtonClick('riuh')}>RIUH</button>
                         </div>
                         <div>
                             <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-16 rounded w-full" onClick={() => handleButtonClick('dean')}>Dean</button>
                         </div>
+                        <div>
+                            <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-16 rounded w-full" onClick={() => handleButtonClick('eiuh')}>EIUH</button>
+                        </div>
+                        <div>
+                            <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-16 rounded w-full" onClick={() => handleButtonClick('riuh')}>RIUH</button>
+                        </div>
+
                     </>
                 ) : (
                     <div>
