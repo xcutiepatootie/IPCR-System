@@ -4,8 +4,8 @@ import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 
 import Sidebar from './Sidebar';
-import ManageUserContainer from './ManageUserContainer';
-import CreateUserContainer from './CreateUserContainer';
+import TableForm from './TableForm';
+
 
 
 const Dashboard = () => {
@@ -39,9 +39,9 @@ const Dashboard = () => {
         // Add your logic to redirect the user to the login page
         // For example, you can use Next.js router:
         router.push('/superadmin/login');
-       
+
         Cookies.remove('accessToken')
-        
+
       }
     };
     // Call the middleware function here when the component mounts
@@ -57,16 +57,16 @@ const Dashboard = () => {
   const renderContent = () => {
     switch (selectedCollection) {
       case 'Dashboard':
-        return <h1>Dashboard</h1>;
-      case 'Manage User':
-        return <ManageUserContainer />;
+        return <h1>Faculty</h1>;
+      case 'Instruction':
+        return <TableForm />;
       case 'Create New User':
         return <>
 
           <><CreateUserContainer /></>
         </>;
       default:
-        return <h1>Dashboard</h1>
+        return <h1>Faculty</h1>
     }
   }
 

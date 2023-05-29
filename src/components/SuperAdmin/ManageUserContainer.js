@@ -26,18 +26,7 @@ const ManageUserContainer = () => {
                     <div className="flex-auto">
                        
 
-                        <button
-                            className="bg-blue-500 mx-2 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-
-                        >
-                            Update User
-                        </button>
-                        <button
-                            className="bg-blue-500 mx-2 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-
-                        >
-                            Delete User
-                        </button>
+                      
                     </div>
                 </div>
             </div>

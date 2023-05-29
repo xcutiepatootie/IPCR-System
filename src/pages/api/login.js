@@ -43,7 +43,7 @@ export default async function handler(req, res) {
         // Generate JWT token
         const token = jwt.sign({ userId: user.name }, process.env.ACCESS_TOKEN, { expiresIn: '1h' })
 
-        res.setHeader('Set-Cookie', `accessToken=${token}; Path=/; HttpOnly`)
+        res.setHeader('Set-Cookie', `accessToken=${token}; Path=/; SameSite=strict`)
 
 
         return res.status(200).json({ message: 'Successfully Logged In' })

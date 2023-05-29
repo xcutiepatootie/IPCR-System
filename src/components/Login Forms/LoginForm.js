@@ -22,9 +22,31 @@ const LoginForm = ({ selectedPosition }) => {
     try {
 
       const response = await axios.post('/api/login', newFormData)
+      console.log(response)
       // Handle the response here
       if (response.status === 200)
-        router.push('/dashboard/dashboard')
+        switch (selectedPosition) {
+          case 'campusdirector':
+            router.push('/campusdirector/dashboard')
+            break;
+          case 'faculty':
+            router.push('/faculty/dashboard')
+            break;
+          case 'dean':
+            router.push('/dean/dashboard')
+            break;
+          case 'eiuh':
+            router.push('/eiuh/dashboard')
+            break;
+          case 'riuh':
+            router.push('/riuh/dashboard')
+            break;
+
+
+          default:
+            router.push('/')
+            break;
+        }
 
 
     } catch (error) {

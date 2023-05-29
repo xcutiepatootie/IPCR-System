@@ -20,11 +20,11 @@ const Sidebar = ({ handleItemClick }) => {
           <li className="mb-2" onClick={() => handleItemClick('Dashboard')}>
             <Link href={'#'}>Dashboard</Link>
           </li>
-          <li className="mb-2" onClick={() => handleItemClick('Manage User')}>
-            <Link href={'#'}>Manage User</Link>
+          <li className="mb-2" onClick={() => handleItemClick('Faculty')}>
+            <Link href={'#'}>Faculty</Link>
           </li>
-          <li className="mb-2" onClick={() => handleItemClick('Create New User')}>
-            <Link href={'#'}>Create New User</Link>
+          <li className="mb-2" onClick={() => handleItemClick('Report Generation')}>
+            <Link href={'#'}>Report Generation</Link>
           </li>
         </ul>
         <li className="mb-2" onClick={() => handleSignout()}>

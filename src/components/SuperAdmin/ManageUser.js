@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 
 const ReadUsers = ({ selectedCollection }) => {
   const [users, setUsers] = useState([]);
@@ -30,8 +31,8 @@ const ReadUsers = ({ selectedCollection }) => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch(`/api/users?collection=${position}`);
-        const data = await response.json();
+        const response = await axios.get(`/api/users?collection=${position}`);
+        const data = response.data;
         setUsers(data);
       } catch (error) {
         console.error('An error occurred', error);
@@ -44,6 +45,30 @@ const ReadUsers = ({ selectedCollection }) => {
       setUsers([]);
     }
   }, [selectedCollection]);
+
+
+  const handleUpdateUser = async (userId) => {
+    // Handle update logic here
+    try {
+      const response = await axios.put(`/api/up-del/${userId}?collection=${position}`);
+      const data = response.data;
+      setUsers(data);
+    } catch (error) {
+      console.error('An error occurred', error);
+    }
+    console.log('Update user:', userId);
+  };
+
+  const handleDeleteUser = async (userId) => {
+    // Handle delete logic here
+    try {
+      const response = await axios.delete(`/api/up-del/${userId}?collection=${position}`);
+      setUsers(users.filter((user) => user._id !== userId));
+    } catch (error) {
+      console.error('An error occurred', error);
+    }
+    console.log('Delete user:', userId);
+  };
 
   return (
     <div className="flex">
@@ -66,7 +91,7 @@ const ReadUsers = ({ selectedCollection }) => {
                     <td className="border border-black px-4 py-2">
                       <button
                         className="bg-blue-500 mx-2 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-
+                        onClick={() => handleUpdateUser(user._id)}
                       >
                         Update User
                       </button>
@@ -75,7 +100,7 @@ const ReadUsers = ({ selectedCollection }) => {
                     <td className="border border-black px-4 py-2">
                       <button
                         className="bg-blue-500 mx-2 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-
+                        onClick={() => handleDeleteUser(user._id)}
                       >
                         Delete User
                       </button>

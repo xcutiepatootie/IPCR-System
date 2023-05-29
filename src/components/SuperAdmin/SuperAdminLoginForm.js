@@ -1,14 +1,23 @@
 
 import { HiUserCircle } from 'react-icons/hi'
 import { RiLockPasswordFill } from 'react-icons/ri'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import Cookies from 'js-cookie'
 import axios from 'axios'
 
 const SuperAdminLoginForm = () => {
 
   const [errorMessage, setErrorMessage] = useState('')
   const router = useRouter()
+
+  useEffect(() => {
+    const accessToken = Cookies.get('accessToken');
+    if (accessToken) {
+      // Redirect to dashboard if a valid token is present
+      router.push('/superadmin/dashboard');
+    }
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -34,12 +43,6 @@ const SuperAdminLoginForm = () => {
     }
   }
 
-  const handleSubmits = (event) => {
-    event.preventDefault()
-    const formData = new FormData(event.target)
-    const email = formData.get('email')
-    console.log(formData)
-  }
   return (
     <>
 

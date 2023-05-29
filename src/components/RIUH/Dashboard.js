@@ -4,8 +4,7 @@ import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 
 import Sidebar from './Sidebar';
-import ManageUserContainer from './ManageUserContainer';
-import CreateUserContainer from './CreateUserContainer';
+
 
 
 const Dashboard = () => {
@@ -57,7 +56,7 @@ const Dashboard = () => {
   const renderContent = () => {
     switch (selectedCollection) {
       case 'Dashboard':
-        return <h1>Dashboard</h1>;
+        return <h1>RIUH</h1>;
       case 'Manage User':
         return <ManageUserContainer />;
       case 'Create New User':
@@ -66,7 +65,7 @@ const Dashboard = () => {
           <><CreateUserContainer /></>
         </>;
       default:
-        return <h1>Dashboard</h1>
+        return <h1>RIUH</h1>
     }
   }
 
