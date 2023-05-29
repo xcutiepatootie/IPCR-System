@@ -28,14 +28,14 @@ const ExtensionTableForm = () => {
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
-                            <h1>1. Plan and Prepare Instructional Materials to Enhance Instruction</h1>
+                            <h1>9.  Extension projects.</h1>
                         </td>
                     </tr>
 
 
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>A) No. of Syllabus Prepared</h1>
+                            <h1>A)  Extension proposal submitted/activity conducted</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -55,28 +55,7 @@ const ExtensionTableForm = () => {
 
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>B) No. of Course Guide</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>C) No. of SLM</h1>
+                            <h1>B)  Persons trained/provided with technical advise</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -97,7 +76,28 @@ const ExtensionTableForm = () => {
 
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>D) No. of Subject Areas with Community Immersion/Involvement Component</h1>
+                            <h1>C) Persons who avail the service who rated the service as good or better</h1>
+                        </td>
+                        <td className="border-b border-black p-2">
+                            <input
+                                type="email"
+                                name="email"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                        <td className="border-b border-black p-2">
+                            <input
+                                type="number"
+                                name="age"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                    </tr>
+
+
+                    <tr className=''>
+                        <td className="border border-black">
+                            <h1>D) Persons given training or advisory who rated the timeliness of service delivery as good or better</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
