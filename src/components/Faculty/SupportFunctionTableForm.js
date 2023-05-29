@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InstructionTableForm = () => {
+const ExtensionTableForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle form submission logic here
@@ -21,83 +21,20 @@ const InstructionTableForm = () => {
                 <tbody>
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
-                            <h1>Instruction</h1>
+                            <h1>Support Function</h1>
                         </td>
 
                     </tr>
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
-                            <h1>1. Plan and Prepare Instructional Materials to Enhance Instruction</h1>
-                        </td>
-                    </tr>
-
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>A) No. of Syllabus Prepared</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
+                            <h1>10.  Perform Officially-Deligated Assignment</h1>
                         </td>
                     </tr>
 
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>B) No. of Course Guide</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>C) No. of SLM</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>D) No. of Subject Areas with Community Immersion/Involvement Component</h1>
+                        <h1>A) Accomplishment Report</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -117,34 +54,13 @@ const InstructionTableForm = () => {
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
-                            <h1>2. Organizes Classroom Instruction</h1>
-                        </td>
-                    </tr>
-
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>A) Attendance Sheet</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
+                            <h1>11.  Participate in the Flag Raising Ceremony</h1>
                         </td>
                     </tr>
 
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>B) Class Records</h1>
+                        <h1>A)  Attendance</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -164,34 +80,13 @@ const InstructionTableForm = () => {
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
-                            <h1>3. Teaching Effectiveness</h1>
-                        </td>
-                    </tr>
-
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>A) Evaluation of Teaching Effectiveness(CQA-SF-012)</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
+                            <h1>12.  Participate in the Flag lowering</h1>
                         </td>
                     </tr>
 
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>B) Classroom Observation(CQA-SF-012)</h1>
+                        <h1>A)  Attendance</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -211,111 +106,13 @@ const InstructionTableForm = () => {
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
-                            <h1>4. Prepare and Check Summative/Evaluative/Formative Tests</h1>
-                        </td>
-                    </tr>
-
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>A.1) TOS/ Rubrics(Midterm)</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
+                            <h1>13.  Participate in the health  and wellness  program</h1>
                         </td>
                     </tr>
 
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>A.2) TOS/ Rubrics(Final Term)</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>B.1) Test Questions (term exams) / Performance's based activities (Midterm)</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>B.2) Test Questions (term exams) / Performance's based activities (Final Term)</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>C.1) Answer Keys (Midterm)</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>C.2) Answer Keys (Final Term)</h1>
+                        <h1>A)  Attendance sheet/Program of activities/other document as proof</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -335,13 +132,13 @@ const InstructionTableForm = () => {
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
-                            <h1>5.  Compute & Evaluate  Grades.</h1>
+                            <h1>14.  Participate in school celebrations and other allied activities</h1>
                         </td>
                     </tr>
 
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>A) No. of grading sheets submitted & encoded</h1>
+                        <h1>A)  Attendance sheet/Program of activities/other document as proof</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -361,13 +158,13 @@ const InstructionTableForm = () => {
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
-                            <h1>6.  Consultation services to faculty and  students.</h1>
+                            <h1>15.  Attend  trainings /conferences/seminars</h1>
                         </td>
                     </tr>
 
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>A) No. of faculty & students seek advises (LSPU-ACAD-SF-011) </h1>
+                        <h1>A)  Training/Seminar/Conference certificate of attendance/ participation</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -387,13 +184,13 @@ const InstructionTableForm = () => {
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
-                            <h1>7.   Prepare accomplishment report.</h1>
+                            <h1>16.  Attend  Faculty Meeting</h1>
                         </td>
                     </tr>
 
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>A)  Accomplishment Report</h1>
+                        <h1>A) Attendance</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -411,7 +208,58 @@ const InstructionTableForm = () => {
                         </td>
                     </tr>
 
-                    
+                    <tr className='border-b border-black'>
+                        <td className="border-b border-black p-2">
+                            <h1>17.  Involvement in accreditation/ISO and other related activities</h1>
+                        </td>
+                    </tr>
+
+                    <tr className=''>
+                        <td className="border border-black">
+                        <h1>A) Attendance</h1>
+                        </td>
+                        <td className="border-b border-black p-2">
+                            <input
+                                type="email"
+                                name="email"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                        <td className="border-b border-black p-2">
+                            <input
+                                type="number"
+                                name="age"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                    </tr>
+
+                    <tr className='border-b border-black'>
+                        <td className="border-b border-black p-2">
+                            <h1>18.  Participate in the spiritual activities</h1>
+                        </td>
+                    </tr>
+
+                    <tr className=''>
+                        <td className="border border-black">
+                        <h1>A)  Attendance sheet/Program of activities/other document as proof</h1>
+                        </td>
+                        <td className="border-b border-black p-2">
+                            <input
+                                type="email"
+                                name="email"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                        <td className="border-b border-black p-2">
+                            <input
+                                type="number"
+                                name="age"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                    </tr>
+
                     {/* Add more rows as needed */}
                 </tbody>
             </table>
@@ -425,4 +273,4 @@ const InstructionTableForm = () => {
     );
 };
 
-export default InstructionTableForm;
+export default ExtensionTableForm;

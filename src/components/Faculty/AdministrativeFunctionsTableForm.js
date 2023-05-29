@@ -21,21 +21,20 @@ const ExtensionTableForm = () => {
                 <tbody>
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
-                            <h1>Extension</h1>
+                            <h1>Administrative Functions</h1>
                         </td>
 
                     </tr>
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
-                            <h1>1. Plan and Prepare Instructional Materials to Enhance Instruction</h1>
+                            <h1>19. Perform Administrative Designation Functions</h1>
                         </td>
                     </tr>
 
-
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>A) No. of Syllabus Prepared</h1>
+                        <h1>A. Prepare….</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -55,7 +54,7 @@ const ExtensionTableForm = () => {
 
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>B) No. of Course Guide</h1>
+                        <h1>B. Submit…</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -72,32 +71,10 @@ const ExtensionTableForm = () => {
                             />
                         </td>
                     </tr>
-
-
+                    
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>C) No. of SLM</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>D) No. of Subject Areas with Community Immersion/Involvement Component</h1>
+                        <h1>C. Increase…</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -117,7 +94,7 @@ const ExtensionTableForm = () => {
 
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>E) Technical advice responded within 3 days upon request</h1>
+                        <h1>D….</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -135,8 +112,27 @@ const ExtensionTableForm = () => {
                         </td>
                     </tr>
 
+                    <tr className=''>
+                        <td className="border border-black">
+                        <h1>E….</h1>
+                        </td>
+                        <td className="border-b border-black p-2">
+                            <input
+                                type="email"
+                                name="email"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                        <td className="border-b border-black p-2">
+                            <input
+                                type="number"
+                                name="age"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                    </tr>
 
-
+                    
 
                     {/* Add more rows as needed */}
                 </tbody>
