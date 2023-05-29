@@ -16,6 +16,8 @@ const InstructionTableForm = () => {
                         <th className="border border-black p-2">Accomplished</th>
                         <th className="border border-black p-2">Date Of Submission/Completion(Deadline)</th>
                         <th className="border border-black p-2">Date Submitted/Completed</th>
+                        <th className="border border-black p-2" colspan={4}>Ratings</th>
+                        <th className="border border-black p-2">Remarks</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -333,7 +335,7 @@ const InstructionTableForm = () => {
                         </td>
                     </tr>
 
-                    
+
 
 
 
