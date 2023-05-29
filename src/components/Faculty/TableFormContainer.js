@@ -1,6 +1,8 @@
 import InstructionTableForm from "./InstructionTableForm";
 import ResearchTableForm from "./ResearchTableForm";
 import ExtensionTableForm from "./ExtensionTableForm"
+import SupportFunctionTableForm from "./SupportFunctionTableForm";
+import AdministrativeFunctionsTableForm from "./AdministrativeFunctionsTableForm"
 import Sidebar from "./Sidebar";
 import { useState } from "react";
 
@@ -21,11 +23,15 @@ const TableFormContainer = () => {
             case 'Research':
                 return <ResearchTableForm />;
             case 'Extension':
-                return <ExtensionTableForm />
+                return <ExtensionTableForm />;
+            case 'Support':
+                return <SupportFunctionTableForm />;
+            case 'Administrative':
+                return <AdministrativeFunctionsTableForm />
             case 'Support Function':
                 return <>
 
-                    <><CreateUserContainer /></>
+                    <><SupportFunctionTableForm /></>
                 </>;
             default:
                 return <h1>Faculty</h1>
