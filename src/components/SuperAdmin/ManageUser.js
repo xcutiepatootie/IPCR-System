@@ -3,6 +3,9 @@ import axios from 'axios'
 
 const ReadUsers = ({ selectedCollection }) => {
   const [users, setUsers] = useState([]);
+  const [activeUser, setActiveUser] = useState(null);
+  const [editedName, setEditedName] = useState('');
+  const [editedEmail, setEditedEmail] = useState('');
 
 
   let position = null
@@ -28,6 +31,16 @@ const ReadUsers = ({ selectedCollection }) => {
       break;
   }
 
+  const handleToggleUpdate = (userId, name, email) => {
+    if (userId === activeUser) {
+      setActiveUser(null);
+    } else {
+      setActiveUser(userId);
+      setEditedName(name);
+      setEditedEmail(email);
+    }
+  };
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -47,16 +60,22 @@ const ReadUsers = ({ selectedCollection }) => {
   }, [selectedCollection]);
 
 
-  const handleUpdateUser = async (userId) => {
-    // Handle update logic here
+  const handleSaveChanges = async (userId) => {
+    // Handle save changes logic here
     try {
-      const response = await axios.put(`/api/up-del/${userId}?collection=${position}`);
-      const data = response.data;
-      setUsers(data);
+      const response = await axios.put(`/api/up-del/${userId}?collection=${position}`, {
+        name: editedName,
+        email: editedEmail,
+      });
+      const updatedUser = response.data;
+      setUsers((prevUsers) =>
+        prevUsers.map((user) => (user._id === userId ? updatedUser : user))
+      );
+      setActiveUser(null);
     } catch (error) {
       console.error('An error occurred', error);
     }
-    console.log('Update user:', userId);
+    console.log('Save changes for user:', userId);
   };
 
   const handleDeleteUser = async (userId) => {
@@ -86,24 +105,57 @@ const ReadUsers = ({ selectedCollection }) => {
               <tbody>
                 {users.map((user) => (
                   <tr key={user._id}>
-                    <td className="border border-black px-4 py-2">{user.name}</td>
-                    <td className="border border-black px-4 py-2">{user.email}</td>
                     <td className="border border-black px-4 py-2">
-                      <button
-                        className="bg-blue-500 mx-2 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-                        onClick={() => handleUpdateUser(user._id)}
-                      >
-                        Update User
-                      </button>
-
+                      {user._id === activeUser ? (
+                        <input
+                          type="text"
+                          value={editedName}
+                          onChange={(e) => setEditedName(e.target.value)}
+                          className="w-full p-1 border border-black rounded"
+                        />
+                      ) : (
+                        user.name
+                      )}
+                    </td>
+                    <td className="border border-black px-4 py-2">
+                      {user._id === activeUser ? (
+                        <input
+                          type="email"
+                          value={editedEmail}
+                          onChange={(e) => setEditedEmail(e.target.value)}
+                          className="w-full p-1 border border-black rounded"
+                        />
+                      ) : (
+                        user.email
+                      )}
                     </td>
                     <td className="border border-black px-4 py-2">
                       <button
-                        className="bg-blue-500 mx-2 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
-                        onClick={() => handleDeleteUser(user._id)}
+                        className={`bg-blue-500 mx-2 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded ${user._id === activeUser ? 'bg-blue-700' : ''
+                          }`}
+                        onClick={() =>
+                          handleToggleUpdate(user._id, user.name, user.email)
+                        }
                       >
-                        Delete User
+                        {user._id === activeUser ? 'Cancel' : 'Update User'}
                       </button>
+                    </td>
+                    <td className="border border-black px-4 py-2">
+                      {user._id === activeUser ? (
+                        <button
+                          className="bg-green-500 mx-2 hover:bg-green-700 text-white font-bold py-2 px-4 border border-green-700 rounded"
+                          onClick={() => handleSaveChanges(user._id)}
+                        >
+                          Save Changes
+                        </button>
+                      ) : (
+                        <button
+                          className="bg-blue-500 mx-2 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+                          onClick={() => handleDeleteUser(user._id)}
+                        >
+                          Delete User
+                        </button>
+                      )}
                     </td>
                   </tr>
                 ))}
