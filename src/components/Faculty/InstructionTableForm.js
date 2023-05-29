@@ -16,6 +16,8 @@ const InstructionTableForm = () => {
                         <th className="border border-black p-2">Accomplished</th>
                         <th className="border border-black p-2">Date Of Submission/Completion(Deadline)</th>
                         <th className="border border-black p-2">Date Submitted/Completed</th>
+                        <th className="border border-black p-2" colspan={4}>Ratings</th>
+                        <th className="border border-black p-2">Remarks</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -411,17 +413,17 @@ const InstructionTableForm = () => {
                         </td>
                     </tr>
 
-                    
+
                     {/* Add more rows as needed */}
-                </tbody>
-            </table>
+                </tbody >
+            </table >
             <button
                 type="submit"
                 className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
             >
                 Submit
             </button>
-        </form>
+        </form >
     );
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ExtensionTableForm = () => {
+const SupportFunctionTableForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle form submission logic here
@@ -273,4 +273,4 @@ const ExtensionTableForm = () => {
     );
 };
 
-export default ExtensionTableForm;
+export default SupportFunctionTableForm;
