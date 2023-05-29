@@ -26,7 +26,7 @@ const TableFormContainer = () => {
                 return <ExtensionTableForm />;
             case 'Support':
                 return <SupportFunctionTableForm />;
-            case 'Administrative':
+            case 'Administrative Functions':
                 return <AdministrativeFunctionsTableForm />
             case 'Support Function':
                 return <>

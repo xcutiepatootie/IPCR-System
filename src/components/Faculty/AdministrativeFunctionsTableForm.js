@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ExtensionTableForm = () => {
+const AdministrativeFunctionsTableForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle form submission logic here
@@ -34,7 +34,7 @@ const ExtensionTableForm = () => {
 
                     <tr className=''>
                         <td className="border border-black">
-                        <h1>A. Prepare….</h1>
+                            <h1>A. Prepare….</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -54,27 +54,7 @@ const ExtensionTableForm = () => {
 
                     <tr className=''>
                         <td className="border border-black">
-                        <h1>B. Submit…</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-                    
-                    <tr className=''>
-                        <td className="border border-black">
-                        <h1>C. Increase…</h1>
+                            <h1>B. Submit…</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -94,7 +74,7 @@ const ExtensionTableForm = () => {
 
                     <tr className=''>
                         <td className="border border-black">
-                        <h1>D….</h1>
+                            <h1>C. Increase…</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -114,7 +94,7 @@ const ExtensionTableForm = () => {
 
                     <tr className=''>
                         <td className="border border-black">
-                        <h1>E….</h1>
+                            <h1>D….</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -132,7 +112,27 @@ const ExtensionTableForm = () => {
                         </td>
                     </tr>
 
-                    
+                    <tr className=''>
+                        <td className="border border-black">
+                            <h1>E….</h1>
+                        </td>
+                        <td className="border-b border-black p-2">
+                            <input
+                                type="email"
+                                name="email"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                        <td className="border-b border-black p-2">
+                            <input
+                                type="number"
+                                name="age"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                    </tr>
+
+
 
                     {/* Add more rows as needed */}
                 </tbody>
@@ -147,4 +147,4 @@ const ExtensionTableForm = () => {
     );
 };
 
-export default ExtensionTableForm;
+export default AdministrativeFunctionsTableForm;

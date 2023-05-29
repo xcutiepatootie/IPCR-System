@@ -335,16 +335,6 @@ const InstructionTableForm = () => {
                         </td>
                     </tr>
 
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-=======
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
                             <h1>5.  Compute & Evaluate  Grades.</h1>
@@ -423,18 +413,17 @@ const InstructionTableForm = () => {
                         </td>
                     </tr>
 
-                    
->>>>>>> c62373b62ba14b3f8dfdbd96a2c0da2e97420ab8
+
                     {/* Add more rows as needed */}
-                </tbody>
-            </table>
+                </tbody >
+            </table >
             <button
                 type="submit"
                 className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
             >
                 Submit
             </button>
-        </form>
+        </form >
     );
 };
 

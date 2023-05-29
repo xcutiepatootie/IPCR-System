@@ -32,7 +32,7 @@ const Sidebar = ({ handleItemClick }) => {
           <li className="mb-2" onClick={() => handleItemClick('Support Function')}>
             <Link href={'#'}>Support Function</Link>
           </li>
-          <li className="mb-2" onClick={() => handleItemClick('Administrative Function')}>
+          <li className="mb-2" onClick={() => handleItemClick('Administrative Functions')}>
             <Link href={'#'}>Administrative Function</Link>
           </li>
           <li className="mb-2" onClick={() => handleItemClick('Report Generation')}>
