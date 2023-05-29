@@ -4,12 +4,15 @@ import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 
 import Sidebar from './Sidebar';
-import TableForm from './TableForm';
+import TableForm from './InstructionTableForm';
+import ExtensionTableForm from './ExtensionTableForm';
+import TableFormContainer from './TableFormContainer';
+
 
 
 
 const Dashboard = () => {
-  const [selectedCollection, setSelectedCollection] = useState(null);
+  
   const [accessToken, setAccessToken] = useState(Cookies.get('accessToken'))
   const router = useRouter()
 
@@ -49,34 +52,11 @@ const Dashboard = () => {
   }, [accessToken]);
 
 
-  const handleSidebarItemClick = (option) => {
-    setSelectedCollection(option)
 
-  }
-
-  const renderContent = () => {
-    switch (selectedCollection) {
-      case 'Dashboard':
-        return <h1>Faculty</h1>;
-      case 'Instruction':
-        return <TableForm />;
-      case 'Create New User':
-        return <>
-
-          <><CreateUserContainer /></>
-        </>;
-      default:
-        return <h1>Faculty</h1>
-    }
-  }
 
   return (
     <div>
-
-      <div className="flex">
-        <Sidebar handleItemClick={handleSidebarItemClick} />
-        {renderContent()}
-      </div>
+      <TableFormContainer />
 
     </div>
   );

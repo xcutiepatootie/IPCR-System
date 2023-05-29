@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TableForm = () => {
+const ExtensionTableForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle form submission logic here
@@ -21,7 +21,7 @@ const TableForm = () => {
                 <tbody>
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
-                            <h1>Instruction</h1>
+                            <h1>Extension</h1>
                         </td>
 
                     </tr>
@@ -256,86 +256,6 @@ const TableForm = () => {
                         </td>
                     </tr>
 
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>B.1) Test Questions (term exams) / Performance's based activities (Midterm)</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>B.2) Test Questions (term exams) / Performance's based activities (Final Term)</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>C.1) Answer Keys (Midterm)</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>C.2) Answer Keys (Final Term)</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-
-                    
-
-
 
 
 
@@ -354,4 +274,4 @@ const TableForm = () => {
     );
 };
 
-export default TableForm;
+export default ExtensionTableForm;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TableForm = () => {
+const ResearchTableForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle form submission logic here
@@ -184,4 +184,4 @@ const TableForm = () => {
     );
 };
 
-export default TableForm;
+export default ResearchTableForm;
