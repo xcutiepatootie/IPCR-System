@@ -3,7 +3,6 @@ import React from 'react';
 const AdministrativeFunctionsTableForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission logic here
     };
 
     return (
@@ -134,7 +133,7 @@ const AdministrativeFunctionsTableForm = () => {
 
 
 
-                    {/* Add more rows as needed */}
+                    {}
                 </tbody>
             </table>
             <button

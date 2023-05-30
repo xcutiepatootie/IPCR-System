@@ -53,10 +53,9 @@ const Sidebar = ({ handleItemClick }) => {
             <Link href={'#'}>Report Generation</Link>
           </li>
         </ul>
-
-        <li className="mb-2" onClick={() => signOut()}>
-          <Link href={'#'}>Sign Out</Link>
-        </li>
+          <li className="mb-2" onClick={() => signOut()}>
+            <Link href={'#'}>Sign Out</Link>
+          </li>
       </nav>
     </aside>
   );

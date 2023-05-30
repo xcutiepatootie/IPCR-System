@@ -3,7 +3,6 @@ import React from 'react';
 const ExtensionTableForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission logic here
     };
 
     return (
@@ -138,7 +137,7 @@ const ExtensionTableForm = () => {
 
 
 
-                    {/* Add more rows as needed */}
+                    {}
                 </tbody>
             </table>
             <button

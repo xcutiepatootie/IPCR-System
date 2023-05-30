@@ -3,7 +3,6 @@ import React from 'react';
 const SupportFunctionTableForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission logic here
     };
 
     return (
@@ -260,7 +259,7 @@ const SupportFunctionTableForm = () => {
                         </td>
                     </tr>
 
-                    {/* Add more rows as needed */}
+                    {}
                 </tbody>
             </table>
             <button

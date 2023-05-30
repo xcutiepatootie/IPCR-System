@@ -9,9 +9,7 @@ const Sidebar = ({ handleItemClick }) => {
   const handleSignout = () => {
     Cookies.remove('accessToken')
     router.push('/')
-
   }
-
 
   return (
     <aside className="bg-lime-700 text-white w-64 h-screen">
