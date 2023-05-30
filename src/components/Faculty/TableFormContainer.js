@@ -5,10 +5,18 @@ import SupportFunctionTableForm from "./SupportFunctionTableForm";
 import AdministrativeFunctionsTableForm from "./AdministrativeFunctionsTableForm"
 import Sidebar from "./Sidebar";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 
 const TableFormContainer = () => {
 
     const [selectedCollection, setSelectedCollection] = useState(null);
+
+
+
+    const { data } = useSession()
+
+
+
     const handleSidebarItemClick = (option) => {
         setSelectedCollection(option)
 

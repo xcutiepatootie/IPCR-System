@@ -1,10 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Cookies from 'js-cookie';
 import LoginForm from './Login Forms/LoginForm';
+import Router, { useRouter } from 'next/router';
+
 
 
 const LoginContainer = () => {
     const [selectedPosition, setSelectedPosition] = useState('');
     const [showAllbuttons, setShowAllbuttons] = useState(true);
+    const router = useRouter()
+   
 
     const handleButtonClick = (position) => {
         setSelectedPosition(position);

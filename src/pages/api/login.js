@@ -41,7 +41,26 @@ export default async function handler(req, res) {
           return res.status(401).json({ message: 'Incorrect password' })
         }
         // Generate JWT token
-        const token = jwt.sign({ userId: user.name }, process.env.ACCESS_TOKEN, { expiresIn: '1h' })
+        const token = jwt.sign({ userId: user._id, role: user.role }, process.env.ACCESS_TOKEN, { expiresIn: '1h' })
+
+       /*
+        let cookiePath = '/'
+
+        switch (role) {
+          case 'campusdirector':
+          case 'faculty':
+          case 'dean':
+          case 'eiuh':
+          case 'riuh':
+            cookiePath = `/${role}/dashboard`;
+            break;
+          // Add more cases if needed for other roles
+
+          default:
+            // Use the default path '/' for other roles or cases
+            cookiePath = '/';
+            break;
+        } */
 
         res.setHeader('Set-Cookie', `accessToken=${token}; Path=/; SameSite=strict`)
 

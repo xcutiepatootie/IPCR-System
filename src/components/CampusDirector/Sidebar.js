@@ -6,11 +6,7 @@ import Cookies from 'js-cookie';
 const Sidebar = ({ handleItemClick }) => {
   const router = useRouter()
  
-  const handleSignout = () => {
-    Cookies.remove('accessToken')
-    router.push('/')
-
-  }
+ 
 
 
   return (
@@ -27,7 +23,7 @@ const Sidebar = ({ handleItemClick }) => {
             <Link href={'#'}>Create New User</Link>
           </li>
         </ul>
-        <li className="mb-2" onClick={() => handleSignout()}>
+        <li className="mb-2" onClick={() => signOut()}>
           <Link href={'#'}>Sign Out</Link>
         </li>
       </nav>

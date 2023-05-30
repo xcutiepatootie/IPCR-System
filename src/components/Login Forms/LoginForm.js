@@ -1,67 +1,98 @@
-
+import { signIn } from 'next-auth/react'
 import { HiUserCircle } from 'react-icons/hi'
 import { RiLockPasswordFill } from 'react-icons/ri'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/router'
+import Cookies from 'js-cookie'
+
 
 
 const LoginForm = ({ selectedPosition }) => {
   const [errorMessage, setErrorMessage] = useState('')
   const router = useRouter()
 
+  useEffect(() => {
+    const accessToken = Cookies.get('accessToken');
+    if (accessToken) {
+      // Redirect to dashboard if a valid token is present
+      switch (selectedPosition) {
+        case 'campusdirector':
+          router.push('/campusdirector/dashboard')
+          break;
+        case 'faculty':
+          router.push('/faculty/dashboard')
+          break;
+        case 'dean':
+          router.push('/dean/dashboard')
+          break;
+        case 'eiuh':
+          router.push('/eiuh/dashboard')
+          break;
+        case 'riuh':
+          router.push('/riuh/dashboard')
+          break;
+
+
+        default:
+          router.push('/')
+          break;
+      }
+    }
+  }, []);
+
   const handleSubmit = async (event) => {
     event.preventDefault()
     const formData = new FormData(event.target)
-    const emailForm = formData.get('email')
-    const passwordForm = formData.get('password')
-    const newFormData = { email: emailForm, password: passwordForm, role: selectedPosition }
-    console.log(newFormData)
+    const email = formData.get('email')
+    const password = formData.get('password')
+    const role = selectedPosition
 
+    //const newFormData = { email: email, password: password, role: selectedPosition }
+    //console.log(newFormData)
+
+    let urls
+    switch (role) {
+      case 'superadmin':
+        urls = '/campusdirector/dashboard';
+        break;
+      case 'campusdirector':
+        urls = '/campusdirector/dashboard';
+        break;
+      case 'faculty':
+        urls = '/faculty/dashboard';
+        break;
+      case 'dean':
+        urls = '/dean/dashboard';
+        break;
+      case 'riuh':
+        urls = '/riuh/dashboard';
+        break;
+      case 'eiuh':
+        urls = '/eiuh/dashboard';
+        break;
+      default:
+        throw new Error('Invalid role');
+    }
 
     try {
+      const data = await signIn('credentials', {
+        callbackUrl: urls,
+        email,
+        password,
+        role: selectedPosition,
 
-      const response = await axios.post('/api/login', newFormData)
-      console.log(response)
-      // Handle the response here
-      if (response.status === 200)
-        switch (selectedPosition) {
-          case 'campusdirector':
-            router.push('/campusdirector/dashboard')
-            break;
-          case 'faculty':
-            router.push('/faculty/dashboard')
-            break;
-          case 'dean':
-            router.push('/dean/dashboard')
-            break;
-          case 'eiuh':
-            router.push('/eiuh/dashboard')
-            break;
-          case 'riuh':
-            router.push('/riuh/dashboard')
-            break;
-
-
-          default:
-            router.push('/')
-            break;
-        }
-
-
-    } catch (error) {
-      console.error(error)
-      setErrorMessage('Invalid credentials')
-
+      })
+      console.log(data)
     }
+
+    catch (error) {
+      console.log(error)
+    }
+
+
   }
 
-  const handleSubmits = (event) => {
-    event.preventDefault()
-    const formData = new FormData(event.target)
-    const email = formData.get('email')
-    console.log(formData)
-  }
 
   return (
     <>

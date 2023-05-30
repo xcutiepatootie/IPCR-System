@@ -13,6 +13,8 @@ const Dashboard = () => {
   const router = useRouter()
 
 
+
+
   useEffect(() => {
     // Define the middleware function
     const middleware = async () => {
@@ -37,14 +39,18 @@ const Dashboard = () => {
 
         // Add your logic to redirect the user to the login page
         // For example, you can use Next.js router:
-        router.push('/superadmin/login');
-       
+        router.push('/');
+
         Cookies.remove('accessToken')
-        
+
       }
     };
     // Call the middleware function here when the component mounts
     middleware();
+
+
+
+
   }, [accessToken]);
 
 
