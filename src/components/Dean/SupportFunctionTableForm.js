@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ResearchTableForm = () => {
+const SupportFunctionTableForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle form submission logic here
@@ -19,23 +19,48 @@ const ResearchTableForm = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    <tr className='border-b border-black'>
+                        <td className="border-b border-black p-2">
+                            <h1>Support Function</h1>
+                        </td>
+
+                    </tr>
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
-                            <h1>Research</h1>
+                            <h1>10.  Perform Officially-Deligated Assignment</h1>
+                        </td>
+                    </tr>
+
+                    <tr className=''>
+                        <td className="border border-black">
+                        <h1>A) Accomplishment Report</h1>
+                        </td>
+                        <td className="border-b border-black p-2">
+                            <input
+                                type="email"
+                                name="email"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                        <td className="border-b border-black p-2">
+                            <input
+                                type="number"
+                                name="age"
+                                className="w-full p-2 border border-black rounded"
+                            />
                         </td>
                     </tr>
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
-                            <h1>8.   Research program/projects/studies.</h1>
+                            <h1>11.  Participate in the Flag Raising Ceremony</h1>
                         </td>
                     </tr>
 
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>A) Research Proposal submitted/ Activity Conducted</h1>
+                        <h1>A)  Attendance</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -53,9 +78,15 @@ const ResearchTableForm = () => {
                         </td>
                     </tr>
 
+                    <tr className='border-b border-black'>
+                        <td className="border-b border-black p-2">
+                            <h1>12.  Participate in the Flag lowering</h1>
+                        </td>
+                    </tr>
+
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>B) Research Implemented and/or Completed within the Timeframe</h1>
+                        <h1>A)  Attendance</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -73,9 +104,15 @@ const ResearchTableForm = () => {
                         </td>
                     </tr>
 
+                    <tr className='border-b border-black'>
+                        <td className="border-b border-black p-2">
+                            <h1>13.  Participate in the health  and wellness  program</h1>
+                        </td>
+                    </tr>
+
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>C) Research Presented in Regional/National/International Conferences</h1>
+                        <h1>A)  Attendance sheet/Program of activities/other document as proof</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -93,9 +130,15 @@ const ResearchTableForm = () => {
                         </td>
                     </tr>
 
+                    <tr className='border-b border-black'>
+                        <td className="border-b border-black p-2">
+                            <h1>14.  Participate in school celebrations and other allied activities</h1>
+                        </td>
+                    </tr>
+
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>D) Research Published in Peer-reviewed Journals</h1>
+                        <h1>A)  Attendance sheet/Program of activities/other document as proof</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -113,9 +156,15 @@ const ResearchTableForm = () => {
                         </td>
                     </tr>
 
+                    <tr className='border-b border-black'>
+                        <td className="border-b border-black p-2">
+                            <h1>15.  Attend  trainings /conferences/seminars</h1>
+                        </td>
+                    </tr>
+
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>E) Filed/Published/Approved Intellectual Property Rights</h1>
+                        <h1>A)  Training/Seminar/Conference certificate of attendance/ participation</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -133,9 +182,15 @@ const ResearchTableForm = () => {
                         </td>
                     </tr>
 
+                    <tr className='border-b border-black'>
+                        <td className="border-b border-black p-2">
+                            <h1>16.  Attend  Faculty Meeting</h1>
+                        </td>
+                    </tr>
+
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>F) Research Utilized/Deployed through Commercialization/Extension/Policy</h1>
+                        <h1>A) Attendance</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -151,9 +206,43 @@ const ResearchTableForm = () => {
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                    </tr><tr className=''>
+                    </tr>
+
+                    <tr className='border-b border-black'>
+                        <td className="border-b border-black p-2">
+                            <h1>17.  Involvement in accreditation/ISO and other related activities</h1>
+                        </td>
+                    </tr>
+
+                    <tr className=''>
                         <td className="border border-black">
-                            <h1>G) Number of citations in journals/books</h1>
+                        <h1>A) Attendance</h1>
+                        </td>
+                        <td className="border-b border-black p-2">
+                            <input
+                                type="email"
+                                name="email"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                        <td className="border-b border-black p-2">
+                            <input
+                                type="number"
+                                name="age"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                    </tr>
+
+                    <tr className='border-b border-black'>
+                        <td className="border-b border-black p-2">
+                            <h1>18.  Participate in the spiritual activities</h1>
+                        </td>
+                    </tr>
+
+                    <tr className=''>
+                        <td className="border border-black">
+                        <h1>A)  Attendance sheet/Program of activities/other document as proof</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -184,6 +273,4 @@ const ResearchTableForm = () => {
     );
 };
 
-export default ResearchTableForm;
-
-
+export default SupportFunctionTableForm;

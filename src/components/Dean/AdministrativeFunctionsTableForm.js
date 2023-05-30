@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ExtensionTableForm = () => {
+const AdministrativeFunctionsTableForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle form submission logic here
@@ -21,21 +21,20 @@ const ExtensionTableForm = () => {
                 <tbody>
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
-                            <h1>Extension</h1>
+                            <h1>Administrative Functions</h1>
                         </td>
 
                     </tr>
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
-                            <h1>9.  Extension projects.</h1>
+                            <h1>19. Perform Administrative Designation Functions</h1>
                         </td>
                     </tr>
 
-
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>A)  Extension proposal submitted/activity conducted</h1>
+                            <h1>A. Prepare….</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -55,49 +54,7 @@ const ExtensionTableForm = () => {
 
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>B)  Persons trained/provided with technical advise</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>C) Persons who avail the service who rated the service as good or better</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>D) Persons given training or advisory who rated the timeliness of service delivery as good or better</h1>
+                            <h1>B. Submit…</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -117,7 +74,7 @@ const ExtensionTableForm = () => {
 
                     <tr className=''>
                         <td className="border border-black">
-                            <h1>E) Technical advice responded within 3 days upon request</h1>
+                            <h1>C. Increase…</h1>
                         </td>
                         <td className="border-b border-black p-2">
                             <input
@@ -135,6 +92,45 @@ const ExtensionTableForm = () => {
                         </td>
                     </tr>
 
+                    <tr className=''>
+                        <td className="border border-black">
+                            <h1>D….</h1>
+                        </td>
+                        <td className="border-b border-black p-2">
+                            <input
+                                type="email"
+                                name="email"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                        <td className="border-b border-black p-2">
+                            <input
+                                type="number"
+                                name="age"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                    </tr>
+
+                    <tr className=''>
+                        <td className="border border-black">
+                            <h1>E….</h1>
+                        </td>
+                        <td className="border-b border-black p-2">
+                            <input
+                                type="email"
+                                name="email"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                        <td className="border-b border-black p-2">
+                            <input
+                                type="number"
+                                name="age"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                    </tr>
 
 
 
@@ -151,4 +147,4 @@ const ExtensionTableForm = () => {
     );
 };
 
-export default ExtensionTableForm;
+export default AdministrativeFunctionsTableForm;
