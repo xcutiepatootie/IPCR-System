@@ -27,9 +27,6 @@ const Dashboard = () => {
   console.log(user)
 
 
-  if (!user || (status === "loading" || user.role == "campusdirector")) {
-    return console.log("error"); // Or show a loading state, error message, or redirect
-  }
 
   const handleSidebarItemClick = (option) => {
     setSelectedCollection(option);
@@ -64,3 +61,20 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (!session || session.user.role !== 'campusdirector') {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+}
