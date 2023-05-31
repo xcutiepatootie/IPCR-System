@@ -5,9 +5,9 @@ import { useRouter } from 'next/router';
 import TableFormContainer from './TableFormContainer';
 import { useSession } from 'next-auth/react';
 
-
 const Dashboard = () => {
   const [selectedCollection, setSelectedCollection] = useState(null);
+
   const router = useRouter()
 
   const { data: session, status } = useSession()
@@ -24,8 +24,6 @@ const Dashboard = () => {
     setSelectedCollection(option)
 
   }
-
-
 
   return (
     <div>

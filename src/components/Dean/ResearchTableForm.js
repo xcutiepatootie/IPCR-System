@@ -3,7 +3,6 @@ import React from 'react';
 const ResearchTableForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission logic here
     };
 
     return (
@@ -171,7 +170,7 @@ const ResearchTableForm = () => {
                         </td>
                     </tr>
 
-                    {/* Add more rows as needed */}
+                    {}
                 </tbody>
             </table>
             <button
