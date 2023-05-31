@@ -10,36 +10,9 @@ import Cookies from 'js-cookie'
 
 const LoginForm = ({ selectedPosition }) => {
   const [errorMessage, setErrorMessage] = useState('')
-  const router = useRouter()
+ 
 
-  useEffect(() => {
-    const accessToken = Cookies.get('accessToken');
-    if (accessToken) {
-      // Redirect to dashboard if a valid token is present
-      switch (selectedPosition) {
-        case 'campusdirector':
-          router.push('/campusdirector/dashboard')
-          break;
-        case 'faculty':
-          router.push('/faculty/dashboard')
-          break;
-        case 'dean':
-          router.push('/dean/dashboard')
-          break;
-        case 'eiuh':
-          router.push('/eiuh/dashboard')
-          break;
-        case 'riuh':
-          router.push('/riuh/dashboard')
-          break;
-
-
-        default:
-          router.push('/')
-          break;
-      }
-    }
-  }, []);
+ 
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -80,7 +53,7 @@ const LoginForm = ({ selectedPosition }) => {
         callbackUrl: urls,
         email,
         password,
-        role: selectedPosition,
+        role
 
       })
       console.log(data)

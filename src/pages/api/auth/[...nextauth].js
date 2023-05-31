@@ -8,6 +8,9 @@ export default NextAuth({
     session: {
         strategy: 'jwt'
     },
+    jwt: {
+
+    },
     providers: [
         CredentialsProvider({
             async authorize(credentials, req) {
@@ -62,10 +65,21 @@ export default NextAuth({
         signOut: '/'
     },
     callbacks: {
+
+        async jwt({ token, user }) {
+
+
+            return { ...token, ...user }
+        },
+
         async session({ session, token, user }) {
             // Send properties to the client, like an access_token and user id from a provider.
-            session.accessToken = token.accessToken
-            session.user.id = token.id
+            //session.accessToken = token.accessToken
+            //session.user._id = token._id
+
+            session.user.role = token._doc.role
+            
+          
 
             return session
         },
@@ -74,12 +88,29 @@ export default NextAuth({
             if (url.startsWith("/")) return `${baseUrl}${url}`
             // Allows callback URLs on the same origin
             else if (new URL(url).origin === baseUrl) {
-                console.log("Url1: " + url)
 
                 return url
             }
-            console.log(baseUrl)
             return baseUrl
+        }, async getSession({ session, user }) {
+            // Add custom session properties based on user role
+            if (user) {
+                switch (user.role) {
+                    case 'superadmin':
+                    case 'campusdirector':
+                    case 'dean':
+                    case 'faculty':
+                    case 'eiuh':
+                    case 'riuh':
+                        session.user.role = user.role;
+                        break;
+                    default:
+                        session.user.role = 'default';
+                }
+            }
+
+            return session;
+
         }
     },
     secret: process.env.NEXTAUTH_SECRET

@@ -1,23 +1,38 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Sidebar from './Sidebar'
-import { useSession } from 'next-auth/react'
-import { SessionProvider } from 'next-auth/react'
+import { useSession, getSession } from 'next-auth/react'
+
 
 
 const Dashboard = () => {
   const [selectedCollection, setSelectedCollection] = useState(null)
 
   const router = useRouter()
-  const session = useSession()
 
-  console.log(session)
+  const { data: session, status } = useSession()
 
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/");
+    }
+  }, [status]);
+
+  if (status === "loading") {
+    return <p>Loading...</p>;
+  }
+
+  const user = session?.user || null;
+
+  console.log(user)
+
+  if (!user || (status === "loading" || user.role == "campusdirector")) {
+    return console.log("error"); // Or show a loading state, error message, or redirect
+  }
 
   const handleSidebarItemClick = (option) => {
-    setSelectedCollection(option)
-
-  }
+    setSelectedCollection(option);
+  };
 
   const renderContent = () => {
     switch (selectedCollection) {
@@ -37,14 +52,33 @@ const Dashboard = () => {
 
   return (
     <div>
-      <SessionProvider>
-        <div className="flex">
-          <Sidebar handleItemClick={handleSidebarItemClick} />
-          {renderContent()}
-        </div>
-      </SessionProvider>
+
+      <div className="flex">
+        <Sidebar handleItemClick={handleSidebarItemClick} />
+        {renderContent()}
+      </div>
+
     </div>
   );
 };
 
 export default Dashboard;
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      user: session.user,
+    },
+  };
+}
