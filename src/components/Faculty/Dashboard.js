@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-import Cookies from 'js-cookie';
+
 import { useRouter } from 'next/router';
 
-import Sidebar from './Sidebar';
-import TableForm from './InstructionTableForm';
-import ExtensionTableForm from './ExtensionTableForm';
 import TableFormContainer from './TableFormContainer';
 import { useSession } from 'next-auth/react';
 

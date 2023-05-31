@@ -5,7 +5,7 @@ import LoginContainer from '@/components/LoginContainer'
 export default function Home() {
   return (
     <>
-      <Navbar />
+     
       <div className='m-0 overflow-y-hidden'>
         <div className='flex justify-center items-center flex-wrap'>
           <div className='w-full sm:w-auto sm:pr-4'>
