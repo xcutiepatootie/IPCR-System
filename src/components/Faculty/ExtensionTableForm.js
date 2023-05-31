@@ -25,113 +25,102 @@ const ExtensionTableForm = () => {
 
                     </tr>
 
-                    <tr className='border-b border-black'>
-                        <td className="border-b border-black p-2">
-                            <h1>9.  Extension projects.</h1>
-                        </td>
-                    </tr>
-
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>A)  Extension proposal submitted/activity conducted</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">a) Extension proposal submitted/activity conducted</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
 
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>B)  Persons trained/provided with technical advise</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">b) Persons trained/provided with technical advise</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
 
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>C) Persons who avail the service who rated the service as good or better</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">c) Persons who avail the service who rated the service as good or better</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
-
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>D) Persons given training or advisory who rated the timeliness of service delivery as good or better</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">d) Persons given training or advisory who rated the timeliness of service delivery as good or better</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>E) Technical advice responded within 3 days upon request</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">e) Technical advice responded within 3 days upon request</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
 
 

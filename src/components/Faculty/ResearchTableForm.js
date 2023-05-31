@@ -33,143 +33,142 @@ const ResearchTableForm = () => {
                         </td>
                     </tr>
 
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>A) Research Proposal submitted/ Activity Conducted</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">a) Research Proposal submitted/ Activity Conducted</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
 
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>B) Research Implemented and/or Completed within the Timeframe</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">b) Research Implemented and/or Completed within the Timeframe</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
 
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>C) Research Presented in Regional/National/International Conferences</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">c) Research Presented in Regional/National/International Conferences</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                    </tr>
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">d) Research Published in Peer-reviewed Journals</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="text"
+                                name="text"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="number"
+                                name="age"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                    </tr>
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">e) Filed/Published/Approved Intellectual Property Rights</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="text"
+                                name="text"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="number"
+                                name="age"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                    </tr>
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">f) Research Utilized/Deployed through Commercialization/Extension/Policy</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="text"
+                                name="text"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="number"
+                                name="age"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                    </tr>
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">g) Number of citations in journals/books</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="text"
+                                name="text"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="number"
+                                name="age"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
 
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>D) Research Published in Peer-reviewed Journals</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>E) Filed/Published/Approved Intellectual Property Rights</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>F) Research Utilized/Deployed through Commercialization/Extension/Policy</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr><tr className=''>
-                        <td className="border border-black">
-                            <h1>G) Number of citations in journals/books</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
 
                     {}
                 </tbody>

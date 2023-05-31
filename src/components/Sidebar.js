@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useSession, signOut } from 'next-auth/react';
+import { FaRegUser } from 'react-icons/fa';
 
 const Sidebar = ({ handleItemClick }) => {
   const router = useRouter();
@@ -20,7 +21,7 @@ const Sidebar = ({ handleItemClick }) => {
         <div className="p-4">
           {user && (
             <>
-              <p>{user.name}</p>
+              <p><FaRegUser className=''/>{user.name}</p>
               <p>{user.email}</p>
               <p>{user.role}</p>
             </>

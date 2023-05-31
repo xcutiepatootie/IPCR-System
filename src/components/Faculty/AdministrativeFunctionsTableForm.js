@@ -19,118 +19,115 @@ const AdministrativeFunctionsTableForm = () => {
                 </thead>
                 <tbody>
                     <tr className='border-b border-black'>
-                        <td className="border-b border-black p-2">
+                        <td colspan="10" className="border-b border-black p-2">
                             <h1>Administrative Functions</h1>
                         </td>
 
                     </tr>
 
                     <tr className='border-b border-black'>
-                        <td className="border-b border-black p-2">
+                        <td colspan="10" className="border-b border-black p-2">
                             <h1>19. Perform Administrative Designation Functions</h1>
                         </td>
                     </tr>
 
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>A. Prepare….</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">a) Prepare...</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
 
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>B. Submit…</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">b) Submit...</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
 
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>C. Increase…</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">c) Increase...</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>D….</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">d) ...</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>E….</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">e) ...</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
-
 
 
                     {}

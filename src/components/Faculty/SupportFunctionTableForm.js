@@ -25,30 +25,24 @@ const SupportFunctionTableForm = () => {
 
                     </tr>
 
-                    <tr className='border-b border-black'>
-                        <td className="border-b border-black p-2">
-                            <h1>10.  Perform Officially-Deligated Assignment</h1>
-                        </td>
-                    </tr>
-
-                    <tr className=''>
-                        <td className="border border-black">
-                        <h1>A) Accomplishment Report</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">a) Accomplishment Report</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
 
                     <tr className='border-b border-black'>
@@ -57,24 +51,24 @@ const SupportFunctionTableForm = () => {
                         </td>
                     </tr>
 
-                    <tr className=''>
-                        <td className="border border-black">
-                        <h1>A)  Attendance</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">a) Attendance</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
 
                     <tr className='border-b border-black'>
@@ -83,24 +77,24 @@ const SupportFunctionTableForm = () => {
                         </td>
                     </tr>
 
-                    <tr className=''>
-                        <td className="border border-black">
-                        <h1>A)  Attendance</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">a) Attendance</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
 
                     <tr className='border-b border-black'>
@@ -109,50 +103,50 @@ const SupportFunctionTableForm = () => {
                         </td>
                     </tr>
 
-                    <tr className=''>
-                        <td className="border border-black">
-                        <h1>A)  Attendance sheet/Program of activities/other document as proof</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">a) a) Attendance sheet/Program of activities/other document as proof</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
 
                     <tr className='border-b border-black'>
-                        <td className="border-b border-black p-2">
+                        <td colspan="10" className="border-b border-black p-2">
                             <h1>14.  Participate in school celebrations and other allied activities</h1>
                         </td>
                     </tr>
 
-                    <tr className=''>
-                        <td className="border border-black">
-                        <h1>A)  Attendance sheet/Program of activities/other document as proof</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">a) Attendance sheet/Program of activities/other document as proof</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
 
                     <tr className='border-b border-black'>
@@ -161,76 +155,75 @@ const SupportFunctionTableForm = () => {
                         </td>
                     </tr>
 
-                    <tr className=''>
-                        <td className="border border-black">
-                        <h1>A)  Training/Seminar/Conference certificate of attendance/ participation</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">a) Training/Seminar/Conference certificate of attendance/ participation</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
-
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
                             <h1>16.  Attend  Faculty Meeting</h1>
                         </td>
                     </tr>
 
-                    <tr className=''>
-                        <td className="border border-black">
-                        <h1>A) Attendance</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">a) Attendance</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
 
                     <tr className='border-b border-black'>
-                        <td className="border-b border-black p-2">
+                        <td colspan="10" className="border-b border-black p-2">
                             <h1>17.  Involvement in accreditation/ISO and other related activities</h1>
                         </td>
                     </tr>
 
-                    <tr className=''>
-                        <td className="border border-black">
-                        <h1>A) Attendance</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">a) Attendance</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
 
                     <tr className='border-b border-black'>
@@ -239,26 +232,25 @@ const SupportFunctionTableForm = () => {
                         </td>
                     </tr>
 
-                    <tr className=''>
-                        <td className="border border-black">
-                        <h1>A)  Attendance sheet/Program of activities/other document as proof</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
+                    <tr className="border-gray-800">
+                        <td className="py-2 px-4 border-b border border-gray-800">a) Attendance sheet/Program of activities/other document as proof</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="email"
-                                name="email"
+                                type="text"
+                                name="text"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="border-b border-black p-2">
+                        <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
                                 name="age"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800"></td>
                     </tr>
-
                     {}
                 </tbody>
             </table>
