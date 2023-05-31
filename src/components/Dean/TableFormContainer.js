@@ -3,7 +3,7 @@ import ResearchTableForm from "./ResearchTableForm";
 import ExtensionTableForm from "./ExtensionTableForm"
 import SupportFunctionTableForm from "./SupportFunctionTableForm";
 import AdministrativeFunctionsTableForm from "./AdministrativeFunctionsTableForm"
-import Sidebar from "./Sidebar";
+import Sidebar from "../Sidebar";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 
@@ -12,9 +12,7 @@ const TableFormContainer = () => {
     const [selectedCollection, setSelectedCollection] = useState(null);
 
 
-
     const { data } = useSession()
-
 
 
     const handleSidebarItemClick = (option) => {
@@ -55,8 +53,6 @@ const TableFormContainer = () => {
             <Sidebar handleItemClick={handleSidebarItemClick} />
             {renderContent()}
         </div>
-
-
 
     )
 }

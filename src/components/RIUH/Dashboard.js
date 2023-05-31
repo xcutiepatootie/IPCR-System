@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
-import Sidebar from './Sidebar';
+import Sidebar from '../Sidebar';
 
 
 

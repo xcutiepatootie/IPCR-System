@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import Sidebar from './Sidebar'
+import Sidebar from '../Sidebar'
 import { useSession, getSession } from 'next-auth/react'
 
 
@@ -25,6 +25,7 @@ const Dashboard = () => {
   const user = session?.user || null;
 
   console.log(user)
+
 
   if (!user || (status === "loading" || user.role == "campusdirector")) {
     return console.log("error"); // Or show a loading state, error message, or redirect
@@ -63,22 +64,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-export async function getServerSideProps(context) {
-  const session = await getSession(context);
-
-  if (!session) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
-
-  return {
-    props: {
-      user: session.user,
-    },
-  };
-}

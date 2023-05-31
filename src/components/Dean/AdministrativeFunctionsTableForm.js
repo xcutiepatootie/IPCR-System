@@ -3,7 +3,6 @@ import React from 'react';
 const AdministrativeFunctionsTableForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission logic here
     };
 
     return (
@@ -23,7 +22,6 @@ const AdministrativeFunctionsTableForm = () => {
                         <td className="border-b border-black p-2">
                             <h1>Administrative Functions</h1>
                         </td>
-
                     </tr>
 
                     <tr className='border-b border-black'>
@@ -132,9 +130,7 @@ const AdministrativeFunctionsTableForm = () => {
                         </td>
                     </tr>
 
-
-
-                    {/* Add more rows as needed */}
+                    {}
                 </tbody>
             </table>
             <button

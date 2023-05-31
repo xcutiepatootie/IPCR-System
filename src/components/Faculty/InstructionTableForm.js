@@ -3,7 +3,6 @@ import React from 'react';
 const InstructionTableForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission logic here
     };
 
     return (
@@ -414,7 +413,7 @@ const InstructionTableForm = () => {
                     </tr>
 
 
-                    {/* Add more rows as needed */}
+                    {}
                 </tbody >
             </table >
             <button
