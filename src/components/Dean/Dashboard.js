@@ -7,18 +7,21 @@ import { useSession } from 'next-auth/react';
 
 const Dashboard = () => {
   const [selectedCollection, setSelectedCollection] = useState(null);
-
   const router = useRouter()
-
   const { data: session, status } = useSession()
 
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/");
+    }
+  }, [status]);
+
   if (status === "loading") {
-    return <p>Loading...</p>
+    return <p>Loading...</p>;
   }
 
-  if (status === "unauthenticated") {
-    router.push('/')
-  }
+  const user = session?.user || null;
+
 
   const handleSidebarItemClick = (option) => {
     setSelectedCollection(option)
@@ -35,3 +38,20 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (!session || session.user.role !== 'campusdirector') {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+}

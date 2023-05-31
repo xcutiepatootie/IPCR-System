@@ -7,9 +7,7 @@ import { useSession, getSession } from 'next-auth/react'
 
 const Dashboard = () => {
   const [selectedCollection, setSelectedCollection] = useState(null)
-
   const router = useRouter()
-
   const { data: session, status } = useSession()
 
   useEffect(() => {
