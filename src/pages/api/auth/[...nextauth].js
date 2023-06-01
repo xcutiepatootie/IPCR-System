@@ -6,7 +6,8 @@ import { Superadmin, Campusdirector, Faculty, Dean, Riuh, Eiuh } from '@/model/m
 
 export default NextAuth({
     session: {
-        strategy: 'jwt'
+        strategy: 'jwt',
+        maxAge: 60 * 60
     },
     jwt: {
 
@@ -78,13 +79,14 @@ export default NextAuth({
             //session.user._id = token._id
 
             session.user.role = token._doc.role
-            
-          
+
+
 
             return session
         },
         async redirect({ url, baseUrl }) {
             // Allows relative callback URLs
+
             if (url.startsWith("/")) return `${baseUrl}${url}`
             // Allows callback URLs on the same origin
             else if (new URL(url).origin === baseUrl) {

@@ -11,14 +11,13 @@ const Dashboard = () => {
   const { data: session, status } = useSession()
 
   useEffect(() => {
-    if (status === "unauthenticated") {
-      router.push("/");
+    if (status === 'unauthenticated') {
+      router.push('/');
+    } else if (session && !['campusdirector'].includes(session.user.role)) {
+      router.push('/');
     }
-  }, [status]);
+  }, [status, session, router]);
 
-  if (status === "loading") {
-    return <p>Loading...</p>;
-  }
 
   const user = session?.user || null;
 
@@ -60,19 +59,3 @@ const Dashboard = () => {
 
 export default Dashboard;
 
-export async function getServerSideProps(context) {
-  const session = await getSession(context);
-
-  if (!session || session.user.role !== 'campusdirector') {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
-
-  return {
-    props: {},
-  };
-}
