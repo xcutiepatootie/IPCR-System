@@ -12,7 +12,7 @@ const TableFormContainer = () => {
     const [selectedCollection, setSelectedCollection] = useState(null);
 
 
-    const { data } = useSession()
+    
 
 
     const handleSidebarItemClick = (option) => {

@@ -10,15 +10,19 @@ const Dashboard = () => {
 
   const router = useRouter()
 
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/");
+    }
+  }, [status]);
+
   const { data: session, status } = useSession()
 
   if (status === "loading") {
     return <p>Loading...</p>
   }
 
-  if (status === "unauthenticated") {
-    router.push('/')
-  }
+
 
 
   const handleSidebarItemClick = (option) => {
@@ -55,3 +59,19 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (!session || session.user.role !== 'faculty') {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+}/*  */

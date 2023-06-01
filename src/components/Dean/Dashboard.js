@@ -23,10 +23,7 @@ const Dashboard = () => {
   const user = session?.user || null;
 
 
-  const handleSidebarItemClick = (option) => {
-    setSelectedCollection(option)
 
-  }
 
   return (
     <div>
@@ -42,7 +39,7 @@ export default Dashboard;
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 
-  if (!session || session.user.role !== 'campusdirector') {
+  if (!session || session.user.role !== 'dean') {
     return {
       redirect: {
         destination: '/',
