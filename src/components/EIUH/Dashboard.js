@@ -18,7 +18,7 @@ const Dashboard = () => {
   useEffect(() => {
     if (status === 'unauthenticated') {
       router.push('/');
-    } else if (session && !['dean'].includes(session.user.role)) {
+    } else if (session && !['eiuh'].includes(session.user.role)) {
       router.push('/');
     }
   }, [status, session, router]);
