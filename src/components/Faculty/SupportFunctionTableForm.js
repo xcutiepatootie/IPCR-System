@@ -29,20 +29,34 @@ const SupportFunctionTableForm = () => {
                         <td className="py-2 px-4 border-b border border-gray-800">a) Accomplishment Report</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target1"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished1"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate1"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate1"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
 
                     <tr className='border-b border-black'>
@@ -55,20 +69,34 @@ const SupportFunctionTableForm = () => {
                         <td className="py-2 px-4 border-b border border-gray-800">a) Attendance</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target2"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished2"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate2"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate2"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
 
                     <tr className='border-b border-black'>
@@ -81,20 +109,34 @@ const SupportFunctionTableForm = () => {
                         <td className="py-2 px-4 border-b border border-gray-800">a) Attendance</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target3"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished3"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate3"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate3"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
 
                     <tr className='border-b border-black'>
@@ -107,20 +149,34 @@ const SupportFunctionTableForm = () => {
                         <td className="py-2 px-4 border-b border border-gray-800">a) a) Attendance sheet/Program of activities/other document as proof</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target4"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished4"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate4"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate4"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
 
                     <tr className='border-b border-black'>
@@ -133,20 +189,34 @@ const SupportFunctionTableForm = () => {
                         <td className="py-2 px-4 border-b border border-gray-800">a) Attendance sheet/Program of activities/other document as proof</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target5"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished5"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate5"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate5"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
 
                     <tr className='border-b border-black'>
@@ -159,20 +229,34 @@ const SupportFunctionTableForm = () => {
                         <td className="py-2 px-4 border-b border border-gray-800">a) Training/Seminar/Conference certificate of attendance/ participation</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target6"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished6"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate6"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate6"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
@@ -184,20 +268,34 @@ const SupportFunctionTableForm = () => {
                         <td className="py-2 px-4 border-b border border-gray-800">a) Attendance</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target7"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished7"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate7"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate7"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
 
                     <tr className='border-b border-black'>
@@ -210,20 +308,34 @@ const SupportFunctionTableForm = () => {
                         <td className="py-2 px-4 border-b border border-gray-800">a) Attendance</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target8"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished8"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate8"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate8"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
 
                     <tr className='border-b border-black'>
@@ -236,22 +348,36 @@ const SupportFunctionTableForm = () => {
                         <td className="py-2 px-4 border-b border border-gray-800">a) Attendance sheet/Program of activities/other document as proof</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target9"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished9"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate9"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate9"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
-                    {}
+                    { }
                 </tbody>
             </table>
             <button

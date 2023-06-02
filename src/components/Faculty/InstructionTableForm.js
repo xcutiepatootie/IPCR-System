@@ -169,6 +169,8 @@ const InstructionTableForm = () => {
                                         type="number"
                                         name="target3"
                                         className="w-full p-2 border border-black rounded"
+                                        min={0}
+
                                     />
                                 </td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
@@ -176,6 +178,7 @@ const InstructionTableForm = () => {
                                         type="number"
                                         name="accomplished3"
                                         className="w-full p-2 border border-black rounded"
+                                        min={0}
                                     />
                                 </td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
@@ -200,20 +203,34 @@ const InstructionTableForm = () => {
                                 <td className="py-2 px-4 border-b border border-gray-800">d) No. of Subject Areas with Community Immersion/ Involvement Component</td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
-                                        type="text"
-                                        name="text"
+                                        type="number"
+                                        name="target4"
                                         className="w-full p-2 border border-black rounded"
+                                        min={0}
                                     />
                                 </td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
                                         type="number"
-                                        name="age"
+                                        name="accomplished4"
+                                        className="w-full p-2 border border-black rounded"
+                                        min={0}
+                                    />
+                                </td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submissiondate4"
                                         className="w-full p-2 border border-black rounded"
                                     />
                                 </td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submitteddate4"
+                                        className="w-full p-2 border border-black rounded"
+                                    />
+                                </td>
 
                             </tr>
 
@@ -232,40 +249,68 @@ const InstructionTableForm = () => {
                                 <td className="py-2 px-4 border-b border border-gray-800">a) Attendance Sheet</td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
-                                        type="text"
-                                        name="text"
+                                        type="number"
+                                        name="target5"
                                         className="w-full p-2 border border-black rounded"
+                                        min={0}
                                     />
                                 </td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
                                         type="number"
-                                        name="age"
+                                        name="accomplished5"
+                                        className="w-full p-2 border border-black rounded"
+                                        min={0}
+                                    />
+                                </td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submissiondate5"
                                         className="w-full p-2 border border-black rounded"
                                     />
                                 </td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submitteddate5"
+                                        className="w-full p-2 border border-black rounded"
+                                    />
+                                </td>
 
                             </tr>
                             <tr className="border-gray-800">
                                 <td className="py-2 px-4 border-b border border-gray-800">b) Class Records</td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
-                                        type="text"
-                                        name="text"
+                                        type="number"
+                                        name="target6"
                                         className="w-full p-2 border border-black rounded"
+                                        min={0}
                                     />
                                 </td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
                                         type="number"
-                                        name="age"
+                                        name="accomplished6"
+                                        className="w-full p-2 border border-black rounded"
+                                        min={0}
+                                    />
+                                </td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submissiondate6"
                                         className="w-full p-2 border border-black rounded"
                                     />
                                 </td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submitteddate6"
+                                        className="w-full p-2 border border-black rounded"
+                                    />
+                                </td>
 
                             </tr>
                             <tr className='border-b border-black'>
@@ -284,40 +329,68 @@ const InstructionTableForm = () => {
                                 <td className="py-2 px-4 border-b border border-gray-800">a) Evaluation of Teaching Effectivess (CQA-SF-012)</td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
-                                        type="text"
-                                        name="text"
+                                        type="number"
+                                        name="target7"
                                         className="w-full p-2 border border-black rounded"
+                                        min={0}
                                     />
                                 </td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
                                         type="number"
-                                        name="age"
+                                        name="accomplished7"
+                                        className="w-full p-2 border border-black rounded"
+                                        min={0}
+                                    />
+                                </td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submissiondate7"
                                         className="w-full p-2 border border-black rounded"
                                     />
                                 </td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submitteddate7"
+                                        className="w-full p-2 border border-black rounded"
+                                    />
+                                </td>
 
                             </tr>
                             <tr className="border-gray-800">
                                 <td className="py-2 px-4 border-b border border-gray-800">b) Classroom Observation (CQA-SF-012)</td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
-                                        type="text"
-                                        name="text"
+                                        type="number"
+                                        name="target8"
                                         className="w-full p-2 border border-black rounded"
+                                        min={0}
                                     />
                                 </td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
                                         type="number"
-                                        name="age"
+                                        name="accomplished8"
+                                        className="w-full p-2 border border-black rounded"
+                                        min={0}
+                                    />
+                                </td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submissiondate8"
                                         className="w-full p-2 border border-black rounded"
                                     />
                                 </td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submitteddate8"
+                                        className="w-full p-2 border border-black rounded"
+                                    />
+                                </td>
 
                             </tr>
                             <tr className='border-b border-black'>
@@ -329,120 +402,204 @@ const InstructionTableForm = () => {
                                 <td className="py-2 px-4 border-b border border-gray-800">a. 1) TOS/ Rubrics (Midterm)</td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
-                                        type="text"
-                                        name="text"
+                                        type="number"
+                                        name="target9"
                                         className="w-full p-2 border border-black rounded"
+                                        min={0}
                                     />
                                 </td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
                                         type="number"
-                                        name="age"
+                                        name="accomplished9"
+                                        className="w-full p-2 border border-black rounded"
+                                        min={0}
+                                    />
+                                </td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submissiondate9"
                                         className="w-full p-2 border border-black rounded"
                                     />
                                 </td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submitteddate9"
+                                        className="w-full p-2 border border-black rounded"
+                                    />
+                                </td>
 
                             </tr>
                             <tr className="border-gray-800">
                                 <td className="py-2 px-4 border-b border border-gray-800">a. 2) TOS/ Rubrics (Final Term)</td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
-                                        type="text"
-                                        name="text"
+                                        type="number"
+                                        name="target10"
                                         className="w-full p-2 border border-black rounded"
+                                        min={0}
                                     />
                                 </td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
                                         type="number"
-                                        name="age"
+                                        name="accomplished10"
+                                        className="w-full p-2 border border-black rounded"
+                                        min={0}
+                                    />
+                                </td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submissiondate10"
                                         className="w-full p-2 border border-black rounded"
                                     />
                                 </td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submitteddate10"
+                                        className="w-full p-2 border border-black rounded"
+                                    />
+                                </td>
 
                             </tr>
                             <tr className="border-gray-800">
                                 <td className="py-2 px-4 border-b border border-gray-800">b. 1) Test Questions (term exams) / Performance's based activities (Midterm)</td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
-                                        type="text"
-                                        name="text"
+                                        type="number"
+                                        name="target11"
                                         className="w-full p-2 border border-black rounded"
+                                        min={0}
                                     />
                                 </td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
                                         type="number"
-                                        name="age"
+                                        name="accomplished11"
+                                        className="w-full p-2 border border-black rounded"
+                                        min={0}
+                                    />
+                                </td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submissiondate11"
                                         className="w-full p-2 border border-black rounded"
                                     />
                                 </td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submitteddate11"
+                                        className="w-full p-2 border border-black rounded"
+                                    />
+                                </td>
 
                             </tr>
                             <tr className="border-gray-800">
                                 <td className="py-2 px-4 border-b border border-gray-800">b. 2) Test Questions (term exams) / Performance's based activities (Final Term)</td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
-                                        type="text"
-                                        name="text"
+                                        type="number"
+                                        name="target12"
                                         className="w-full p-2 border border-black rounded"
+                                        min={0}
                                     />
                                 </td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
                                         type="number"
-                                        name="age"
+                                        name="accomplished12"
+                                        className="w-full p-2 border border-black rounded"
+                                        min={0}
+                                    />
+                                </td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submissiondate12"
                                         className="w-full p-2 border border-black rounded"
                                     />
                                 </td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submitteddate12"
+                                        className="w-full p-2 border border-black rounded"
+                                    />
+                                </td>
 
                             </tr>
                             <tr className="border-gray-800">
                                 <td className="py-2 px-4 border-b border border-gray-800">c. 1) Answer Keys (Midterm)</td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
-                                        type="text"
-                                        name="text"
+                                        type="number"
+                                        name="target13"
                                         className="w-full p-2 border border-black rounded"
+                                        min={0}
                                     />
                                 </td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
                                         type="number"
-                                        name="age"
+                                        name="accomplished13"
+                                        className="w-full p-2 border border-black rounded"
+                                        min={0}
+                                    />
+                                </td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submissiondate13"
                                         className="w-full p-2 border border-black rounded"
                                     />
                                 </td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submitteddate13"
+                                        className="w-full p-2 border border-black rounded"
+                                    />
+                                </td>
 
                             </tr>
                             <tr className="border-gray-800">
                                 <td className="py-2 px-4 border-b border border-gray-800">c. 2) Answer Keys (Final Term)</td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
-                                        type="text"
-                                        name="text"
+                                        type="number"
+                                        name="target14"
                                         className="w-full p-2 border border-black rounded"
+                                        min={0}
                                     />
                                 </td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
                                         type="number"
-                                        name="age"
+                                        name="accomplished14"
+                                        className="w-full p-2 border border-black rounded"
+                                        min={0}
+                                    />
+                                </td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submissiondate14"
                                         className="w-full p-2 border border-black rounded"
                                     />
                                 </td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submitteddate14"
+                                        className="w-full p-2 border border-black rounded"
+                                    />
+                                </td>
 
                             </tr>
                             <tr className='border-b border-black'>
@@ -454,20 +611,34 @@ const InstructionTableForm = () => {
                                 <td className="py-2 px-4 border-b border border-gray-800">a) No. of grading sheets submitted & encoded</td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
-                                        type="text"
-                                        name="text"
+                                        type="number"
+                                        name="target15"
                                         className="w-full p-2 border border-black rounded"
+                                        min={0}
                                     />
                                 </td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
                                         type="number"
-                                        name="age"
+                                        name="accomplished15"
+                                        className="w-full p-2 border border-black rounded"
+                                        min={0}
+                                    />
+                                </td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submissiondate15"
                                         className="w-full p-2 border border-black rounded"
                                     />
                                 </td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submitteddate15"
+                                        className="w-full p-2 border border-black rounded"
+                                    />
+                                </td>
 
                             </tr>
                             <tr className='border-b border-black'>
@@ -480,20 +651,34 @@ const InstructionTableForm = () => {
                                 <td className="py-2 px-4 border-b border border-gray-800">a) No. of faculty & students seek advises (LSPU-ACAD-SF-011)</td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
-                                        type="text"
-                                        name="text"
+                                        type="number"
+                                        name="target16"
                                         className="w-full p-2 border border-black rounded"
+                                        min={0}
                                     />
                                 </td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
                                         type="number"
-                                        name="age"
+                                        name="accomplished16"
+                                        className="w-full p-2 border border-black rounded"
+                                        min={0}
+                                    />
+                                </td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submissiondate16"
                                         className="w-full p-2 border border-black rounded"
                                     />
                                 </td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submitteddate16"
+                                        className="w-full p-2 border border-black rounded"
+                                    />
+                                </td>
 
                             </tr>
 
@@ -507,20 +692,34 @@ const InstructionTableForm = () => {
                                 <td className="py-2 px-4 border-b border border-gray-800">a) Accomplishment Report</td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
-                                        type="text"
-                                        name="text"
+                                        type="number"
+                                        name="target17"
                                         className="w-full p-2 border border-black rounded"
+                                        min={0}
                                     />
                                 </td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
                                         type="number"
-                                        name="age"
+                                        name="accomplished17"
+                                        className="w-full p-2 border border-black rounded"
+                                        min={0}
+                                    />
+                                </td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submissiondate17"
                                         className="w-full p-2 border border-black rounded"
                                     />
                                 </td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submitteddate17"
+                                        className="w-full p-2 border border-black rounded"
+                                    />
+                                </td>
 
                             </tr>
 

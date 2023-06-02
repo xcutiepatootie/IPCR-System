@@ -3,7 +3,7 @@ import React from 'react';
 const ResearchTableForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
     };
 
     return (
@@ -19,7 +19,7 @@ const ResearchTableForm = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    
+
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
@@ -37,140 +37,238 @@ const ResearchTableForm = () => {
                         <td className="py-2 px-4 border-b border border-gray-800">a) Research Proposal submitted/ Activity Conducted</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target1"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished1"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate1"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate1"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
 
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">b) Research Implemented and/or Completed within the Timeframe</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target2"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished2"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate2"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate2"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
 
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">c) Research Presented in Regional/National/International Conferences</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target3"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished3"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate3"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate3"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">d) Research Published in Peer-reviewed Journals</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target4"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished4"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate4"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate4"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">e) Filed/Published/Approved Intellectual Property Rights</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target5"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished5"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate5"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate5"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">f) Research Utilized/Deployed through Commercialization/Extension/Policy</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target6"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished6"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate6"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate6"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">g) Number of citations in journals/books</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target7"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished7"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate7"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate7"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
 
 
-                    {}
+                    { }
                 </tbody>
             </table>
             <button
