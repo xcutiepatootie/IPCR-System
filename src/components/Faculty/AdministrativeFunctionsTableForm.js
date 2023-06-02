@@ -35,102 +35,172 @@ const AdministrativeFunctionsTableForm = () => {
                         <td className="py-2 px-4 border-b border border-gray-800">a) Prepare...</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target1"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished1"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate1"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate1"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
 
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">b) Submit...</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target2"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished2"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate2"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate2"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
 
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">c) Increase...</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target3"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished3"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate3"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate3"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">d) ...</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target4"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished4"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate4"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate4"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">e) ...</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
-                                type="text"
-                                name="text"
+                                type="number"
+                                name="target5"
                                 className="w-full p-2 border border-black rounded"
+                                min={0}
                             />
                         </td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
-                                name="age"
+                                name="accomplished5"
+                                className="w-full p-2 border border-black rounded"
+                                min={0}
+                            />
+                        </td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submissiondate5"
                                 className="w-full p-2 border border-black rounded"
                             />
                         </td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">
+                            <input
+                                type="date"
+                                name="submitteddate5"
+                                className="w-full p-2 border border-black rounded"
+                            />
+                        </td>
                     </tr>
 
 
-                    {}
+                    { }
                 </tbody>
             </table>
             <button
