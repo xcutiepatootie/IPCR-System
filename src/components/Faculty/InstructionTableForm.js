@@ -1,9 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 
 const InstructionTableForm = () => {
+    const [datas, setDatas] = useState([]);
+
+
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const form = e.target;
+        const data = [];
+
+        // Iterate over each row of input fields
+        for (let i = 1; i <= 4; i++) {
+            const targetValue = parseInt(form.elements[`target${i}`].value);
+            const accomplishedValue = parseInt(form.elements[`accomplished${i}`].value);
+            const submissionDateValue = form.elements[`submissiondate${i}`].value;
+            const submittedDateValue = form.elements[`submitteddate${i}`].value;
+
+            const rowData = {
+                target: targetValue,
+                accomplished: accomplishedValue,
+                submissionDate: submissionDateValue,
+                submittedDate: submittedDateValue,
+            };
+
+            data.push(rowData);
+        }
+
+        setDatas((prevDatas) => [...prevDatas, ...data]);
+
+        // Reset the form fields
+        form.reset();
+
     };
+    useEffect(() => {
+        console.log(datas);
+    }, [datas]);
+
 
     return (
         <div className='h-screen flex overflow-auto'>
@@ -20,23 +56,23 @@ const InstructionTableForm = () => {
 
                             </tr>
                             <tr className="border-gray-800">
-                                <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                                <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                                <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                                <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                                <td colspan="1" className="py-2 px-4 border-r text-center border-gray-800"></td>
+                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colSpan="1" className="py-2 px-4 border-r text-center border-gray-800"></td>
 
                             </tr>
                         </thead>
                         <tbody>
 
                             <tr className='border-b border-black'>
-                                <td colspan="10" className="border-b border-black p-2">
+                                <td colSpan="10" className="border-b border-black p-2">
                                     <h1>Instruction</h1>
                                 </td>
                             </tr>
                             <tr className='border-b border-black'>
-                                <td colspan="10" className="border-b border-black p-2">
+                                <td colSpan="10" className="border-b border-black p-2">
                                     <h1>1. Plan and Prepare Instructional Materials to Enhance Instruction</h1>
                                 </td>
                             </tr>
@@ -45,62 +81,121 @@ const InstructionTableForm = () => {
                                 <td className="py-2 px-4 border-b border border-gray-800">a) No. of Syllabus prepared</td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
-                                        type="text"
-                                        name="text"
+                                        type="number"
+                                        name="target1"
                                         className="w-full p-2 border border-black rounded"
+                                        min={0}
                                     />
                                 </td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
                                         type="number"
-                                        name="age"
+                                        name="accomplished1"
                                         className="w-full p-2 border border-black rounded"
+                                        min={0}
                                     />
                                 </td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
+
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <div className="flex items-center">
+                                        <input
+                                            type="date"
+                                            name="submissiondate1"
+                                            className="w-full p-2 border border-black rounded"
+
+                                        />
+
+                                    </div>
+                                </td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <div className="flex items-center">
+                                        <input
+                                            type="date"
+                                            name="submitteddate1"
+                                            className="w-full p-2 border border-black rounded"
+
+                                        />
+                                    </div>
+                                </td>
 
                             </tr>
                             <tr className="border-gray-800">
                                 <td className="py-2 px-4 border-b border border-gray-800">b) No. of Course Guide</td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
-                                        type="text"
-                                        name="text"
+                                        type="number"
+                                        name="target2"
                                         className="w-full p-2 border border-black rounded"
+                                        min={0}
                                     />
                                 </td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
                                         type="number"
-                                        name="age"
+                                        name="accomplished2"
                                         className="w-full p-2 border border-black rounded"
+                                        min={0}
                                     />
                                 </td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
+
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <div className="flex items-center">
+                                        <input
+                                            type="date"
+                                            name="submissiondate2"
+                                            className="w-full p-2 border border-black rounded"
+
+                                        />
+
+                                    </div>
+                                </td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <div className="flex items-center">
+                                        <input
+                                            type="date"
+                                            name="submitteddate2"
+                                            className="w-full p-2 border border-black rounded"
+
+                                        />
+                                    </div>
+                                </td>
 
                             </tr>
+
                             <tr className="border-gray-800">
                                 <td className="py-2 px-4 border-b border border-gray-800">c) No. of SLM</td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
-                                        type="text"
-                                        name="text"
+                                        type="number"
+                                        name="target3"
                                         className="w-full p-2 border border-black rounded"
                                     />
                                 </td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
                                     <input
                                         type="number"
-                                        name="age"
+                                        name="accomplished3"
                                         className="w-full p-2 border border-black rounded"
                                     />
                                 </td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
-                                <td className="py-2 px-4 border-b border border-gray-800"></td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submissiondate3"
+                                        className="w-full p-2 border border-black rounded"
+                                    />
+                                </td>
+                                <td className="py-2 px-4 border-b border border-gray-800">
+                                    <input
+                                        type="date"
+                                        name="submitteddate3"
+                                        className="w-full p-2 border border-black rounded"
+                                    />
+                                </td>
 
                             </tr>
+
+
                             <tr className="border-gray-800">
                                 <td className="py-2 px-4 border-b border border-gray-800">d) No. of Subject Areas with Community Immersion/ Involvement Component</td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
@@ -128,7 +223,7 @@ const InstructionTableForm = () => {
                                 </td>
                             </tr>
                             <tr className='border-b border-black'>
-                                <td colspan="10" className="border-b border-black p-2">
+                                <td colSpan="10" className="border-b border-black p-2">
                                     <h1>1. Plan and Prepare Instructional Materials to Enhance Instruction</h1>
                                 </td>
                             </tr>
@@ -180,7 +275,7 @@ const InstructionTableForm = () => {
                             </tr>
 
                             <tr className='border-b border-black'>
-                                <td colspan="10" className="border-b border-black p-2">
+                                <td colSpan="10" className="border-b border-black p-2">
                                     <h1>1. Plan and Prepare Instructional Materials to Enhance Instruction</h1>
                                 </td>
                             </tr>
@@ -226,7 +321,7 @@ const InstructionTableForm = () => {
 
                             </tr>
                             <tr className='border-b border-black'>
-                                <td colspan="10" className="border-b border-black p-2">
+                                <td colSpan="10" className="border-b border-black p-2">
                                     <h1>4. Prepare and Check Summative/Evaluative/Formative Tests</h1>
                                 </td>
                             </tr>
@@ -351,7 +446,7 @@ const InstructionTableForm = () => {
 
                             </tr>
                             <tr className='border-b border-black'>
-                                <td colspan="10" className="border-b border-black p-2">
+                                <td colSpan="10" className="border-b border-black p-2">
                                     <h1>5.  Compute & Evaluate  Grades.</h1>
                                 </td>
                             </tr>
@@ -376,7 +471,7 @@ const InstructionTableForm = () => {
 
                             </tr>
                             <tr className='border-b border-black'>
-                                <td colspan="10" className="border-b border-black p-2">
+                                <td colSpan="10" className="border-b border-black p-2">
                                     <h1>6.  Consultation services to faculty and  students.</h1>
                                 </td>
                             </tr>
@@ -403,7 +498,7 @@ const InstructionTableForm = () => {
                             </tr>
 
                             <tr className='border-b border-black'>
-                                <td colspan="10" className="border-b border-black p-2">
+                                <td colSpan="10" className="border-b border-black p-2">
                                     <h1>7.   Prepare accomplishment report.</h1>
                                 </td>
                             </tr>
