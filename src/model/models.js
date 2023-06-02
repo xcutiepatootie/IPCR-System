@@ -26,6 +26,27 @@ const userSchema = new mongoose.Schema({
 
 })
 
+const arraySchema = new mongoose.Schema({
+    target: {
+        type: Number,
+        required: true
+    },
+    accomplished: {
+        type: Number,
+        required: true
+    },
+    submissionDate: {
+        type: String,
+        required: true
+    },
+    submittedDate: {
+        type: String,
+        required: true
+    }
+
+});
+
+
 const superadminSchema = new mongoose.Schema({
     ...userSchema.obj
 })
@@ -47,7 +68,28 @@ const eiuhSchema = new mongoose.Schema({
 })
 
 const facultySchema = new mongoose.Schema({
-    ...userSchema.obj
+    ...userSchema.obj,
+    instructionProperty: {
+        type: [arraySchema],
+        required: false
+    },
+    researchProperty: {
+        type: [arraySchema],
+        required: false
+    },
+    extensionProperty: {
+        type: [arraySchema],
+        required: false
+    },
+    supportProperty: {
+        type: [arraySchema],
+        required: false
+    },
+    administrativeProperty: {
+        type: [arraySchema],
+        required: false
+    }
+
 
 })
 

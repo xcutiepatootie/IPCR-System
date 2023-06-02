@@ -77,10 +77,10 @@ export default NextAuth({
             // Send properties to the client, like an access_token and user id from a provider.
             //session.accessToken = token.accessToken
             //session.user._id = token._id
-
+            session.user.id = token._doc._id
             session.user.role = token._doc.role
 
-
+           // console.log(token)
 
             return session
         },
