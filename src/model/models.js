@@ -29,22 +29,54 @@ const userSchema = new mongoose.Schema({
 const arraySchema = new mongoose.Schema({
     target: {
         type: Number,
-        required: true
+        required: false
     },
     accomplished: {
         type: Number,
-        required: true
+        required: false
     },
     submissionDate: {
         type: String,
-        required: true
+        required: false
     },
     submittedDate: {
         type: String,
-        required: true
+        required: false
     }
 
 });
+
+const instructionSchema = new mongoose.Schema({
+    instruction1: {
+        type: [arraySchema],
+        required: false
+    },
+    instruction2: {
+        type: [arraySchema],
+        required: false
+    },
+    instruction3: {
+        type: [arraySchema],
+        required: false
+    },
+    instruction4: {
+        type: [arraySchema],
+        required: false
+    },
+    instruction5: {
+        type: [arraySchema],
+        required: false
+    },
+    instruction6: {
+        type: [arraySchema],
+        required: false
+    },
+    instruction7: {
+        type: [arraySchema],
+        required: false
+    }
+});
+
 
 
 const superadminSchema = new mongoose.Schema({
@@ -70,7 +102,7 @@ const eiuhSchema = new mongoose.Schema({
 const facultySchema = new mongoose.Schema({
     ...userSchema.obj,
     instructionProperty: {
-        type: [arraySchema],
+        type: [instructionSchema],
         required: false
     },
     researchProperty: {
