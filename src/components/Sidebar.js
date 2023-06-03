@@ -16,9 +16,9 @@ const Sidebar = ({ handleItemClick }) => {
   const user = session?.user || null;
 
   return (
-    <aside className="bg-lime-700 text-white w-64 h-screen">
+    <aside className="bg-green-700 text-white w-64 h-screen ">
       <nav>
-        <div className="p-4">
+        <div className="">
           {user && (
             <>
               <p><FaRegUser className=''/>{user.name}</p>
@@ -40,26 +40,32 @@ const Sidebar = ({ handleItemClick }) => {
             </>
           )}
 
-          <li className="mb-2" onClick={() => handleItemClick('Dashboard')}>
+          <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6 hover:bg-gray-300 resize-y rounded-md"  onClick={() => handleItemClick('Dashboard')}>
             <Link href="#">Dashboard</Link>
           </li>
 
           {user && (user.role === 'faculty' || user.role === 'dean') && (
             <>
-              <li className="mb-2" onClick={() => handleItemClick('Instruction')}>
+            <div className="hover:bg-gray-300 resize-y rounded-md" > 
+            <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6  hover:bg-gray-300 resize-y rounded-md" onClick={() => handleItemClick('Instruction')}>
                 <Link href="#">Instruction</Link>
               </li>
-              <li className="mb-2" onClick={() => handleItemClick('Research')}>
+            </div>
+
+              <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6  hover:bg-gray-300 resize-y rounded-md" onClick={() => handleItemClick('Instruction')}>
+                <Link href="#">Instruction</Link>
+              </li>
+              <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6  hover:bg-gray-300 resize-y rounded-md" onClick={() => handleItemClick('Research')}>
                 <Link href="#">Research</Link>
               </li>
-              <li className="mb-2" onClick={() => handleItemClick('Extension')}>
+              <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6  hover:bg-gray-300 resize-y rounded-md" onClick={() => handleItemClick('Extension')}>
                 <Link href="#">Extension</Link>
               </li>
 
-              <li className="mb-2" onClick={() => handleItemClick('Support Function')}>
+              <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6  hover:bg-gray-300 resize-y rounded-md" onClick={() => handleItemClick('Support Function')}>
                 <Link href="#">Support Function</Link>
               </li>
-              <li className="mb-2" onClick={() => handleItemClick('Administrative Functions')}>
+              <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6  hover:bg-gray-300 resize-y rounded-md" onClick={() => handleItemClick('Administrative Functions')}>
                 <Link href="#">Administrative Function</Link>
               </li>
             </>
@@ -73,11 +79,11 @@ const Sidebar = ({ handleItemClick }) => {
             </>
           )}
 
-          <li className="mb-2" onClick={() => handleItemClick('Report Generation')}>
+          <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6  hover:bg-gray-300 resize-y rounded-md" onClick={() => handleItemClick('Report Generation')}>
             <Link href="#">Report Generation</Link>
           </li>
         </ul>
-        <li className="mb-2" onClick={() => signOut()}>
+        <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-10  hover:bg-gray-300 resize-y rounded-md" onClick={() => signOut()}>
           <Link href="#">Sign Out</Link>
         </li>
       </nav>
