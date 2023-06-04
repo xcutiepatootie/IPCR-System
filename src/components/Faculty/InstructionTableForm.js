@@ -78,18 +78,7 @@ const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionT
 };
 
 const InstructionTableForm = () => {
-
-    //testing
-    const [instruction1Data, setInstruction1Data] = useState([]);
-    const [instruction2Data, setInstruction2Data] = useState([]);
-    const [instruction3Data, setInstruction3Data] = useState([]);
-    const [instruction4Data, setInstruction4Data] = useState([]);
-    const [instruction5Data, setInstruction5Data] = useState([]);
-    const [instruction6Data, setInstruction6Data] = useState([]);
-    const [instruction7Data, setInstruction7Data] = useState([]);
-
     const [formData, setFormData] = useState([]);
-    const [finalData, setFinalData] = useState([]);
     const { data: session, status } = useSession();
 
     useEffect(() => {
@@ -106,7 +95,7 @@ const InstructionTableForm = () => {
             const instruction4Length = instruction4Indicators.length;
             const instruction5Length = instruction5Indicators.length;
             const instruction6Length = instruction6Indicators.length;
-
+            const instruction7Length = instruction7Indicators.length;
 
             let adjustedIndex;
 
@@ -135,9 +124,6 @@ const InstructionTableForm = () => {
         });
     };
 
-
-
-
     const renderIndicatorRows = (indicatorArray, instructionType) => {
         //  console.log("Rendering indicator rows", indicatorArray); // Debugging statement
 
@@ -155,34 +141,18 @@ const InstructionTableForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(formData);
-
-        const instructionTypes = ["instruction1", "instruction2", "instruction3", "instruction4", "instruction6", "instruction7"];
-
-        const instructionData = {};
-
-        instructionTypes.forEach((type) => {
-            instructionData[type] = formData
-                .filter((data) => data.instructionType === type)
-                .map(({ instructionType, ...rest }) => rest);
-
-            console.log(`Instruction ${type} Data:`, instructionData[type]);
-        });
-
-        console.log("Instruction Data:", instructionData);
-
         try {
             const response = await axios.post("/api/faculty-up/mergeUserData", {
-                userData: instructionData, // Pass instructionData instead of finalData
+                userData: formData,
                 loggedInUserId: session.user.id,
             });
 
             console.log(response.data);
             e.target.reset();
         } catch (error) {
-            console.error("Error:", error);
+            console.error(error);
         }
     };
-
 
     return (
         <div className="h-screen flex overflow-auto">
@@ -190,20 +160,7 @@ const InstructionTableForm = () => {
                 <form onSubmit={handleSubmit}>
                     <table className="w-full border border-black">
                         <thead>
-                            <tr>
-                                <th className="border border-black p-2">Performance Indicator</th>
-                                <th className="border border-black p-2">Target</th>
-                                <th className="border border-black p-2">Accomplished</th>
-                                <th className="border border-black p-2">Date Of Submission/ Completion(Deadline)</th>
-                                <th className="border border-black p-2">Date Submitted/Completed</th>
-                            </tr>
-                            <tr className="border-gray-800">
-                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                                <td colSpan="1" className="py-2 px-4 border-r text-center border-gray-800"></td>
-                            </tr>
+                            {/* Header rows */}
                         </thead>
                         <tbody>
                             <tr className="border-b border-black">

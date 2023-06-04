@@ -80,11 +80,7 @@ const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionT
 
 const ResearchTableForm = () => {
 
-    //testing
-    const [research1Data, setResearch1Data] = useState([]);
-
     const [formData, setFormData] = useState([]);
-    const [finalData, setFinalData] = useState([]);
     const { data: session, status } = useSession();
 
     useEffect(() => {
@@ -98,7 +94,7 @@ const ResearchTableForm = () => {
 
             let adjustedIndex;
 
-            if (instructionType === "instruction1") {
+            if (instructionType === "research1") {
                 adjustedIndex = index;
             }
 
@@ -128,34 +124,18 @@ const ResearchTableForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(formData);
-
-        const instructionTypes = ["research1"];
-
-        const researchData = {};
-
-        instructionTypes.forEach((type) => {
-            researchData[type] = formData
-                .filter((data) => data.instructionType === type)
-                .map(({ instructionType, ...rest }) => rest);
-
-            console.log(`Research ${type} Data:`, researchData[type]);
-        });
-
-        console.log("Research Data:", researchData);
-
         try {
             const response = await axios.post("/api/faculty-up/mergeUserData", {
-                userData: researchData, // Pass instructionData instead of finalData
+                userData: formData,
                 loggedInUserId: session.user.id,
             });
 
             console.log(response.data);
             e.target.reset();
         } catch (error) {
-            console.error("Error:", error);
+            console.error(error);
         }
     };
-
 
     return (
         <form onSubmit={handleSubmit}>
@@ -181,6 +161,7 @@ const ResearchTableForm = () => {
                             <h1>8.   Research program/projects/studies.</h1>
                         </td>
                     </tr>
+
                     {renderIndicatorRows(research1Indicators, "research1")}
 
                 </tbody>
