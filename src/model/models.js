@@ -85,6 +85,55 @@ const instructionSchema = new mongoose.Schema({
     }
 });
 
+const supportSchema = new mongoose.Schema({
+    _id: false,
+    support1: {
+        _id: false,
+        type: [arraySchema],
+        required: false
+    },
+    support2: {
+        _id: false,
+        type: [arraySchema],
+        required: false
+    },
+    support3: {
+        _id: false,
+        type: [arraySchema],
+        required: false
+    },
+    support4: {
+        _id: false,
+        type: [arraySchema],
+        required: false
+    },
+    support5: {
+        _id: false,
+        type: [arraySchema],
+        required: false
+    },
+    support6: {
+        _id: false,
+        type: [arraySchema],
+        required: false
+    },
+    support7: {
+        _id: false,
+        type: [arraySchema],
+        required: false
+    },
+    support8: {
+        _id: false,
+        type: [arraySchema],
+        required: false
+    },
+    support9: {
+        _id: false,
+        type: [arraySchema],
+        required: false
+    }
+});
+
 
 
 
@@ -148,10 +197,50 @@ const facultySchema = new mongoose.Schema({
         },
 
         default: [],
+    },
+    extensionProperty: {
+        _id: false,
+        extension1: {
+            _id: false,
+            type: [{
+                target: {
+                    type: Number,
+                    required: false
+                },
+                accomplished: {
+                    type: Number,
+                    required: false
+                },
+                submissionDate: {
+                    type: String,
+                    required: false
+                },
+                submittedDate: {
+                    type: String,
+                    required: false
+                }
+            }],
+        },
+
+        default: [],
 
 
 
-    }
+    },
+    supportProperty: {
+        type: supportSchema,
+        default: {
+            support1: [],
+            support2: [],
+            support3: [],
+            support4: [],
+            support5: [],
+            support6: [],
+            support7: [],
+            support8: [],
+            support9: [],
+        }
+    },
 
 
 

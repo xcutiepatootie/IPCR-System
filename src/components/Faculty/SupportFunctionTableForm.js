@@ -1,36 +1,58 @@
-import React from 'react';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 
-const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionType }) => {
-    const [targetValue, setTargetValue] = useState("");
-    const [accomplishedValue, setAccomplishedValue] = useState("");
-    const [submissionDateValue, setSubmissionDateValue] = useState("");
-    const [submittedDateValue, setSubmittedDateValue] = useState("");
+const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionType, data }) => {
+    const [targetValue, setTargetValue] = useState('');
+    const [accomplishedValue, setAccomplishedValue] = useState('');
+    const [submissionDateValue, setSubmissionDateValue] = useState('');
+    const [submittedDateValue, setSubmittedDateValue] = useState('');
+
+    useEffect(() => {
+        if (data.target !== undefined) {
+            setTargetValue(data.target);
+            onUpdateValue(index, 'target', data.target, instructionType); // Call onUpdateValue with initial target value
+        }
+
+        if (data.accomplished !== undefined) {
+            setAccomplishedValue(data.accomplished);
+            onUpdateValue(index, 'accomplished', data.accomplished, instructionType); // Call onUpdateValue with initial accomplished value
+        }
+
+        if (data.submissionDate !== undefined) {
+            setSubmissionDateValue(data.submissionDate);
+            onUpdateValue(index, 'submissionDate', data.submissionDate, instructionType); // Call onUpdateValue with initial submissionDate value
+        }
+
+        if (data.submittedDate !== undefined) {
+            setSubmittedDateValue(data.submittedDate);
+            onUpdateValue(index, 'submittedDate', data.submittedDate, instructionType); // Call onUpdateValue with initial submittedDate value
+        }
+    }, [data.target, data.accomplished, data.submissionDate, data.submittedDate]);
+
 
     const handleTargetChange = (e) => {
         const value = e.target.value;
         setTargetValue(value);
-        onUpdateValue(index, "target", value, instructionType);
+        onUpdateValue(index, 'target', value, instructionType);
     };
 
     const handleAccomplishedChange = (e) => {
         const value = e.target.value;
         setAccomplishedValue(value);
-        onUpdateValue(index, "accomplished", value, instructionType);
+        onUpdateValue(index, 'accomplished', value, instructionType);
     };
 
     const handleSubmissionDateChange = (e) => {
         const value = e.target.value;
         setSubmissionDateValue(value);
-        onUpdateValue(index, "submissionDate", value, instructionType);
+        onUpdateValue(index, 'submissionDate', value, instructionType);
     };
 
     const handleSubmittedDateChange = (e) => {
         const value = e.target.value;
         setSubmittedDateValue(value);
-        onUpdateValue(index, "submittedDate", value, instructionType);
+        onUpdateValue(index, 'submittedDate', value, instructionType);
     };
 
     return (
@@ -79,12 +101,62 @@ const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionT
 };
 
 const SupportFunctionTableForm = () => {
+
+    const [support1Data, setSupport1Data] = useState([]);
+    const [support2Data, setSupport2Data] = useState([]);
+    const [support3Data, setSupport3Data] = useState([]);
+    const [support4Data, setSupport4Data] = useState([]);
+    const [support5Data, setSupport5Data] = useState([]);
+    const [support6Data, setSupport6Data] = useState([]);
+    const [support7Data, setSupport7Data] = useState([]);
+    const [support8Data, setSupport8Data] = useState([]);
+    const [support9Data, setSupport9Data] = useState([]);
+
     const [formData, setFormData] = useState([]);
     const { data: session, status } = useSession();
 
     useEffect(() => {
+        const fetchData = async () => {
+            try {
+
+                // Make the API request to retrieve user data
+                const response = await axios.get("/api/faculty-up/fetchUserData", {
+                    params: {
+                        userId: session.user.id, // Pass the user ID as a parameter
+                    },
+                });
+
+                // Extract the user data from the response
+                const userData = response.data.userData;
+
+                console.log(userData.supportFunction)
+
+                // Initialize the form data state with the retrieved user data
+
+                setSupport1Data(userData.supportFunction.instruction1 || []);
+                setSupport2Data(userData.supportFunction.instruction2 || []);
+                setSupport3Data(userData.supportFunction.instruction3 || []);
+                setSupport4Data(userData.supportFunction.instruction4 || []);
+                setSupport5Data(userData.supportFunction.instruction5 || []);
+                setSupport6Data(userData.supportFunction.instruction6 || []);
+                setSupport7Data(userData.supportFunction.instruction7 || []);
+                setSupport8Data(userData.supportFunction.instruction1 || []);
+                setSupport9Data(userData.supportFunction.instruction2 || []);
+
+
+
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        };
+
+        // Fetch user data when the component mounts
+        fetchData();
+    }, [session]);
+
+    useEffect(() => {
         const initialData = Array(supportfunctions1Indicators.length + supportfunctions2Indicators.length + supportfunctions3Indicators.length +
-            supportfunctions4Indicators.length + supportfunctions5Indicators.length + supportfunctions6Indicators.length + supportfunctions7Indicators + 
+            supportfunctions4Indicators.length + supportfunctions5Indicators.length + supportfunctions6Indicators.length + supportfunctions7Indicators +
             supportfunctions8Indicators + supportfunctions9Indicators).fill({});
         setFormData(initialData);
     }, []);
@@ -99,7 +171,7 @@ const SupportFunctionTableForm = () => {
             const supportfunctions6Length = supportfunctions6Indicators.length;
             const supportfunctions7Length = supportfunctions7Indicators.length;
             const supportfunctions8Length = supportfunctions8Indicators.length;
-            const supportfunctions9Length = supportfunctions9Indicators.length;
+
 
             let adjustedIndex;
 
@@ -132,18 +204,24 @@ const SupportFunctionTableForm = () => {
         });
     };
 
-    const renderIndicatorRows = (indicatorArray, instructionType) => {
-        //  console.log("Rendering indicator rows", indicatorArray); // Debugging statement
+    const renderIndicatorRows = (indicatorArray, instructionType, supportData) => {
+        return indicatorArray.map((indicator, index) => {
+            const data = supportData[index] || {}; // Get the data for the current index or an empty object if not available
 
-        return indicatorArray.map((indicator, index) => (
-            <PerformanceIndicatorRow
-                key={indicator.id}
-                indicator={indicator}
-                index={index}
-                onUpdateValue={handleUpdateValue}
-                instructionType={instructionType}
-            />
-        ));
+
+            console.log(data)
+
+            return (
+                <PerformanceIndicatorRow
+                    key={indicator.id}
+                    indicator={indicator}
+                    index={index}
+                    onUpdateValue={handleUpdateValue}
+                    instructionType={instructionType}
+                    data={data}
+                />
+            );
+        });
     };
 
     const handleSubmit = async (e) => {
@@ -185,7 +263,7 @@ const SupportFunctionTableForm = () => {
                             <h1>10.  Perform Officially-Deligated Assignment.</h1>
                         </td>
                     </tr>
-                    {renderIndicatorRows(supportfunctions1Indicators, "supportfunctions1")}
+                    {renderIndicatorRows(supportfunctions1Indicators, "supportfunctions1", support1Data)}
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
@@ -193,7 +271,7 @@ const SupportFunctionTableForm = () => {
                         </td>
                     </tr>
 
-                    {renderIndicatorRows(supportfunctions2Indicators, "supportfunctions2")}
+                    {renderIndicatorRows(supportfunctions2Indicators, "supportfunctions2", support2Data)}
 
 
                     <tr className='border-b border-black'>
@@ -201,7 +279,7 @@ const SupportFunctionTableForm = () => {
                             <h1>12.  Participate in the Flag lowering</h1>
                         </td>
                     </tr>
-                    {renderIndicatorRows(supportfunctions3Indicators, "supportfunctions3")}
+                    {renderIndicatorRows(supportfunctions3Indicators, "supportfunctions3", support3Data)}
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
@@ -209,15 +287,15 @@ const SupportFunctionTableForm = () => {
                         </td>
                     </tr>
 
-                    {renderIndicatorRows(supportfunctions4Indicators, "supportfunctions4")}
+                    {renderIndicatorRows(supportfunctions4Indicators, "supportfunctions4", support4Data)}
 
                     <tr className='border-b border-black'>
-                        <td colspan="10" className="border-b border-black p-2">
+                        <td colSpan="10" className="border-b border-black p-2">
                             <h1>14.  Participate in school celebrations and other allied activities</h1>
                         </td>
                     </tr>
 
-                    {renderIndicatorRows(supportfunctions5Indicators, "supportfunctions5")}
+                    {renderIndicatorRows(supportfunctions5Indicators, "supportfunctions5", support5Data)}
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
@@ -225,7 +303,7 @@ const SupportFunctionTableForm = () => {
                         </td>
                     </tr>
 
-                    {renderIndicatorRows(supportfunctions6Indicators, "supportfunctions6")}
+                    {renderIndicatorRows(supportfunctions6Indicators, "supportfunctions6", support6Data)}
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
@@ -233,15 +311,15 @@ const SupportFunctionTableForm = () => {
                         </td>
                     </tr>
 
-                    {renderIndicatorRows(supportfunctions7Indicators, "supportfunctions7")}
+                    {renderIndicatorRows(supportfunctions7Indicators, "supportfunctions7", support7Data)}
 
                     <tr className='border-b border-black'>
-                        <td colspan="10" className="border-b border-black p-2">
+                        <td colSpan="10" className="border-b border-black p-2">
                             <h1>17.  Involvement in accreditation/ISO and other related activities</h1>
                         </td>
                     </tr>
 
-                    {renderIndicatorRows(supportfunctions8Indicators, "supportfunctions8")}
+                    {renderIndicatorRows(supportfunctions8Indicators, "supportfunctions8", support8Data)}
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
@@ -249,7 +327,7 @@ const SupportFunctionTableForm = () => {
                         </td>
                     </tr>
 
-                    {renderIndicatorRows(supportfunctions9Indicators, "supportfunctions9")}
+                    {renderIndicatorRows(supportfunctions9Indicators, "supportfunctions9", support9Data)}
 
                 </tbody>
             </table>
