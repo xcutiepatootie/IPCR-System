@@ -89,6 +89,7 @@ const InstructionTableForm = () => {
     const [instruction7Data, setInstruction7Data] = useState([]);
 
     const [formData, setFormData] = useState([]);
+    const [finalData, setFinalData] = useState([]);
     const { data: session, status } = useSession();
 
     useEffect(() => {
@@ -167,18 +168,18 @@ const InstructionTableForm = () => {
             console.log(`Instruction ${type} Data:`, instructionData[type]);
         });
 
-        console.log("Final: ", instructionData);
+        console.log("Instruction Data:", instructionData);
 
         try {
             const response = await axios.post("/api/faculty-up/mergeUserData", {
-                userData: instructionData,
+                userData: instructionData, // Pass instructionData instead of finalData
                 loggedInUserId: session.user.id,
             });
 
             console.log(response.data);
             e.target.reset();
         } catch (error) {
-            console.error(error);
+            console.error("Error:", error);
         }
     };
 
