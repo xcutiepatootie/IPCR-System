@@ -87,6 +87,8 @@ const instructionSchema = new mongoose.Schema({
 
 
 
+
+
 const superadminSchema = new mongoose.Schema({
     ...userSchema.obj
 })
@@ -120,6 +122,35 @@ const facultySchema = new mongoose.Schema({
             instruction6: [],
             instruction7: []
         }
+    },
+    researchProperty: {
+        _id: false,
+        research1: {
+            _id: false,
+            type: [{
+                target: {
+                    type: Number,
+                    required: false
+                },
+                accomplished: {
+                    type: Number,
+                    required: false
+                },
+                submissionDate: {
+                    type: String,
+                    required: false
+                },
+                submittedDate: {
+                    type: String,
+                    required: false
+                }
+            }],
+        },
+
+        default: [],
+
+
+
     }
 
 

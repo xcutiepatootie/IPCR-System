@@ -2,34 +2,57 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 
-const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionType }) => {
-    const [targetValue, setTargetValue] = useState("");
-    const [accomplishedValue, setAccomplishedValue] = useState("");
-    const [submissionDateValue, setSubmissionDateValue] = useState("");
-    const [submittedDateValue, setSubmittedDateValue] = useState("");
+const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionType, data }) => {
+    const [targetValue, setTargetValue] = useState('');
+    const [accomplishedValue, setAccomplishedValue] = useState('');
+    const [submissionDateValue, setSubmissionDateValue] = useState('');
+    const [submittedDateValue, setSubmittedDateValue] = useState('');
+
+    useEffect(() => {
+        if (data.target !== undefined) {
+            setTargetValue(data.target);
+            onUpdateValue(index, 'target', data.target, instructionType); // Call onUpdateValue with initial target value
+        }
+
+        if (data.accomplished !== undefined) {
+            setAccomplishedValue(data.accomplished);
+            onUpdateValue(index, 'accomplished', data.accomplished, instructionType); // Call onUpdateValue with initial accomplished value
+        }
+
+        if (data.submissionDate !== undefined) {
+            setSubmissionDateValue(data.submissionDate);
+            onUpdateValue(index, 'submissionDate', data.submissionDate, instructionType); // Call onUpdateValue with initial submissionDate value
+        }
+
+        if (data.submittedDate !== undefined) {
+            setSubmittedDateValue(data.submittedDate);
+            onUpdateValue(index, 'submittedDate', data.submittedDate, instructionType); // Call onUpdateValue with initial submittedDate value
+        }
+    }, [data.target, data.accomplished, data.submissionDate, data.submittedDate]);
+
 
     const handleTargetChange = (e) => {
         const value = e.target.value;
         setTargetValue(value);
-        onUpdateValue(index, "target", value, instructionType);
+        onUpdateValue(index, 'target', value, instructionType);
     };
 
     const handleAccomplishedChange = (e) => {
         const value = e.target.value;
         setAccomplishedValue(value);
-        onUpdateValue(index, "accomplished", value, instructionType);
+        onUpdateValue(index, 'accomplished', value, instructionType);
     };
 
     const handleSubmissionDateChange = (e) => {
         const value = e.target.value;
         setSubmissionDateValue(value);
-        onUpdateValue(index, "submissionDate", value, instructionType);
+        onUpdateValue(index, 'submissionDate', value, instructionType);
     };
 
     const handleSubmittedDateChange = (e) => {
         const value = e.target.value;
         setSubmittedDateValue(value);
-        onUpdateValue(index, "submittedDate", value, instructionType);
+        onUpdateValue(index, 'submittedDate', value, instructionType);
     };
 
     return (
@@ -80,9 +103,57 @@ const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionT
 const InstructionTableForm = () => {
 
 
+    const [instruction1Data, setInstruction1Data] = useState([]);
+    const [instruction2Data, setInstruction2Data] = useState([]);
+    const [instruction3Data, setInstruction3Data] = useState([]);
+    const [instruction4Data, setInstruction4Data] = useState([]);
+    const [instruction5Data, setInstruction5Data] = useState([]);
+    const [instruction6Data, setInstruction6Data] = useState([]);
+    const [instruction7Data, setInstruction7Data] = useState([]);
+
+
+
     const [formData, setFormData] = useState([]);
 
     const { data: session, status } = useSession();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+
+                // Make the API request to retrieve user data
+                const response = await axios.get("/api/faculty-up/instructionUpForm", {
+                    params: {
+                        userId: session.user.id, // Pass the user ID as a parameter
+                    },
+                });
+
+                // Extract the user data from the response
+                const userData = response.data.userData;
+
+                console.log(userData.instructionProperty)
+
+                // Initialize the form data state with the retrieved user data
+
+                setInstruction1Data(userData.instructionProperty.instruction1 || []);
+                setInstruction2Data(userData.instructionProperty.instruction2 || []);
+                setInstruction3Data(userData.instructionProperty.instruction3 || []);
+                setInstruction4Data(userData.instructionProperty.instruction4 || []);
+                setInstruction5Data(userData.instructionProperty.instruction5 || []);
+                setInstruction6Data(userData.instructionProperty.instruction6 || []);
+                setInstruction7Data(userData.instructionProperty.instruction7 || []);
+
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        };
+
+        // Fetch user data when the component mounts
+        fetchData();
+    }, [session]);
+
+    console.log(instruction1Data)
+    console.log(instruction2Data)
 
     useEffect(() => {
         const initialData = Array(instruction1Indicators.length + instruction2Indicators.length + instruction3Indicators.length +
@@ -128,27 +199,31 @@ const InstructionTableForm = () => {
     };
 
 
+    const renderIndicatorRows = (indicatorArray, instructionType, instructionData) => {
+        return indicatorArray.map((indicator, index) => {
+            const data = instructionData[index] || {}; // Get the data for the current index or an empty object if not available
 
 
-    const renderIndicatorRows = (indicatorArray, instructionType) => {
-        //  console.log("Rendering indicator rows", indicatorArray); // Debugging statement
+            console.log(data)
 
-        return indicatorArray.map((indicator, index) => (
-            <PerformanceIndicatorRow
-                key={indicator.id}
-                indicator={indicator}
-                index={index}
-                onUpdateValue={handleUpdateValue}
-                instructionType={instructionType}
-            />
-        ));
+            return (
+                <PerformanceIndicatorRow
+                    key={indicator.id}
+                    indicator={indicator}
+                    index={index}
+                    onUpdateValue={handleUpdateValue}
+                    instructionType={instructionType}
+                    data={data}
+                />
+            );
+        });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(formData);
 
-        const instructionTypes = ["instruction1", "instruction2", "instruction3", "instruction4", "instruction6", "instruction7"];
+        const instructionTypes = ["instruction1", "instruction2", "instruction3", "instruction4", "instruction5", "instruction6", "instruction7"];
 
         const instructionData = {};
 
@@ -208,13 +283,13 @@ const InstructionTableForm = () => {
                                     <h1>1. Plan and Prepare Instructional Materials to Enhance Instruction</h1>
                                 </td>
                             </tr>
-                            {renderIndicatorRows(instruction1Indicators, "instruction1")}
+                            {renderIndicatorRows(instruction1Indicators, "instruction1", instruction1Data)}
                             <tr className="border-b border-black">
                                 <td className="border-b border-black p-2">
                                     <h1>2. Organizes Classroom Instruction</h1>
                                 </td>
                             </tr>
-                            {renderIndicatorRows(instruction2Indicators, "instruction2")}
+                            {renderIndicatorRows(instruction2Indicators, "instruction2", instruction2Data)}
 
                             <tr className='border-b border-black'>
                                 <td className="border-b border-black p-2">
@@ -222,7 +297,7 @@ const InstructionTableForm = () => {
                                 </td>
                             </tr>
 
-                            {renderIndicatorRows(instruction3Indicators, 'instruction3')}
+                            {renderIndicatorRows(instruction3Indicators, 'instruction3', instruction3Data)}
 
                             <tr className='border-b border-black'>
                                 <td colSpan="10" className="border-b border-black p-2">
@@ -230,7 +305,7 @@ const InstructionTableForm = () => {
                                 </td>
                             </tr>
 
-                            {renderIndicatorRows(instruction4Indicators, 'instruction4')}
+                            {renderIndicatorRows(instruction4Indicators, 'instruction4', instruction4Data)}
 
                             <tr className='border-b border-black'>
                                 <td colSpan="10" className="border-b border-black p-2">
@@ -238,7 +313,7 @@ const InstructionTableForm = () => {
                                 </td>
                             </tr>
 
-                            {renderIndicatorRows(instruction5Indicators, 'instruction5')}
+                            {renderIndicatorRows(instruction5Indicators, 'instruction5', instruction5Data)}
 
                             <tr className='border-b border-black'>
                                 <td colSpan="10" className="border-b border-black p-2">
@@ -246,7 +321,7 @@ const InstructionTableForm = () => {
                                 </td>
                             </tr>
 
-                            {renderIndicatorRows(instruction6Indicators, 'instruction6')}
+                            {renderIndicatorRows(instruction6Indicators, 'instruction6', instruction6Data)}
 
                             <tr className='border-b border-black'>
                                 <td colSpan="10" className="border-b border-black p-2">
@@ -254,7 +329,7 @@ const InstructionTableForm = () => {
                                 </td>
                             </tr>
 
-                            {renderIndicatorRows(instruction7Indicators, 'instruction7')}
+                            {renderIndicatorRows(instruction7Indicators, 'instruction7', instruction7Data)}
 
                         </tbody>
                     </table>

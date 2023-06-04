@@ -3,34 +3,57 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 
-const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionType }) => {
-    const [targetValue, setTargetValue] = useState("");
-    const [accomplishedValue, setAccomplishedValue] = useState("");
-    const [submissionDateValue, setSubmissionDateValue] = useState("");
-    const [submittedDateValue, setSubmittedDateValue] = useState("");
+const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionType, data }) => {
+    const [targetValue, setTargetValue] = useState('');
+    const [accomplishedValue, setAccomplishedValue] = useState('');
+    const [submissionDateValue, setSubmissionDateValue] = useState('');
+    const [submittedDateValue, setSubmittedDateValue] = useState('');
+
+    useEffect(() => {
+        if (data.target !== undefined) {
+            setTargetValue(data.target);
+            onUpdateValue(index, 'target', data.target, instructionType); // Call onUpdateValue with initial target value
+        }
+
+        if (data.accomplished !== undefined) {
+            setAccomplishedValue(data.accomplished);
+            onUpdateValue(index, 'accomplished', data.accomplished, instructionType); // Call onUpdateValue with initial accomplished value
+        }
+
+        if (data.submissionDate !== undefined) {
+            setSubmissionDateValue(data.submissionDate);
+            onUpdateValue(index, 'submissionDate', data.submissionDate, instructionType); // Call onUpdateValue with initial submissionDate value
+        }
+
+        if (data.submittedDate !== undefined) {
+            setSubmittedDateValue(data.submittedDate);
+            onUpdateValue(index, 'submittedDate', data.submittedDate, instructionType); // Call onUpdateValue with initial submittedDate value
+        }
+    }, [data.target, data.accomplished, data.submissionDate, data.submittedDate]);
+
 
     const handleTargetChange = (e) => {
         const value = e.target.value;
         setTargetValue(value);
-        onUpdateValue(index, "target", value, instructionType);
+        onUpdateValue(index, 'target', value, instructionType);
     };
 
     const handleAccomplishedChange = (e) => {
         const value = e.target.value;
         setAccomplishedValue(value);
-        onUpdateValue(index, "accomplished", value, instructionType);
+        onUpdateValue(index, 'accomplished', value, instructionType);
     };
 
     const handleSubmissionDateChange = (e) => {
         const value = e.target.value;
         setSubmissionDateValue(value);
-        onUpdateValue(index, "submissionDate", value, instructionType);
+        onUpdateValue(index, 'submissionDate', value, instructionType);
     };
 
     const handleSubmittedDateChange = (e) => {
         const value = e.target.value;
         setSubmittedDateValue(value);
-        onUpdateValue(index, "submittedDate", value, instructionType);
+        onUpdateValue(index, 'submittedDate', value, instructionType);
     };
 
     return (
@@ -84,8 +107,37 @@ const ResearchTableForm = () => {
     const [research1Data, setResearch1Data] = useState([]);
 
     const [formData, setFormData] = useState([]);
-    const [finalData, setFinalData] = useState([]);
     const { data: session, status } = useSession();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+
+                // Make the API request to retrieve user data
+                const response = await axios.get("/api/faculty-up/fetchUserData", {
+                    params: {
+                        userId: session.user.id, // Pass the user ID as a parameter
+                    },
+                });
+
+                // Extract the user data from the response
+                const userData = response.data.userData;
+
+                console.log(userData.researchProperty)
+
+                // Initialize the form data state with the retrieved user data
+
+                setResearch1Data(userData.researchProperty.research1 || []);
+
+
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        };
+
+        // Fetch user data when the component mounts
+        fetchData();
+    }, [session]);
 
     useEffect(() => {
         const initialData = Array(research1Indicators.length).fill({});
@@ -94,35 +146,34 @@ const ResearchTableForm = () => {
 
     const handleUpdateValue = (index, field, value, instructionType) => {
         setFormData((prevData) => {
-            const research1Length = research1Indicators.length;
-
-            let adjustedIndex;
-
-            if (instructionType === "instruction1") {
-                adjustedIndex = index;
-            }
-
             const updatedData = [...prevData];
-            const existingData = updatedData[adjustedIndex] || {}; // Get the existing data for the adjusted index
-            const newData = { ...existingData, [field]: value, instructionType }; // Merge the existing data with the new field value
-            updatedData[adjustedIndex] = newData; // Update the data for the adjusted index
-            delete updatedData[adjustedIndex]._id;
+            const existingData = updatedData[index] || {}; // Use the index parameter directly
+            const newData = { ...existingData, [field]: value, instructionType };
+            updatedData[index] = newData;
+            delete updatedData[index]._id;
             return updatedData;
         });
     };
 
-    const renderIndicatorRows = (indicatorArray, instructionType) => {
-        //  console.log("Rendering indicator rows", indicatorArray); // Debugging statement
 
-        return indicatorArray.map((indicator, index) => (
-            <PerformanceIndicatorRow
-                key={indicator.id}
-                indicator={indicator}
-                index={index}
-                onUpdateValue={handleUpdateValue}
-                instructionType={instructionType}
-            />
-        ));
+    const renderIndicatorRows = (indicatorArray, instructionType, researchData) => {
+        return indicatorArray.map((indicator, index) => {
+            const data = researchData[index] || {}; // Get the data for the current index or an empty object if not available
+
+
+            console.log(data)
+
+            return (
+                <PerformanceIndicatorRow
+                    key={indicator.id}
+                    indicator={indicator}
+                    index={index}
+                    onUpdateValue={handleUpdateValue}
+                    instructionType={instructionType}
+                    data={data}
+                />
+            );
+        });
     };
 
     const handleSubmit = async (e) => {
@@ -144,7 +195,7 @@ const ResearchTableForm = () => {
         console.log("Research Data:", researchData);
 
         try {
-            const response = await axios.post("/api/faculty-up/mergeUserData", {
+            const response = await axios.post("/api/faculty-up/researchUpForm", {
                 userData: researchData, // Pass instructionData instead of finalData
                 loggedInUserId: session.user.id,
             });
@@ -181,7 +232,7 @@ const ResearchTableForm = () => {
                             <h1>8.   Research program/projects/studies.</h1>
                         </td>
                     </tr>
-                    {renderIndicatorRows(research1Indicators, "research1")}
+                    {renderIndicatorRows(research1Indicators, "research1", research1Data)}
 
                 </tbody>
             </table>
