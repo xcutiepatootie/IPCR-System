@@ -78,6 +78,7 @@ const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionT
 };
 
 const InstructionTableForm = () => {
+
     const [formData, setFormData] = useState([]);
     const { data: session, status } = useSession();
 
@@ -95,7 +96,7 @@ const InstructionTableForm = () => {
             const instruction4Length = instruction4Indicators.length;
             const instruction5Length = instruction5Indicators.length;
             const instruction6Length = instruction6Indicators.length;
-
+            const instruction7Length = instruction7Indicators.length;
 
             let adjustedIndex;
 
@@ -123,9 +124,6 @@ const InstructionTableForm = () => {
             return updatedData;
         });
     };
-
-
-
 
     const renderIndicatorRows = (indicatorArray, instructionType) => {
         //  console.log("Rendering indicator rows", indicatorArray); // Debugging statement
@@ -224,16 +222,6 @@ const InstructionTableForm = () => {
 
                             {renderIndicatorRows(instruction7Indicators, 'instruction7')}
 
-
-
-
-
-
-
-
-
-
-                            {/* Repeat the same pattern for other sections */}
                         </tbody>
                     </table>
                     <button type="submit">Submit</button>

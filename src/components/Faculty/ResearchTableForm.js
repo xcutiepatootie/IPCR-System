@@ -1,9 +1,143 @@
 import React from 'react';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useSession } from "next-auth/react";
+
+const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionType }) => {
+    const [targetValue, setTargetValue] = useState("");
+    const [accomplishedValue, setAccomplishedValue] = useState("");
+    const [submissionDateValue, setSubmissionDateValue] = useState("");
+    const [submittedDateValue, setSubmittedDateValue] = useState("");
+
+    const handleTargetChange = (e) => {
+        const value = e.target.value;
+        setTargetValue(value);
+        onUpdateValue(index, "target", value, instructionType);
+    };
+
+    const handleAccomplishedChange = (e) => {
+        const value = e.target.value;
+        setAccomplishedValue(value);
+        onUpdateValue(index, "accomplished", value, instructionType);
+    };
+
+    const handleSubmissionDateChange = (e) => {
+        const value = e.target.value;
+        setSubmissionDateValue(value);
+        onUpdateValue(index, "submissionDate", value, instructionType);
+    };
+
+    const handleSubmittedDateChange = (e) => {
+        const value = e.target.value;
+        setSubmittedDateValue(value);
+        onUpdateValue(index, "submittedDate", value, instructionType);
+    };
+
+    return (
+        <>
+            <tr className="border-gray-800">
+                <td className="py-2 px-4 border-b border border-gray-800">{indicator.label}</td>
+                <td className="py-2 px-4 border-b border border-gray-800">
+                    <input
+                        type="number"
+                        name={`target${index}`}
+                        className="w-full p-2 border border-black rounded"
+                        value={targetValue}
+                        onChange={handleTargetChange}
+                    />
+                </td>
+                <td className="py-2 px-4 border-b border border-gray-800">
+                    <input
+                        type="number"
+                        name={`accomplished${index}`}
+                        className="w-full p-2 border border-black rounded"
+                        value={accomplishedValue}
+                        onChange={handleAccomplishedChange}
+                    />
+                </td>
+                <td className="py-2 px-4 border-b border border-gray-800">
+                    <input
+                        type="date"
+                        name={`submission${index}`}
+                        className="w-full p-2 border border-black rounded"
+                        value={submissionDateValue}
+                        onChange={handleSubmissionDateChange}
+                    />
+                </td>
+                <td className="py-2 px-4 border-b border border-gray-800">
+                    <input
+                        type="date"
+                        name={`submitted${index}`}
+                        className="w-full p-2 border border-black rounded"
+                        value={submittedDateValue}
+                        onChange={handleSubmittedDateChange}
+                    />
+                </td>
+            </tr>
+        </>
+    );
+};
 
 const ResearchTableForm = () => {
-    const handleSubmit = (e) => {
-        e.preventDefault();
 
+    //testing
+    const [research1Data, setResearch1Data] = useState([]);
+
+    const [formData, setFormData] = useState([]);
+    const { data: session, status } = useSession();
+
+    useEffect(() => {
+        const initialData = Array(research1Indicators.length).fill({});
+        setFormData(initialData);
+    }, []);
+
+    const handleUpdateValue = (index, field, value, instructionType) => {
+        setFormData((prevData) => {
+            const research1Length = research1Indicators.length;
+
+            let adjustedIndex;
+
+            if (instructionType === "research1") {
+                adjustedIndex = index;
+            }
+
+            const updatedData = [...prevData];
+            const existingData = updatedData[adjustedIndex] || {}; // Get the existing data for the adjusted index
+            const newData = { ...existingData, [field]: value, instructionType }; // Merge the existing data with the new field value
+            updatedData[adjustedIndex] = newData; // Update the data for the adjusted index
+            delete updatedData[adjustedIndex]._id;
+            return updatedData;
+        });
+    };
+
+    const renderIndicatorRows = (indicatorArray, instructionType) => {
+        //  console.log("Rendering indicator rows", indicatorArray); // Debugging statement
+
+        return indicatorArray.map((indicator, index) => (
+            <PerformanceIndicatorRow
+                key={indicator.id}
+                indicator={indicator}
+                index={index}
+                onUpdateValue={handleUpdateValue}
+                instructionType={instructionType}
+            />
+        ));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log(formData);
+        try {
+            const response = await axios.post("/api/faculty-up/mergeUserData", {
+                userData: formData,
+                loggedInUserId: session.user.id,
+            });
+
+            console.log(response.data);
+            e.target.reset();
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     return (
@@ -19,8 +153,6 @@ const ResearchTableForm = () => {
                     </tr>
                 </thead>
                 <tbody>
-
-
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
                             <h1>Research</h1>
@@ -33,242 +165,8 @@ const ResearchTableForm = () => {
                         </td>
                     </tr>
 
-                    <tr className="border-gray-800">
-                        <td className="py-2 px-4 border-b border border-gray-800">a) Research Proposal submitted/ Activity Conducted</td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="target1"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="accomplished1"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submissiondate1"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submitteddate1"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
+                    {renderIndicatorRows(research1Indicators, "research1")}
 
-                    <tr className="border-gray-800">
-                        <td className="py-2 px-4 border-b border border-gray-800">b) Research Implemented and/or Completed within the Timeframe</td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="target2"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="accomplished2"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submissiondate2"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submitteddate2"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-
-                    <tr className="border-gray-800">
-                        <td className="py-2 px-4 border-b border border-gray-800">c) Research Presented in Regional/National/International Conferences</td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="target3"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="accomplished3"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submissiondate3"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submitteddate3"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-                    <tr className="border-gray-800">
-                        <td className="py-2 px-4 border-b border border-gray-800">d) Research Published in Peer-reviewed Journals</td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="target4"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="accomplished4"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submissiondate4"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submitteddate4"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-                    <tr className="border-gray-800">
-                        <td className="py-2 px-4 border-b border border-gray-800">e) Filed/Published/Approved Intellectual Property Rights</td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="target5"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="accomplished5"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submissiondate5"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submitteddate5"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-                    <tr className="border-gray-800">
-                        <td className="py-2 px-4 border-b border border-gray-800">f) Research Utilized/Deployed through Commercialization/Extension/Policy</td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="target6"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="accomplished6"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submissiondate6"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submitteddate6"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-                    <tr className="border-gray-800">
-                        <td className="py-2 px-4 border-b border border-gray-800">g) Number of citations in journals/books</td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="target7"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="accomplished7"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submissiondate7"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submitteddate7"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-
-
-                    { }
                 </tbody>
             </table>
             <button
@@ -283,4 +181,12 @@ const ResearchTableForm = () => {
 
 export default ResearchTableForm;
 
-
+const research1Indicators = [
+    { id: "indicator1", label: 'a) Research Proposal submitted/ Activity Conducted' },
+    { id: "indicator2", label: 'b) Research Implemented and/or Completed within the Timeframe' },
+    { id: "indicator3", label: 'c) Research Presented in Regional/National/International Conferences' },
+    { id: "indicator4", label: 'd) Research Published in Peer-reviewed Journals' },
+    { id: "indicator5", label: 'e) Filed/Published/Approved Intellectual Property Rights' },
+    { id: "indicator6", label: 'f) Research Utilized/Deployed through Commercialization/Extension/Policy)' },
+    { id: "indicator7", label: 'g) Number of citations in journals/books' }
+];

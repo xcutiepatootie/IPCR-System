@@ -1,8 +1,165 @@
 import React from 'react';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useSession } from "next-auth/react";
+
+const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionType }) => {
+    const [targetValue, setTargetValue] = useState("");
+    const [accomplishedValue, setAccomplishedValue] = useState("");
+    const [submissionDateValue, setSubmissionDateValue] = useState("");
+    const [submittedDateValue, setSubmittedDateValue] = useState("");
+
+    const handleTargetChange = (e) => {
+        const value = e.target.value;
+        setTargetValue(value);
+        onUpdateValue(index, "target", value, instructionType);
+    };
+
+    const handleAccomplishedChange = (e) => {
+        const value = e.target.value;
+        setAccomplishedValue(value);
+        onUpdateValue(index, "accomplished", value, instructionType);
+    };
+
+    const handleSubmissionDateChange = (e) => {
+        const value = e.target.value;
+        setSubmissionDateValue(value);
+        onUpdateValue(index, "submissionDate", value, instructionType);
+    };
+
+    const handleSubmittedDateChange = (e) => {
+        const value = e.target.value;
+        setSubmittedDateValue(value);
+        onUpdateValue(index, "submittedDate", value, instructionType);
+    };
+
+    return (
+        <>
+            <tr className="border-gray-800">
+                <td className="py-2 px-4 border-b border border-gray-800">{indicator.label}</td>
+                <td className="py-2 px-4 border-b border border-gray-800">
+                    <input
+                        type="number"
+                        name={`target${index}`}
+                        className="w-full p-2 border border-black rounded"
+                        value={targetValue}
+                        onChange={handleTargetChange}
+                    />
+                </td>
+                <td className="py-2 px-4 border-b border border-gray-800">
+                    <input
+                        type="number"
+                        name={`accomplished${index}`}
+                        className="w-full p-2 border border-black rounded"
+                        value={accomplishedValue}
+                        onChange={handleAccomplishedChange}
+                    />
+                </td>
+                <td className="py-2 px-4 border-b border border-gray-800">
+                    <input
+                        type="date"
+                        name={`submission${index}`}
+                        className="w-full p-2 border border-black rounded"
+                        value={submissionDateValue}
+                        onChange={handleSubmissionDateChange}
+                    />
+                </td>
+                <td className="py-2 px-4 border-b border border-gray-800">
+                    <input
+                        type="date"
+                        name={`submitted${index}`}
+                        className="w-full p-2 border border-black rounded"
+                        value={submittedDateValue}
+                        onChange={handleSubmittedDateChange}
+                    />
+                </td>
+            </tr>
+        </>
+    );
+};
 
 const SupportFunctionTableForm = () => {
-    const handleSubmit = (e) => {
+    const [formData, setFormData] = useState([]);
+    const { data: session, status } = useSession();
+
+    useEffect(() => {
+        const initialData = Array(supportfunctions1Indicators.length + supportfunctions2Indicators.length + supportfunctions3Indicators.length +
+            supportfunctions4Indicators.length + supportfunctions5Indicators.length + supportfunctions6Indicators.length + supportfunctions7Indicators + 
+            supportfunctions8Indicators + supportfunctions9Indicators).fill({});
+        setFormData(initialData);
+    }, []);
+
+    const handleUpdateValue = (index, field, value, instructionType) => {
+        setFormData((prevData) => {
+            const supportfunctions1Length = supportfunctions1Indicators.length;
+            const supportfunctions2Length = supportfunctions2Indicators.length;
+            const supportfunctions3Length = supportfunctions3Indicators.length;
+            const supportfunctions4Length = supportfunctions4Indicators.length;
+            const supportfunctions5Length = supportfunctions5Indicators.length;
+            const supportfunctions6Length = supportfunctions6Indicators.length;
+            const supportfunctions7Length = supportfunctions7Indicators.length;
+            const supportfunctions8Length = supportfunctions8Indicators.length;
+            const supportfunctions9Length = supportfunctions9Indicators.length;
+
+            let adjustedIndex;
+
+            if (instructionType === "supportfunctions1") {
+                adjustedIndex = index;
+            } else if (instructionType === "supportfunctions2") {
+                adjustedIndex = supportfunctions1Length + index;
+            } else if (instructionType === "supportfunctions3") {
+                adjustedIndex = supportfunctions1Length + supportfunctions2Length + index;
+            } else if (instructionType === "supportfunctions4") {
+                adjustedIndex = supportfunctions1Length + supportfunctions2Length + supportfunctions3Length + index;
+            } else if (instructionType === "supportfunctions5") {
+                adjustedIndex = supportfunctions1Length + supportfunctions2Length + supportfunctions3Length + supportfunctions4Length + index;
+            } else if (instructionType === "supportfunctions6") {
+                adjustedIndex = supportfunctions1Length + supportfunctions2Length + supportfunctions3Length + supportfunctions4Length + supportfunctions5Length + index;
+            } else if (instructionType === "supportfunctions7") {
+                adjustedIndex = supportfunctions1Length + supportfunctions2Length + supportfunctions3Length + supportfunctions4Length + supportfunctions5Length + supportfunctions6Length + index;
+            } else if (instructionType === "supportfunctions8") {
+                adjustedIndex = supportfunctions1Length + supportfunctions2Length + supportfunctions3Length + supportfunctions4Length + supportfunctions5Length + supportfunctions6Length + supportfunctions7Length + index;
+            } else if (instructionType === "supportfunctions9") {
+                adjustedIndex = supportfunctions1Length + supportfunctions2Length + supportfunctions3Length + supportfunctions4Length + supportfunctions5Length + supportfunctions6Length + supportfunctions7Length + supportfunctions8Length + index;
+            }
+
+            const updatedData = [...prevData];
+            const existingData = updatedData[adjustedIndex] || {}; // Get the existing data for the adjusted index
+            const newData = { ...existingData, [field]: value, instructionType }; // Merge the existing data with the new field value
+            updatedData[adjustedIndex] = newData; // Update the data for the adjusted index
+            delete updatedData[adjustedIndex]._id;
+            return updatedData;
+        });
+    };
+
+    const renderIndicatorRows = (indicatorArray, instructionType) => {
+        //  console.log("Rendering indicator rows", indicatorArray); // Debugging statement
+
+        return indicatorArray.map((indicator, index) => (
+            <PerformanceIndicatorRow
+                key={indicator.id}
+                indicator={indicator}
+                index={index}
+                onUpdateValue={handleUpdateValue}
+                instructionType={instructionType}
+            />
+        ));
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(formData);
+        try {
+            const response = await axios.post("/api/faculty-up/mergeUserData", {
+                userData: formData,
+                loggedInUserId: session.user.id,
+            });
+
+            console.log(response.data);
+            e.target.reset();
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     return (
@@ -22,42 +179,13 @@ const SupportFunctionTableForm = () => {
                         <td className="border-b border-black p-2">
                             <h1>Support Function</h1>
                         </td>
-
                     </tr>
-
-                    <tr className="border-gray-800">
-                        <td className="py-2 px-4 border-b border border-gray-800">a) Accomplishment Report</td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="target1"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="accomplished1"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submissiondate1"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submitteddate1"
-                                className="w-full p-2 border border-black rounded"
-                            />
+                    <tr className='border-b border-black'>
+                        <td className="border-b border-black p-2">
+                            <h1>10.  Perform Officially-Deligated Assignment.</h1>
                         </td>
                     </tr>
+                    {renderIndicatorRows(supportfunctions1Indicators, "supportfunctions1")}
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
@@ -65,79 +193,15 @@ const SupportFunctionTableForm = () => {
                         </td>
                     </tr>
 
-                    <tr className="border-gray-800">
-                        <td className="py-2 px-4 border-b border border-gray-800">a) Attendance</td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="target2"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="accomplished2"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submissiondate2"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submitteddate2"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
+                    {renderIndicatorRows(supportfunctions2Indicators, "supportfunctions2")}
+
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
                             <h1>12.  Participate in the Flag lowering</h1>
                         </td>
                     </tr>
-
-                    <tr className="border-gray-800">
-                        <td className="py-2 px-4 border-b border border-gray-800">a) Attendance</td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="target3"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="accomplished3"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submissiondate3"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submitteddate3"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
+                    {renderIndicatorRows(supportfunctions3Indicators, "supportfunctions3")}
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
@@ -145,39 +209,7 @@ const SupportFunctionTableForm = () => {
                         </td>
                     </tr>
 
-                    <tr className="border-gray-800">
-                        <td className="py-2 px-4 border-b border border-gray-800">a) a) Attendance sheet/Program of activities/other document as proof</td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="target4"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="accomplished4"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submissiondate4"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submitteddate4"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
+                    {renderIndicatorRows(supportfunctions4Indicators, "supportfunctions4")}
 
                     <tr className='border-b border-black'>
                         <td colspan="10" className="border-b border-black p-2">
@@ -185,39 +217,7 @@ const SupportFunctionTableForm = () => {
                         </td>
                     </tr>
 
-                    <tr className="border-gray-800">
-                        <td className="py-2 px-4 border-b border border-gray-800">a) Attendance sheet/Program of activities/other document as proof</td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="target5"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="accomplished5"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submissiondate5"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submitteddate5"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
+                    {renderIndicatorRows(supportfunctions5Indicators, "supportfunctions5")}
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
@@ -225,78 +225,15 @@ const SupportFunctionTableForm = () => {
                         </td>
                     </tr>
 
-                    <tr className="border-gray-800">
-                        <td className="py-2 px-4 border-b border border-gray-800">a) Training/Seminar/Conference certificate of attendance/ participation</td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="target6"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="accomplished6"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submissiondate6"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submitteddate6"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
+                    {renderIndicatorRows(supportfunctions6Indicators, "supportfunctions6")}
+
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
                             <h1>16.  Attend  Faculty Meeting</h1>
                         </td>
                     </tr>
 
-                    <tr className="border-gray-800">
-                        <td className="py-2 px-4 border-b border border-gray-800">a) Attendance</td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="target7"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="accomplished7"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submissiondate7"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submitteddate7"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
+                    {renderIndicatorRows(supportfunctions7Indicators, "supportfunctions7")}
 
                     <tr className='border-b border-black'>
                         <td colspan="10" className="border-b border-black p-2">
@@ -304,39 +241,7 @@ const SupportFunctionTableForm = () => {
                         </td>
                     </tr>
 
-                    <tr className="border-gray-800">
-                        <td className="py-2 px-4 border-b border border-gray-800">a) Attendance</td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="target8"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="accomplished8"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submissiondate8"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submitteddate8"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
+                    {renderIndicatorRows(supportfunctions8Indicators, "supportfunctions8")}
 
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
@@ -344,40 +249,8 @@ const SupportFunctionTableForm = () => {
                         </td>
                     </tr>
 
-                    <tr className="border-gray-800">
-                        <td className="py-2 px-4 border-b border border-gray-800">a) Attendance sheet/Program of activities/other document as proof</td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="target9"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="number"
-                                name="accomplished9"
-                                className="w-full p-2 border border-black rounded"
-                                min={0}
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submissiondate9"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="py-2 px-4 border-b border border-gray-800">
-                            <input
-                                type="date"
-                                name="submitteddate9"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-                    { }
+                    {renderIndicatorRows(supportfunctions9Indicators, "supportfunctions9")}
+
                 </tbody>
             </table>
             <button
@@ -391,3 +264,43 @@ const SupportFunctionTableForm = () => {
 };
 
 export default SupportFunctionTableForm;
+
+const supportfunctions1Indicators = [
+    { id: "indicator1", label: 'a) Accomplishment Report' }
+];
+
+const supportfunctions2Indicators = [
+    { id: "indicator2", label: 'a) Attendance' }
+];
+
+const supportfunctions3Indicators = [
+    { id: "indicator3", label: 'a) Attendance' }
+];
+
+const supportfunctions4Indicators = [
+    { id: "indicator4", label: 'a) Attendance sheet/Program of activities/other document as proof' }
+];
+
+const supportfunctions5Indicators = [
+    { id: "indicator5", label: 'a) Attendance sheet/Program of activities/other document as proof' }
+];
+
+const supportfunctions6Indicators = [
+    { id: "indicator6", label: 'a) Training/Seminar/Conference certificate of attendance/ participation' }
+];
+
+const supportfunctions7Indicators = [
+    { id: "indicator7", label: 'a) Attendance' }
+];
+
+const supportfunctions8Indicators = [
+    { id: "indicator8", label: 'a) Attendance' }
+];
+
+const supportfunctions9Indicators = [
+    { id: "indicator9", label: 'a) Attendance sheet/Program of activities/other document as proof' }
+];
+
+
+
+
