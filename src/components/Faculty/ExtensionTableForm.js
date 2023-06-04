@@ -9,6 +9,29 @@ const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionT
     const [submissionDateValue, setSubmissionDateValue] = useState("");
     const [submittedDateValue, setSubmittedDateValue] = useState("");
 
+    useEffect(() => {
+        if (data.target !== undefined) {
+            setTargetValue(data.target);
+            onUpdateValue(index, 'target', data.target, instructionType); // Call onUpdateValue with initial target value
+        }
+
+        if (data.accomplished !== undefined) {
+            setAccomplishedValue(data.accomplished);
+            onUpdateValue(index, 'accomplished', data.accomplished, instructionType); // Call onUpdateValue with initial accomplished value
+        }
+
+        if (data.submissionDate !== undefined) {
+            setSubmissionDateValue(data.submissionDate);
+            onUpdateValue(index, 'submissionDate', data.submissionDate, instructionType); // Call onUpdateValue with initial submissionDate value
+        }
+
+        if (data.submittedDate !== undefined) {
+            setSubmittedDateValue(data.submittedDate);
+            onUpdateValue(index, 'submittedDate', data.submittedDate, instructionType); // Call onUpdateValue with initial submittedDate value
+        }
+    }, [data.target, data.accomplished, data.submissionDate, data.submittedDate]);
+
+
     const handleTargetChange = (e) => {
         const value = e.target.value;
         setTargetValue(value);
@@ -84,8 +107,39 @@ const ExtensionTableForm = () => {
     const [extension1Data, setExtension1Data] = useState([]);
 
     const [formData, setFormData] = useState([]);
-    const [finalData, setFinalData] = useState([]);
     const { data: session, status } = useSession();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+
+                // Make the API request to retrieve user data
+                const response = await axios.get("/api/faculty-up/fetchUserData", {
+                    params: {
+                        userId: session.user.id, // Pass the user ID as a parameter
+                    },
+                });
+
+                // Extract the user data from the response
+                const userData = response.data.userData;
+
+                console.log(userData.researchProperty)
+
+                // Initialize the form data state with the retrieved user data
+
+                setExtension1Data(userData.researchProperty || []);
+
+
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        };
+
+        // Fetch user data when the component mounts
+        fetchData();
+    }, [session]);
+
+    console.log("Extension", extension1Data)
 
     useEffect(() => {
         const initialData = Array(extension1Indicators.length).fill({});
@@ -94,51 +148,40 @@ const ExtensionTableForm = () => {
 
     const handleUpdateValue = (index, field, value, instructionType) => {
         setFormData((prevData) => {
-            const extension1Length = extension1Indicators.length;
-
-            let adjustedIndex;
-
-            if (instructionType === "extension1") {
-                adjustedIndex = index;
-            } else if (instructionType === "extension2") {
-                adjustedIndex = instruction1Length + index;
-            } else if (instructionType === "extension3") {
-                adjustedIndex = instruction1Length + instruction2Length + index;
-            } else if (instructionType === "extension4") {
-                adjustedIndex = instruction1Length + instruction2Length + instruction3Length + index;
-            } else if (instructionType === "extension5") {
-                adjustedIndex = instruction1Length + instruction2Length + instruction3Length + instruction4Length + index;
-            }
-
             const updatedData = [...prevData];
-            const existingData = updatedData[adjustedIndex] || {}; // Get the existing data for the adjusted index
-            const newData = { ...existingData, [field]: value, instructionType }; // Merge the existing data with the new field value
-            updatedData[adjustedIndex] = newData; // Update the data for the adjusted index
-            delete updatedData[adjustedIndex]._id;
+            const existingData = updatedData[index] || {}; // Use the index parameter directly
+            const newData = { ...existingData, [field]: value, instructionType };
+            updatedData[index] = newData;
+            delete updatedData[index]._id;
             return updatedData;
         });
     };
 
     const renderIndicatorRows = (indicatorArray, instructionType) => {
-        //  console.log("Rendering indicator rows", indicatorArray); // Debugging statement
+        return indicatorArray.map((indicator, index) => {
+            const data = extensionData[index] || {}; // Get the data for the current index or an empty object if not available
 
-        return indicatorArray.map((indicator, index) => (
-            <PerformanceIndicatorRow
-                key={indicator.id}
-                indicator={indicator}
-                index={index}
-                onUpdateValue={handleUpdateValue}
-                instructionType={instructionType}
-            />
-        ));
+
+            console.log("Data::", data)
+
+            return (
+                <PerformanceIndicatorRow
+                    key={indicator.id}
+                    indicator={indicator}
+                    index={index}
+                    onUpdateValue={handleUpdateValue}
+                    instructionType={instructionType}
+                />
+            );
+        });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(formData);
         try {
-            const response = await axios.post("/api/faculty-up/mergeUserData", {
-                userData: formData,
+            const response = await axios.post("/api/faculty-up/extensionUpForm", {
+                userData: formData, // Pass instructionData instead of finalData
                 loggedInUserId: session.user.id,
             });
 
