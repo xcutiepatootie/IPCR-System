@@ -253,7 +253,7 @@ const InstructionTableForm = () => {
                                     <h1>2. Organizes Classroom Instruction</h1>
                                 </td>
                             </tr>
-                            
+
                             <tr className="border-gray-800">
                                 <td className="py-2 px-4 border-b border border-gray-800">a) Attendance Sheet</td>
                                 <td className="py-2 px-4 border-b border border-gray-800">
@@ -328,7 +328,7 @@ const InstructionTableForm = () => {
                                 </td>
                             </tr>
 
-                           
+
                             <tr className="border-gray-800">
                                 <td className="py-2 px-4 border-b border border-gray-800">a) Evaluation of Teaching Effectivess (CQA-SF-012)</td>
                                 <td className="py-2 px-4 border-b border border-gray-800">

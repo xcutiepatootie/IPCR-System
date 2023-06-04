@@ -47,31 +47,39 @@ const arraySchema = new mongoose.Schema({
 });
 
 const instructionSchema = new mongoose.Schema({
+    _id: false,
     instruction1: {
+        _id: false,
         type: [arraySchema],
         required: false
     },
     instruction2: {
+        _id: false,
         type: [arraySchema],
         required: false
     },
     instruction3: {
+        _id: false,
         type: [arraySchema],
         required: false
     },
     instruction4: {
+        _id: false,
         type: [arraySchema],
         required: false
     },
     instruction5: {
+        _id: false,
         type: [arraySchema],
         required: false
     },
     instruction6: {
+        _id: false,
         type: [arraySchema],
         required: false
     },
     instruction7: {
+        _id: false,
         type: [arraySchema],
         required: false
     }
@@ -102,25 +110,19 @@ const eiuhSchema = new mongoose.Schema({
 const facultySchema = new mongoose.Schema({
     ...userSchema.obj,
     instructionProperty: {
-        type: [instructionSchema],
-        required: false
-    },
-    researchProperty: {
-        type: [arraySchema],
-        required: false
-    },
-    extensionProperty: {
-        type: [arraySchema],
-        required: false
-    },
-    supportProperty: {
-        type: [arraySchema],
-        required: false
-    },
-    administrativeProperty: {
-        type: [arraySchema],
-        required: false
+        type: instructionSchema,
+        default: {
+            instruction1: [],
+            instruction2: [],
+            instruction3: [],
+            instruction4: [],
+            instruction5: [],
+            instruction6: [],
+            instruction7: []
+        }
     }
+
+
 
 
 })
