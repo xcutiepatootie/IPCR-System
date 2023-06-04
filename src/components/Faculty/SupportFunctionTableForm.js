@@ -146,7 +146,7 @@ const SupportFunctionTableForm = () => {
                     </tr>
 
                     <tr className="border-gray-800">
-                        <td className="py-2 px-4 border-b border border-gray-800">a) a) Attendance sheet/Program of activities/other document as proof</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">a) Attendance sheet/Program of activities/other document as proof</td>
                         <td className="py-2 px-4 border-b border border-gray-800">
                             <input
                                 type="number"
@@ -391,3 +391,43 @@ const SupportFunctionTableForm = () => {
 };
 
 export default SupportFunctionTableForm;
+
+const supportfunctions1Indicators = [
+    { id: "indicator1", label: 'a) Accomplishment Report' }
+];
+
+const supportfunctions2Indicators = [
+    { id: "indicator2", label: 'a) Attendance' }
+];
+
+const supportfunctions3Indicators = [
+    { id: "indicator3", label: 'a) Attendance' }
+];
+
+const supportfunctions4Indicators = [
+    { id: "indicator4", label: 'a) Attendance sheet/Program of activities/other document as proof' }
+];
+
+const supportfunctions5Indicators = [
+    { id: "indicator5", label: 'a) Attendance sheet/Program of activities/other document as proof' }
+];
+
+const supportfunctions6Indicators = [
+    { id: "indicator6", label: 'a) Training/Seminar/Conference certificate of attendance/ participation' }
+];
+
+const supportfunctions7Indicators = [
+    { id: "indicator7", label: 'a) Attendance' }
+];
+
+const supportfunctions8Indicators = [
+    { id: "indicator8", label: 'a) Attendance' }
+];
+
+const supportfunctions9Indicators = [
+    { id: "indicator9", label: 'a) Attendance sheet/Program of activities/other document as proof' }
+];
+
+
+
+

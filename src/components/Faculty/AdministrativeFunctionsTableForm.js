@@ -214,3 +214,11 @@ const AdministrativeFunctionsTableForm = () => {
 };
 
 export default AdministrativeFunctionsTableForm;
+
+const administrativefunctions1Indicators = [
+    { id: "indicator1", label: 'a) Prepare...' },
+    { id: "indicator2", label: 'b) Submit...' },
+    { id: "indicator3", label: 'c) Increase...' },
+    { id: "indicator4", label: 'd) ...' },
+    { id: "indicator5", label: 'e) ...' }
+];
