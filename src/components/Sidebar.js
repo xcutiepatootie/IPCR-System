@@ -87,4 +87,3 @@ const Sidebar = ({ handleItemClick }) => {
 };
 
 export default Sidebar;
-/*  */
