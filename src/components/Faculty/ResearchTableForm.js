@@ -181,7 +181,7 @@ const ResearchTableForm = () => {
         console.log(formData);
         try {
             const response = await axios.post("/api/faculty-up/researchUpForm", {
-                userData: researchData, // Pass instructionData instead of finalData
+                userData: formData, // Pass instructionData instead of finalData
                 loggedInUserId: session.user.id,
             });
 

@@ -149,7 +149,7 @@ const InstructionTableForm = () => {
 
         // Fetch user data when the component mounts
         fetchData();
-    }, []);
+    }, [session]);
 
     console.log(instruction1Data)
     console.log(instruction2Data)
