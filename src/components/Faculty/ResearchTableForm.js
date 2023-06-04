@@ -80,6 +80,9 @@ const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionT
 
 const ResearchTableForm = () => {
 
+    //testing
+    const [research1Data, setResearch1Data] = useState([]);
+
     const [formData, setFormData] = useState([]);
     const { data: session, status } = useSession();
 

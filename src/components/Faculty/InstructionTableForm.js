@@ -78,6 +78,7 @@ const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionT
 };
 
 const InstructionTableForm = () => {
+
     const [formData, setFormData] = useState([]);
     const { data: session, status } = useSession();
 
