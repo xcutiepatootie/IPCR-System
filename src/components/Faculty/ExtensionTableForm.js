@@ -209,3 +209,11 @@ const ExtensionTableForm = () => {
 };
 
 export default ExtensionTableForm;
+
+const extension1Indicators = [
+    { id: "indicator1", label: 'a) Extension proposal submitted/activity conducted' },
+    { id: "indicator2", label: 'b) Persons trained/provided with technical advise' },
+    { id: "indicator3", label: 'c) Persons who avail the service who rated the service as good or better' },
+    { id: "indicator4", label: 'd) Persons given training or advisory who rated the timeliness of service delivery as good or better' },
+    { id: "indicator5", label: 'e) Technical advice responded within 3 days upon request' }
+];

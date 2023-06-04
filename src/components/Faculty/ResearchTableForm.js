@@ -283,4 +283,12 @@ const ResearchTableForm = () => {
 
 export default ResearchTableForm;
 
-
+const research1Indicators = [
+    { id: "indicator1", label: 'a) Research Proposal submitted/ Activity Conducted' },
+    { id: "indicator2", label: 'b) Research Implemented and/or Completed within the Timeframe' },
+    { id: "indicator3", label: 'c) Research Presented in Regional/National/International Conferences' },
+    { id: "indicator4", label: 'd) Research Published in Peer-reviewed Journals' },
+    { id: "indicator5", label: 'e) Filed/Published/Approved Intellectual Property Rights' },
+    { id: "indicator6", label: 'f) Research Utilized/Deployed through Commercialization/Extension/Policy)' },
+    { id: "indicator7", label: 'g) Number of citations in journals/books' }
+];
