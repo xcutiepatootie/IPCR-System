@@ -3,46 +3,47 @@ import connectDB from '@/utils/connectDB';
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
-        connectDB()
+        connectDB();
         try {
             const { userData, loggedInUserId } = req.body;
-
+            console.log(userData);
 
             // Check if userData and loggedInUserId are defined
             if (userData && loggedInUserId) {
                 // Access the instruction data from userData
-                console.log("Userdata", userData)
                 const {
-                    instruction1,
-                    instruction2,
-                    instruction3,
-                    instruction4,
-                    instruction5,
-                    instruction6,
-                    instruction7
+                    support1,
+                    support2,
+                    support3,
+                    support4,
+                    support5,
+                    support6,
+                    support7,
+                    support8,
+                    support9
                 } = userData;
 
-                const instructionProperty = {
-                    instruction1,
-                    instruction2,
-                    instruction3,
-                    instruction4,
-                    instruction5,
-                    instruction6,
-                    instruction7
+                const supportProperty = {
+                    support1,
+                    support2,
+                    support3,
+                    support4,
+                    support5,
+                    support6,
+                    support7,
+                    support8,
+                    support9
                 };
-
-                console.log(instructionProperty)
 
                 // Update the instruction property for the logged-in user
                 const updatedUser = await Faculty.findOneAndUpdate(
                     { _id: loggedInUserId }, // Assuming the user's unique identifier is '_id'
-                    { instructionProperty },
+                    { supportProperty },
                     { new: true }
                 );
 
                 if (updatedUser) {
-                    res.status(200).json({ instructionProperty: updatedUser.instructionProperty });
+                    res.status(200).json({ supportProperty: updatedUser.supportProperty });
                 } else {
                     res.status(404).json({ error: 'User not found' });
                 }
