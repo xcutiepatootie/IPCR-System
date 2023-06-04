@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     try {
         connectDB();
         // Access the request body
-        const { userData, loggedInUserId } = req.body;
+        const { instructionData, loggedInUserId } = req.body;
 
         // Fetch the existing user data using the Faculty model
         const existingUser = await Faculty.findById(loggedInUserId);
@@ -18,16 +18,14 @@ export default async function handler(req, res) {
             return res.status(404).json({ message: "User not found" });
         }
 
-        // Append the new form data to the existing user data
-        const updatedInstruction1 = existingUser.instructionProperty.instruction1.concat(userData.filter((newData) => {
-            // Check if the row already exists in the database
-            return !existingUser.instructionProperty.instruction1.some((existingData) => {
-                // Compare based on some unique identifier (e.g., label)
-                return newData.label === existingData.label;
-            });
-        }));
+        // Loop through each instruction type in instructionData and update the corresponding property
+        Object.entries(instructionData).forEach(([instructionType, userData]) => {
+            // Validate the instructionType if necessary
+            // ...
 
-        existingUser.instructionProperty.instruction1 = updatedInstruction1;
+            // Update the corresponding property in existingUser
+            existingUser[instructionType] = existingUser[instructionType].concat(userData);
+        });
 
         // Save the updated user object
         const updatedUser = await existingUser.save();

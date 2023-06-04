@@ -78,6 +78,16 @@ const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionT
 };
 
 const InstructionTableForm = () => {
+
+    //testing
+    const [instruction1Data, setInstruction1Data] = useState([]);
+    const [instruction2Data, setInstruction2Data] = useState([]);
+    const [instruction3Data, setInstruction3Data] = useState([]);
+    const [instruction4Data, setInstruction4Data] = useState([]);
+    const [instruction5Data, setInstruction5Data] = useState([]);
+    const [instruction6Data, setInstruction6Data] = useState([]);
+    const [instruction7Data, setInstruction7Data] = useState([]);
+
     const [formData, setFormData] = useState([]);
     const { data: session, status } = useSession();
 
@@ -144,9 +154,24 @@ const InstructionTableForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(formData);
+
+        const instructionTypes = ["instruction1", "instruction2", "instruction3", "instruction4", "instruction6", "instruction7"];
+
+        const instructionData = {};
+
+        instructionTypes.forEach((type) => {
+            instructionData[type] = formData
+                .filter((data) => data.instructionType === type)
+                .map(({ instructionType, ...rest }) => rest);
+
+            console.log(`Instruction ${type} Data:`, instructionData[type]);
+        });
+
+        console.log("Final: ", instructionData);
+
         try {
             const response = await axios.post("/api/faculty-up/mergeUserData", {
-                userData: formData,
+                userData: instructionData,
                 loggedInUserId: session.user.id,
             });
 
@@ -157,13 +182,27 @@ const InstructionTableForm = () => {
         }
     };
 
+
     return (
         <div className="h-screen flex overflow-auto">
             <div className="m-4">
                 <form onSubmit={handleSubmit}>
                     <table className="w-full border border-black">
                         <thead>
-                            {/* Header rows */}
+                            <tr>
+                                <th className="border border-black p-2">Performance Indicator</th>
+                                <th className="border border-black p-2">Target</th>
+                                <th className="border border-black p-2">Accomplished</th>
+                                <th className="border border-black p-2">Date Of Submission/ Completion(Deadline)</th>
+                                <th className="border border-black p-2">Date Submitted/Completed</th>
+                            </tr>
+                            <tr className="border-gray-800">
+                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colSpan="1" className="py-2 px-4 border-r text-center border-gray-800"></td>
+                            </tr>
                         </thead>
                         <tbody>
                             <tr className="border-b border-black">
@@ -224,16 +263,6 @@ const InstructionTableForm = () => {
 
                             {renderIndicatorRows(instruction7Indicators, 'instruction7')}
 
-
-
-
-
-
-
-
-
-
-                            {/* Repeat the same pattern for other sections */}
                         </tbody>
                     </table>
                     <button type="submit">Submit</button>
