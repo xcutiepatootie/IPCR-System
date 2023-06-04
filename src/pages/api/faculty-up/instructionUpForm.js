@@ -1,9 +1,12 @@
 import { Faculty } from '@/model/models'; // Import the Faculty model
+import connectDB from '@/utils/connectDB';
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
+        connectDB()
         try {
             const { userData, loggedInUserId } = req.body;
+
 
             // Check if userData and loggedInUserId are defined
             if (userData && loggedInUserId) {
@@ -27,6 +30,8 @@ export default async function handler(req, res) {
                     instruction6,
                     instruction7
                 };
+
+                console.log(instructionProperty)
 
                 // Update the instruction property for the logged-in user
                 const updatedUser = await Faculty.findOneAndUpdate(

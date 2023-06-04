@@ -1,7 +1,10 @@
 import { Faculty } from '@/model/models'; // Import the Faculty model
+import connectDB from '@/utils/connectDB';
+
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
+        connectDB()
         try {
             const { userData, loggedInUserId } = req.body;
 

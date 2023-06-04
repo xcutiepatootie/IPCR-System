@@ -121,7 +121,7 @@ const InstructionTableForm = () => {
             try {
 
                 // Make the API request to retrieve user data
-                const response = await axios.get("/api/faculty-up/instructionUpForm", {
+                const response = await axios.get("/api/faculty-up/fetchUserData", {
                     params: {
                         userId: session.user.id, // Pass the user ID as a parameter
                     },
@@ -149,7 +149,7 @@ const InstructionTableForm = () => {
 
         // Fetch user data when the component mounts
         fetchData();
-    }, [session]);
+    }, []);
 
     console.log(instruction1Data)
     console.log(instruction2Data)
@@ -237,8 +237,8 @@ const InstructionTableForm = () => {
         console.log("Instruction Data:", instructionData);
 
         try {
-            const response = await axios.post("/api/faculty-up/mergeUserData", {
-                userData: formData,
+            const response = await axios.post("/api/faculty-up/instructionUpForm", {
+                userData: instructionData,
                 loggedInUserId: session.user.id,
             });
 
