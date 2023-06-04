@@ -79,17 +79,9 @@ const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionT
 
 const InstructionTableForm = () => {
 
-    //testing
-    const [instruction1Data, setInstruction1Data] = useState([]);
-    const [instruction2Data, setInstruction2Data] = useState([]);
-    const [instruction3Data, setInstruction3Data] = useState([]);
-    const [instruction4Data, setInstruction4Data] = useState([]);
-    const [instruction5Data, setInstruction5Data] = useState([]);
-    const [instruction6Data, setInstruction6Data] = useState([]);
-    const [instruction7Data, setInstruction7Data] = useState([]);
 
     const [formData, setFormData] = useState([]);
-    const [finalData, setFinalData] = useState([]);
+
     const { data: session, status } = useSession();
 
     useEffect(() => {
