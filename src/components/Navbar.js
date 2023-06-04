@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import Link from 'next/link'
+import { useRouter } from 'next/router';
 
 
 const Navbar = () => {
@@ -24,13 +25,16 @@ const Navbar = () => {
                         San Pablo City Campus
                     </span>
                 </h1>
-                <ul className='hidden md:flex'>
 
-                    <li className='flex justify-end p-4 text-xl font-semibold hover:bg-indigo-700 hover:text-slate-100 rounded-lg transition-all'><Link href='/about'>ABOUT</Link></li>
-                    <li className='flex justify-end p-4 text-xl font-semibold hover:bg-indigo-700 hover:text-slate-100 rounded-lg transition-all'><Link href='/'>CONTACT</Link></li>
-
-
+                <ul className="hidden md:flex">
+                    <li className="flex justify-end p-4 text-xl font-semibold hover:bg-indigo-700 hover:text-slate-100 rounded-lg transition-all">
+                        <Link href="/about">About</Link>
+                    </li>
+                    <li className="flex justify-end p-4 text-xl font-semibold hover:bg-indigo-700 hover:text-slate-100 rounded-lg transition-all">
+                        <Link href="/contact">Contact</Link>
+                    </li>
                 </ul>
+
 
                 <div onClick={handleNavbar} className='block md:hidden'>
                     {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
@@ -39,9 +43,11 @@ const Navbar = () => {
                 <div className={nav ? 'fixed left-0 top-0 w-[40%] h-full border-r border-r-gray-800 bg-test ease-in-out duration-700 ' : 'fixed left-[-100%] '}>
                     <h1 className='w-full text-2xl font-bold mb-0'>IPCR</h1>
                     <ul className='pt-12 uppercase'>
-                 
-                        <li className='p-4 text-lg font-semibold border-b border-gray-800 hover:bg-fuchsia-500 transition-all'><Link href='/about'>About</Link></li>
-                        <li className='p-4 text-lg font-semibold border-b border-gray-800 hover:bg-fuchsia-500 transition-all'><Link href='/'>Contact</Link></li>
+
+                        <li className='p-4 text-lg font-semibold border-b border-gray-800 hover:bg-fuchsia-500 transition-all'>
+                            <Link href='/about'>About</Link></li>
+                        <li className='p-4 text-lg font-semibold border-b border-gray-800 hover:bg-fuchsia-500 transition-all'>
+                            <Link href='/'>Contact</Link></li>
 
 
 

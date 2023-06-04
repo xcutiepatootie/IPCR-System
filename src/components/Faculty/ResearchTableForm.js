@@ -179,21 +179,6 @@ const ResearchTableForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(formData);
-
-        const instructionTypes = ["research1"];
-
-        const researchData = {};
-
-        instructionTypes.forEach((type) => {
-            researchData[type] = formData
-                .filter((data) => data.instructionType === type)
-                .map(({ instructionType, ...rest }) => rest);
-
-            console.log(`Research ${type} Data:`, researchData[type]);
-        });
-
-        console.log("Research Data:", researchData);
-
         try {
             const response = await axios.post("/api/faculty-up/researchUpForm", {
                 userData: researchData, // Pass instructionData instead of finalData
@@ -203,10 +188,9 @@ const ResearchTableForm = () => {
             console.log(response.data);
             e.target.reset();
         } catch (error) {
-            console.error("Error:", error);
+            console.error(error);
         }
     };
-
 
     return (
         <form onSubmit={handleSubmit}>

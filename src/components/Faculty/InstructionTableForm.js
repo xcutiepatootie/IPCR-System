@@ -114,7 +114,6 @@ const InstructionTableForm = () => {
 
 
     const [formData, setFormData] = useState([]);
-
     const { data: session, status } = useSession();
 
     useEffect(() => {
@@ -169,7 +168,7 @@ const InstructionTableForm = () => {
             const instruction4Length = instruction4Indicators.length;
             const instruction5Length = instruction5Indicators.length;
             const instruction6Length = instruction6Indicators.length;
-
+            const instruction7Length = instruction7Indicators.length;
 
             let adjustedIndex;
 
@@ -239,17 +238,16 @@ const InstructionTableForm = () => {
 
         try {
             const response = await axios.post("/api/faculty-up/mergeUserData", {
-                userData: instructionData, // Pass instructionData instead of finalData
+                userData: formData,
                 loggedInUserId: session.user.id,
             });
 
             console.log(response.data);
             e.target.reset();
         } catch (error) {
-            console.error("Error:", error);
+            console.error(error);
         }
     };
-
 
     return (
         <div className="h-screen flex overflow-auto">
@@ -257,20 +255,7 @@ const InstructionTableForm = () => {
                 <form onSubmit={handleSubmit}>
                     <table className="w-full border border-black">
                         <thead>
-                            <tr>
-                                <th className="border border-black p-2">Performance Indicator</th>
-                                <th className="border border-black p-2">Target</th>
-                                <th className="border border-black p-2">Accomplished</th>
-                                <th className="border border-black p-2">Date Of Submission/ Completion(Deadline)</th>
-                                <th className="border border-black p-2">Date Submitted/Completed</th>
-                            </tr>
-                            <tr className="border-gray-800">
-                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                                <td colSpan="1" className="py-2 px-4 border-r text-center border-gray-800"></td>
-                            </tr>
+                            {/* Header rows */}
                         </thead>
                         <tbody>
                             <tr className="border-b border-black">
