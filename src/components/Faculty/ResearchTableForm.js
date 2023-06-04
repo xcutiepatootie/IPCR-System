@@ -127,7 +127,7 @@ const ResearchTableForm = () => {
 
                 // Initialize the form data state with the retrieved user data
 
-                setResearch1Data(userData.researchProperty.research1 || []);
+                setResearch1Data(userData.researchProperty || []);
 
 
             } catch (error) {
@@ -138,6 +138,8 @@ const ResearchTableForm = () => {
         // Fetch user data when the component mounts
         fetchData();
     }, [session]);
+
+    console.log("Research", research1Data)
 
     useEffect(() => {
         const initialData = Array(research1Indicators.length).fill({});
@@ -161,7 +163,7 @@ const ResearchTableForm = () => {
             const data = researchData[index] || {}; // Get the data for the current index or an empty object if not available
 
 
-            console.log(data)
+            console.log("Data::", data)
 
             return (
                 <PerformanceIndicatorRow
