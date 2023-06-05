@@ -82,6 +82,8 @@ const LoginForm = ({ selectedPosition }) => {
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
                 zIndex: 1,
+                marginLeft: 200,
+                marginTop: 210
               }}
             >
       <h1>{selectedPosition}</h1>

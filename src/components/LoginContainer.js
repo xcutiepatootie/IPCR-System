@@ -6,6 +6,7 @@ import { BsFillPersonFill } from 'react-icons/bs';
 
 
 
+
 const LoginContainer = () => {
     const [selectedPosition, setSelectedPosition] = useState('');
     const [showAllbuttons, setShowAllbuttons] = useState(true);
@@ -72,10 +73,11 @@ const LoginContainer = () => {
                                 <p style={{ fontSize: 15 }}>Laguna State Polytechnic University © 2023. All Rights Reserved.</p>
                             </footer>
                         </>
+                        
 
                     ) : (
                         <div>
-                            <button className='ml-96 bg-blue-950 hover:bg-blue-950 text-white font-bold py-2 px-16 rounded w-full' onClick={() => handleShowAllButton()}>Back</button>
+                            <button className='mx-80 mt-10 bg-blue-950 hover:bg-blue-950 text-white font-bold py-2 px-16 rounded w-full' onClick={() => handleShowAllButton()}>Back</button>
                         </div>
                     )}
                     {loginForm}
