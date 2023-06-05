@@ -242,10 +242,12 @@ const ExtensionTableForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <table className="w-full border border-black">
-                <thead>
-                <tr>
+        <div className="h-screen flex overflow-auto">
+            <div className="m-4">
+                <form onSubmit={handleSubmit}>
+                    <table className="w-full border border-black">
+                        <thead>
+                            <tr>
                                 <th className="border border-black p-2">Performance Indicator</th>
                                 <th className="border border-black p-2">Target</th>
                                 <th className="border border-black p-2">Accomplished</th>
@@ -267,39 +269,41 @@ const ExtensionTableForm = () => {
                                 <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">A</td>
                                 <td colspan="1" className="py-2 px-4 border-r text-center border-gray-800"></td>
                             </tr>
-                </thead>
-                <tbody>
-                    <tr className='border-b border-black'>
-                        <td className="border-b border-black p-2">
-                            <h1>Extension</h1>
-                        </td>
-                    </tr>
+                        </thead>
+                        <tbody>
+                            <tr className='border-b border-black'>
+                                <td colspan="10" className="border-b border-t border-black p-2">
+                                    <h1>Extension</h1>
+                                </td>
+                            </tr>
 
-                    <tr className='border-b border-black'>
-                        <td className="border-b border-black p-2">
-                            <h1>9.  Extension projects.</h1>
-                        </td>
-                    </tr>
+                            <tr className='border-b border-black'>
+                                <td colspan="10" className="border-b border-black p-2">
+                                    <h1>9.  Extension projects.</h1>
+                                </td>
+                            </tr>
 
-                    {renderIndicatorRows(extension1Indicators, "extension1", extension1Data)}
+                            {renderIndicatorRows(extension1Indicators, "extension1", extension1Data)}
 
-                </tbody>
-            </table>
-            <button
-                type="submit"
-                className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-            >
-                Submit
-            </button>
-        </form>
+                        </tbody>
+                    </table>
+                    <button
+                        type="submit"
+                        className="mt-4 mb-4 px-10 py-2 bg-blue-950 text-white rounded hover:bg-blue-600"
+                    >
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
     );
 };
 
 export default ExtensionTableForm;
 
 const extension1Indicators = [
-    { id: "indicator1", label: 'a) Extension proposal submitted/activity conducted' },
-    { id: "indicator2", label: 'b) Persons trained/provided with technical advise' },
+    { id: "indicator1", label: 'a) Extension proposal submitted/ activity conducted' },
+    { id: "indicator2", label: 'b) Persons trained/ provided with technical advise' },
     { id: "indicator3", label: 'c) Persons who avail the service who rated the service as good or better' },
     { id: "indicator4", label: 'd) Persons given training or advisory who rated the timeliness of service delivery as good or better' },
     { id: "indicator5", label: 'e) Technical advice responded within 3 days upon request' }
