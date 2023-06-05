@@ -390,10 +390,59 @@ const SupportFunctionTableForm = () => {
     };
 
     return (
-
         <div className="h-screen flex overflow-auto">
-
             <div className="m-4">
+                <form onSubmit={handleSubmit}>
+                    <table className="w-full border border-black">
+                        <thead>
+                            <tr>
+                                <th className="border border-black p-2">Performance Indicator</th>
+                                <th className="border border-black p-2">Target</th>
+                                <th className="border border-black p-2">Accomplished</th>
+                                <th className="border border-black p-2">Date Of Submission/Completion(Deadline)</th>
+                                <th className="border border-black p-2">Date Submitted/Completed</th>
+                                <th className="border border-black p-2" colspan={4}>Ratings</th>
+                                <th className="border border-black p-2">Remarks</th>
+                            </tr>
+                            <tr className="border-gray-800">
+                                <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colspan="1" className="py-2 px-4 border-r text-center border-gray-800"></td>
+                                <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">QTY</td>
+                                <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">QL/E
+                                </td>
+                                <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">T</td>
+                                <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">A</td>
+                                <td colspan="1" className="py-2 px-4 border-r text-center border-gray-800"></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className='border-b border-black'>
+                                <td colspan="10" className="border-b border-t border-black p-2">
+                                    <h1>Support Function</h1>
+                                </td>
+                            </tr>
+                            <tr className='border-b border-black'>
+                                <td colspan="10" className="border-b border-black p-2">
+                                    <h1>10.  Perform Officially-Deligated Assignment.</h1>
+                                </td>
+                            </tr>
+                            {renderIndicatorRows(supportfunctions1Indicators, "supportfunctions1", support1Data)}
+
+                            <tr className='border-b border-black'>
+                                <td colspan="10" className="border-b border-black p-2">
+                                    <h1>11.  Participate in the Flag Raising Ceremony</h1>
+                                </td>
+                            </tr>
+                            <tr className="border-b border-black">
+                                <td colSpan="10" className="border-b border-black p-2">
+                                    <h1>11.  Participate in the Flag Raising Ceremony.</h1>
+                                </td>
+                            </tr>
+
+                            {renderIndicatorRows(supportfunctions2Indicators, "supportfunctions2", support2Data)}
 
                 <div className="">
                     <Dropdown onOptionChange={handleOptionChange} />
@@ -526,15 +575,15 @@ const supportfunctions3Indicators = [
 ];
 
 const supportfunctions4Indicators = [
-    { id: "indicator4", label: 'a) Attendance sheet/Program of activities/other document as proof' }
+    { id: "indicator4", label: 'a) Attendance sheet/ Program of activities/other document as proof' }
 ];
 
 const supportfunctions5Indicators = [
-    { id: "indicator5", label: 'a) Attendance sheet/Program of activities/other document as proof' }
+    { id: "indicator5", label: 'a) Attendance sheet/ Program of activities/other document as proof' }
 ];
 
 const supportfunctions6Indicators = [
-    { id: "indicator6", label: 'a) Training/Seminar/Conference certificate of attendance/ participation' }
+    { id: "indicator6", label: 'a) Training/Seminar/ Conference certificate of attendance/ participation' }
 ];
 
 const supportfunctions7Indicators = [
@@ -546,7 +595,7 @@ const supportfunctions8Indicators = [
 ];
 
 const supportfunctions9Indicators = [
-    { id: "indicator9", label: 'a) Attendance sheet/Program of activities/other document as proof' }
+    { id: "indicator9", label: 'a) Attendance sheet/ Program of activities/other document as proof' }
 ];
 
 
