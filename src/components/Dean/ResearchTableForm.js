@@ -258,7 +258,7 @@ const ResearchTableForm = () => {
 
                 // Initialize the form data state with the retrieved user data
 
-                setResearch1Data(userData.researchProperty.research1 || []);
+                setResearch1Data(userData.researchProperty || []);
 
             } catch (error) {
                 console.error("Error:", error);
