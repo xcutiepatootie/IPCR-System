@@ -43,13 +43,13 @@ const AboutPage = () => {
             <div
               style={{
                 backgroundColor: 'rgba(165, 197, 174, .8)',
-                padding: '0rem 1rem', // Adjust the padding to control the width of the container
-                margin: 'auto',
+                padding: '1rem 1rem', // Adjust the padding to control the width of the container
+                marginRight: '-20rem',
                 borderRadius: '50px',
                 textAlign: 'center',
                 position: 'absolute',
                 top: '50%',
-                left: '40%',
+                left: '50%',
                 transform: 'translate(-50%, -50%)',
                 zIndex: 1,
               }}
