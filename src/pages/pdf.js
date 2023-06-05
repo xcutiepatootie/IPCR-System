@@ -1,5 +1,12 @@
-import PDFPage from '@/components/toPDF/PDFPage';
+import React from 'react';
 
-const PDF = () => <PDFPage />;
+const MyComponent = () => {
+    return (
+        <div>
+            <h1>Hello, World!</h1>
+            <p>This is my HTML content written in a .js file.</p>
+        </div>
+    );
+};
 
-export default PDF;
+export default MyComponent;
