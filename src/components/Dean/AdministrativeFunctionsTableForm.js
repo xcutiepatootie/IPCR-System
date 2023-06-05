@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useSession } from "next-auth/react";
@@ -60,7 +61,6 @@ const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionT
             onUpdateValue(index, 'remarks', data.remarks, instructionType); // Call onUpdateValue with initial submittedDate value
         }
     }, [data.target, data.accomplished, data.submissionDate, data.submittedDate, data.QTY, data.QLE, data.T, data.A, data.remarks]);
-
 
     const handleTargetChange = (e) => {
         const value = e.target.value;
@@ -235,7 +235,7 @@ const AdministrativeFunctionsTableForm = () => {
         }
     };
 
-    const [administrativeFunctions1Data, setAdministrativeFunctions1Data] = useState([]);
+    const [administrativefunctions1Data, setAdministrativefunctions1Data] = useState([]);
 
     const [formData, setFormData] = useState([]);
     const { data: session, status } = useSession();
@@ -257,9 +257,8 @@ const AdministrativeFunctionsTableForm = () => {
                 console.log(userData.administrativefunctionsProperty)
 
                 // Initialize the form data state with the retrieved user data
-                setAdministrativeFunctions1Data(userData?.administrativeFunctionsProperty ?? []);
 
-
+                setAdministrativefunctions1Data(userData.adminProperty || []);
 
             } catch (error) {
                 console.error("Error:", error);
@@ -270,7 +269,8 @@ const AdministrativeFunctionsTableForm = () => {
         fetchData();
     }, [selectedOptionData]);
 
-    console.log(administrativeFunctions1Data)
+    console.log(administrativefunctions1Data)
+
 
     useEffect(() => {
         const initialData = Array(administrativefunctions1Indicators.length).fill({});
@@ -279,11 +279,11 @@ const AdministrativeFunctionsTableForm = () => {
 
     const handleUpdateValue = (index, field, value, instructionType) => {
         setFormData((prevData) => {
-            const administrativeFunctions1Length = administrativefunctions1Indicators.length;
+            const administrativefunctions1Length = administrativefunctions1Indicators.length;
 
             let adjustedIndex;
 
-            if (instructionType === "administrativeFunctions1") {
+            if (instructionType === "administrativefunctions1") {
                 adjustedIndex = index;
             }
 
@@ -321,7 +321,7 @@ const AdministrativeFunctionsTableForm = () => {
         e.preventDefault();
         console.log(formData);
 
-        const instructionTypes = ["administrativeFunctions1"];
+        const instructionTypes = ["administrativefunctions1"];
 
         const instructionData = {};
 
@@ -333,7 +333,7 @@ const AdministrativeFunctionsTableForm = () => {
             console.log(`AdministrativeFunctions ${type} Data:`, instructionData[type]);
         });
 
-        console.log("Support Data:", instructionData);
+        console.log("AdministrativeFunctions Data:", instructionData);
 
         try {
             const response = await axios.post("/api/faculty-up/administrativefunctionsUpForm", {
@@ -349,56 +349,60 @@ const AdministrativeFunctionsTableForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <table className="w-full border border-black">
-                <thead>
-                    <tr>
-                        <th className="border border-black p-2">Performance Indicator</th>
-                        <th className="border border-black p-2">Target</th>
-                        <th className="border border-black p-2">Accomplished</th>
-                        <th className="border border-black p-2">Date Of Submission/Completion(Deadline)</th>
-                        <th className="border border-black p-2">Date Submitted/Completed</th>
-                        <th className="border border-black p-2" colspan={4}>Ratings</th>
-                        <th className="border border-black p-2">Remarks</th>
-                    </tr>
-                    <tr className="border-gray-800">
-                        <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                        <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                        <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                        <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                        <td colspan="1" className="py-2 px-4 border-r text-center border-gray-800"></td>
-                        <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">QTY</td>
-                        <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">QL/E
-                        </td>
-                        <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">T</td>
-                        <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">A</td>
-                        <td colspan="1" className="py-2 px-4 border-r text-center border-gray-800"></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr className='border-b border-black'>
-                        <td className="border-b border-black p-2">
-                            <h1>Administrative Functions</h1>
-                        </td>
-                    </tr>
 
-                    <tr className='border-b border-black'>
-                        <td className="border-b border-black p-2">
-                            <h1>19. Perform Administrative Designation Functions.</h1>
-                        </td>
-                    </tr>
+        <div className="h-screen flex overflow-auto">
 
-                    {renderIndicatorRows(administrativefunctions1Indicators, "administrativefunctions1", administrativefunctions1Data)}
+            <div className="m-4">
 
-                </tbody>
-            </table>
-            <button
-                type="submit"
-                className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-            >
-                Submit
-            </button>
-        </form>
+                <div className="">
+                    <Dropdown onOptionChange={handleOptionChange} />
+                </div>
+                <form onSubmit={handleSubmit}>
+                    <table className="w-full border border-black">
+                        <thead>
+                            <tr>
+                                <th className="border border-black p-2">Performance Indicator</th>
+                                <th className="border border-black p-2">Target</th>
+                                <th className="border border-black p-2">Accomplished</th>
+                                <th className="border border-black p-2">Date Of Submission/Completion(Deadline)</th>
+                                <th className="border border-black p-2">Date Submitted/Completed</th>
+                                <th className="border border-black p-2" colspan={4}>Ratings</th>
+                                <th className="border border-black p-2">Remarks</th>
+                            </tr>
+                            <tr className="border-gray-800">
+                                <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colspan="1" className="py-2 px-4 border-r text-center border-gray-800"></td>
+                                <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">QTY</td>
+                                <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">QL/E
+                                </td>
+                                <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">T</td>
+                                <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">A</td>
+                                <td colspan="1" className="py-2 px-4 border-r text-center border-gray-800"></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className="border-b border-t border-black">
+                                <td colSpan="10" className="border-b border-black p-2">
+                                    <h1>Administrative Function</h1>
+                                </td>
+                            </tr>
+                            <tr className="border-b border-black">
+                                <td colSpan="10" className="border-b border-black p-2">
+                                    <h1>19. Perform Administrative Designation Functions.</h1>
+                                </td>
+                            </tr>
+
+                            {renderIndicatorRows(administrativefunctions1Indicators, "administrativefunctions1", administrativefunctions1Data)}
+
+                        </tbody>
+                    </table>
+                    <button type="submit" className="mb-4 mt-4 px-10 py-2 bg-blue-950 text-white rounded hover:bg-blue-600">Submit</button>
+                </form>
+            </div>
+        </div>
     );
 };
 
