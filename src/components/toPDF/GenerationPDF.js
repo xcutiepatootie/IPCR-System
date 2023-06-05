@@ -453,98 +453,98 @@ const GenerationPDF = () => {
                         <td className="py-2 px-4 border-b border border-gray-800">a)
                             Research Proposal submitted/ Activity
                             Conducted</td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[0].target}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[0].accomplished}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[0].submissionDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[0].submittedDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[0].QTY}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[0].QLE}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[0].T}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[0].A}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[0].remarks}</td>
                     </tr>
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">b)
                             Research Implemented and/or Completed
                             within the Timeframe</td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[1].target}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[1].accomplished}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[1].submissionDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[1].submittedDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[1].QTY}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[1].QLE}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[1].T}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[1].A}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[1].remarks}</td>
                     </tr>
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">c)
                             Research Presented in
                             Regional/National/International Conferences</td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[2].target}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[2].accomplished}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[2].submissionDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[2].submittedDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[2].QTY}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[2].QLE}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[2].T}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[2].A}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[2].remarks}</td>
                     </tr>
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">d)
                             Research Published in Peer-reviewed
                             Journals</td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[3].target}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[3].accomplished}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[3].submissionDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[3].submittedDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[3].QTY}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[3].QLE}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[3].T}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[3].A}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[3].remarks}</td>
                     </tr>
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">e)
                             Filed/Published/Approved Intellectual
                             Property Rights</td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[4].target}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[4].accomplished}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[4].submissionDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[4].submittedDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[4].QTY}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[4].QLE}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[4].T}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[4].A}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[4].remarks}</td>
                     </tr>
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">f)
                             Research Utilized/Deployed through
                             Commercialization/Extension/Policy</td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[5].target}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[5].accomplished}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[5].submissionDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[5].submittedDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[5].QTY}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[5].QLE}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[5].T}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[5].A}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[5].remarks}</td>
                     </tr>
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">g)
                             Number of citations in journals/books</td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[6].target}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[6].accomplished}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[6].submissionDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[6].submittedDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[6].QTY}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[6].QLE}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[6].T}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[6].A}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.reseachProperty[6].remarks}</td>
                     </tr>
                     <tr>
                         <th colSpan="10"
@@ -561,73 +561,73 @@ const GenerationPDF = () => {
                         <td className="py-2 px-4 border-b border border-gray-800">a)
                             Extension proposal submitted/activity
                             conducted</td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[0].target}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[0].accomplished}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[0].submissionDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[0].submittedDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[0].QTY}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[0].QLE}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[0].T}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[0].A}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[0].remarks}</td>
                     </tr>
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">b)
                             Persons trained/provided with technical
                             advise</td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[1].target}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[1].accomplished}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[1].submissionDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[1].submittedDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[1].QTY}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[1].QLE}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[1].T}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[1].A}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[1].remarks}</td>
                     </tr>
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">c)
                             Persons who avail the service who rated the
                             service as good or better</td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[2].target}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[2].accomplished}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[2].submissionDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[2].submittedDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[2].QTY}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[2].QLE}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[2].T}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[2].A}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[2].remarks}</td>
                     </tr>
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">d)
                             Persons given training or advisory who
                             rated the timeliness of service delivery as good or
                             better</td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[3].target}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[3].accomplished}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[3].submissionDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[3].submittedDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[3].QTY}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[3].QLE}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[3].T}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[3].A}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[3].remarks}</td>
                     </tr>
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">e)
                             Technical advice responded within 3 days
                             upon requeste) Technical advice responded within 3
                             days upon request</td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[4].target}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[4].accomplished}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[4].submissionDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[4].submittedDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[4].QTY}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[4].QLE}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[4].T}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[4].A}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.extensionProperty[4].remarks}</td>
                     </tr>
                     <tr>
                         <th colSpan="10"
