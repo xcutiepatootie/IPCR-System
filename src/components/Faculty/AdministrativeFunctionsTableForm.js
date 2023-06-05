@@ -129,7 +129,7 @@ const AdministrativeFunctionsTableForm = () => {
 
                 // Initialize the form data state with the retrieved user data
 
-                setAdministrativefunctions1Data(userData.administrativefunctionsProperty || []);
+                setAdministrativefunctions1Data(userData.adminProperty || []);
 
 
             } catch (error) {
@@ -161,11 +161,11 @@ const AdministrativeFunctionsTableForm = () => {
 
     const renderIndicatorRows = (indicatorArray, instructionType, administrativefunctionsData) => {
         return indicatorArray.map((indicator, index) => {
-            const data = administrativefunctionsData && administrativefunctionsData[index] ? admnistrativefunctions1Data[index] : {}; // Get the data for the current index or an empty object if not available
+            const data = administrativefunctionsData[index] || {}; // Get the data for the current index or an empty object if not available
 
             console.log("Data::", data);
 
-            return (
+            return (    
                 <PerformanceIndicatorRow
                     key={indicator.id}
                     indicator={indicator}
@@ -184,7 +184,7 @@ const AdministrativeFunctionsTableForm = () => {
         e.preventDefault();
         console.log(formData);
         try {
-            const response = await axios.post("/api/faculty-up/extensionUpForm", {
+            const response = await axios.post("/api/faculty-up/administrativefunctionsUpForm", {
                 userData: formData, // Pass instructionData instead of finalData
                 loggedInUserId: session.user.id,
             });
@@ -221,7 +221,7 @@ const AdministrativeFunctionsTableForm = () => {
                         </td>
                     </tr>
 
-                    {renderIndicatorRows(administrativefunctions1Indicators, "administrativefunctions1")}
+                    {renderIndicatorRows(administrativefunctions1Indicators, "administrativefunctions1", administrativefunctions1Data)}
 
                 </tbody>
             </table>
