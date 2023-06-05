@@ -3,6 +3,7 @@ import ResearchTableForm from "./ResearchTableForm";
 import ExtensionTableForm from "./ExtensionTableForm"
 import SupportFunctionTableForm from "./SupportFunctionTableForm";
 import AdministrativeFunctionsTableForm from "./AdministrativeFunctionsTableForm"
+import PDFcontainer from "../toPDF/PDFcontainer";
 import UserList from "./ListUsers/ListFacultyUsers"
 import Sidebar from "../Sidebar";
 import { useState } from "react";
@@ -41,11 +42,8 @@ const TableFormContainer = () => {
                 return <SupportFunctionTableForm />;
             case 'Administrative Functions':
                 return <AdministrativeFunctionsTableForm />
-            case 'Support Function':
-                return <>
-
-                    <><SupportFunctionTableForm /></>
-                </>;
+            case 'Report Generation':
+                return <PDFcontainer />
             case 'Faculty':
                 return <>
 
@@ -67,8 +65,8 @@ const TableFormContainer = () => {
             </div>
 
             <div className="flex">
-            {selected ? null : <Btndashboard handleItemClick={handleButtonItemClick} />}{/*  */}
-        </div >
+                {selected ? null : <Btndashboard handleItemClick={handleButtonItemClick} />}{/*  */}
+            </div >
         </>
 
     )

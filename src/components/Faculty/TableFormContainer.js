@@ -3,6 +3,7 @@ import ResearchTableForm from "./ResearchTableForm";
 import ExtensionTableForm from "./ExtensionTableForm"
 import SupportFunctionTableForm from "./SupportFunctionTableForm";
 import AdministrativeFunctionsTableForm from "./AdministrativeFunctionsTableForm"
+import PDFcontainer from "../toPDF/PDFcontainer";
 import Sidebar from "../Sidebar";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
@@ -36,11 +37,9 @@ const TableFormContainer = () => {
                 return <SupportFunctionTableForm />;
             case 'Administrative Functions':
                 return <AdministrativeFunctionsTableForm />
-            case 'Support Function':
-                return <>
-
-                    <><SupportFunctionTableForm /></>
-                </>;
+            case 'Report Generation':
+                return <PDFcontainer />
+                    ;
             default:
                 return <h1>Faculty</h1>
         }
