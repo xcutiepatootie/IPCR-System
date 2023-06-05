@@ -8,6 +8,7 @@ import Cookies from 'js-cookie'
 
 
 
+
 const LoginForm = ({ selectedPosition }) => {
   const [errorMessage, setErrorMessage] = useState('')
  
@@ -69,20 +70,34 @@ const LoginForm = ({ selectedPosition }) => {
 
   return (
     <>
+    <div
+              style={{
+                backgroundColor: '#5A8A68',
+                padding: '2rem 2rem', // Adjust the padding to control the width of the container
+                margin: 'auto',
+                borderRadius: '50px',
+                textAlign: 'center',
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                zIndex: 1,
+              }}
+            >
       <h1>{selectedPosition}</h1>
       <form onSubmit={handleSubmit} method='post'>
-        <div className='m-0 mt-2 overflow-y-hidden'>
+        <div className='m-0 mt-2'>
           <div className='flex flex-col justify-center'>
             <div className='flex justify-center'>
-              <h1 ><HiUserCircle size='2rem' color='blue' /></h1>
-              <input type="text" name='email' placeholder="Enter Username here" className=" p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-500::placeholder font-sans" />
+              <h1 ><HiUserCircle size='40' color='#1F2344'/></h1>
+              <input type="text" name='email' placeholder="Enter Username" className=" p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-950 focus:border-blue-950 placeholder-gray-500::placeholder font-sans" />
             </div>
             <div className='pt-2 flex justify-center'>
-              <h1 ><RiLockPasswordFill size='2rem' color='blue' /></h1>
-              <input type="password" name='password' placeholder="Enter Password here" className=" p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-500::placeholder font-sans" />
+              <h1 ><RiLockPasswordFill size='40' color='#1F2344' /></h1>
+              <input type="password" name='password' placeholder="Enter Password" className=" p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-950 focus:border-blue-950 placeholder-gray-500::placeholder font-sans" />
             </div>
             <div className='flex justify-center'>
-              <button type='submit' className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-16 rounded">LOGIN</button>
+              <button type='submit' className="mt-4 ml-5 bg-blue-950 hover:bg-blue-950 text-white font-bold py-2 px-16 rounded">Login</button>
             </div>
 
           </div>
@@ -91,7 +106,7 @@ const LoginForm = ({ selectedPosition }) => {
           )}
         </div>
       </form>
-
+      </div>
     </>
 
 

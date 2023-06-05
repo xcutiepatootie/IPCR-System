@@ -43,13 +43,13 @@ const AboutPage = () => {
             <div
               style={{
                 backgroundColor: 'rgba(165, 197, 174, .8)',
-                padding: '6rem 6rem', // Adjust the padding to control the width of the container
+                padding: '0rem 1rem', // Adjust the padding to control the width of the container
                 margin: 'auto',
-                borderRadius: '100px',
+                borderRadius: '50px',
                 textAlign: 'center',
                 position: 'absolute',
                 top: '50%',
-                left: '50%',
+                left: '40%',
                 transform: 'translate(-50%, -50%)',
                 zIndex: 1,
               }}
@@ -58,19 +58,20 @@ const AboutPage = () => {
                 style={{
                   textAlign: 'center-justify',
                   marginBottom: '1rem',
-                  color: '#000000',
+                  color: '#172554',
                   fontSize: '1.5rem',
+                  fontWeight: 'bold',
                 }}
               >
-                About Laguna State Polytechnic University - San Pablo City Campus, we are committed to<br/><br/>providing our employees
-                with the tools and resources they need to succeed in their roles.<br/><br/>That is why we have implemented a new
-                Individual Performance Commitment and Review<br/><br/>System (IPCR) to better track and evaluate employee performance.
-                Our new IPCR system is<br/><br/>designed to streamline the performance evaluation process, making it easier for managers<br/><br/>and employees to set, track, and evaluate performance goals.<br/><br/><br/><br/>Our automated IPCR system eliminates the need for
-                paper-based forms and spreadsheets,<br/><br/>reducing errors and saving time. With our new system, employees can easily
-                set and track<br/><br/>their performance goals, and managers can provide timely feedback to help employees<br/><br/>improve their
-                performance.<br/><br/><br/><br/>At Laguna State Polytechnic University - San Pablo City Campus, we believe that our<br/><br/>employees are
-                our greatest asset, and we are committed to providing them with the<br/><br/>support they need to achieve their goals.
-                Our new IPCR system is just one of the ways we<br/><br/>are investing in our employees and our university future success.
+                At Laguna State Polytechnic University - San Pablo City Campus, we are committed to providing our employees
+                with the tools and resources they need to succeed in their roles. That is why we have implemented a new
+                Individual Performance Commitment and Review System (IPCR) to better track and evaluate employee performance.
+                Our new IPCR system is designed to streamline the performance evaluation process, making it easier for managers and employees to set, track, and evaluate performance goals. <br></br> <br></br>Our automated IPCR system eliminates the need for
+                paper-based forms and spreadsheets, reducing errors and saving time. With our new system, employees can easily
+                set and track their performance goals, and managers can provide timely feedback to help employees improve their
+                performance.<br></br><br></br>At Laguna State Polytechnic University - San Pablo City Campus, we believe that our employees are
+                our greatest asset, and we are committed to providing them with the support they need to achieve their goals.
+                Our new IPCR system is just one of the ways we are investing in our employees and our university future success.
               </h1>
             </div>
           </div>
@@ -81,7 +82,7 @@ const AboutPage = () => {
         style={{
           backgroundColor: '#ffffff',
           textAlign: 'center',
-          padding: '1.2rem',
+          padding: 0,
           position: 'fixed',
           bottom: 0,
           left: 0,
@@ -89,7 +90,7 @@ const AboutPage = () => {
           zIndex: 2,
         }}
       >
-        <p style={{ fontSize: '1.5rem' }}>Laguna State Polytechnic University © 2023. All Rights Reserved.</p>
+        <p style={{ fontSize: 15 }}>Laguna State Polytechnic University © 2023. All Rights Reserved.</p>
       </footer>
     </div>
   );

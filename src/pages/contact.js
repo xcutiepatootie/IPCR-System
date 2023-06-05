@@ -82,7 +82,7 @@ const ContactPage = () => {
         style={{
           backgroundColor: '#ffffff',
           textAlign: 'center',
-          padding: '1.2rem',
+          padding: 0,
           position: 'fixed',
           bottom: 0,
           left: 0,
@@ -90,7 +90,7 @@ const ContactPage = () => {
           zIndex: 2,
         }}
       >
-        <p style={{ fontSize: '1.5rem' }}>Laguna State Polytechnic University © 2023. All Rights Reserved.</p>
+        <p style={{ fontSize: 15 }}>Laguna State Polytechnic University © 2023. All Rights Reserved.</p>
       </footer>
     </div>
   );
