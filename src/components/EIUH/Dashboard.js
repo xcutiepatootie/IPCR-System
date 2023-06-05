@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 
 import Sidebar from '../Sidebar';
-
+import { useSession } from 'next-auth/react';
 
 
 const Dashboard = () => {
