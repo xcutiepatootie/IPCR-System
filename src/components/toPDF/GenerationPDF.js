@@ -182,51 +182,51 @@ const GenerationPDF = () => {
                         <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[0].accomplished}</td>
                         <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[0].submissionDate}</td>
                         <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[0].submittedDate}</td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[0].QTY}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[0].QLE}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[0].T}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[0].A}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[0].remarks}</td>
                     </tr>
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">b)
                             No. of Course Guide</td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[1].target}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[1].accomplished}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[1].submissionDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[1].submittedDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[1].QTY}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[1].QLE}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[1].T}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[1].A}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[1].remarks}</td>
                     </tr>
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">c)
                             No. of SLM</td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[2].target}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[2].accomplished}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[2].submissionDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[2].submittedDate}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[2].QTY}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[2].QLE}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[2].T}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[2].A}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[2].remarks}</td>
                     </tr>
                     <tr className="border-gray-800">
                         <td className="py-2 px-4 border-b border border-gray-800">d)
                             Number of subject areas with community
                             immersion/involvement component</td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
-                        <td className="py-2 px-4 border-b border border-gray-800"></td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[2].remarks}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[2].remarks}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[2].remarks}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[2].remarks}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[2].remarks}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[2].remarks}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[2].remarks}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[2].remarks}</td>
+                        <td className="py-2 px-4 border-b border border-gray-800">{data.instructionProperty.instruction1[2].remarks}</td>
                     </tr>
                     <tr className="border-gray-800">
                         <th colSpan="10"

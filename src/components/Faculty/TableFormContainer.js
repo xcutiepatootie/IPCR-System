@@ -33,7 +33,7 @@ const TableFormContainer = () => {
                 return <ResearchTableForm />;
             case 'Extension':
                 return <ExtensionTableForm />;
-            case 'Support':
+            case 'Support Function':
                 return <SupportFunctionTableForm />;
             case 'Administrative Functions':
                 return <AdministrativeFunctionsTableForm />
