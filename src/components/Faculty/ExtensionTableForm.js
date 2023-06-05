@@ -103,7 +103,7 @@ const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionT
 };
 
 const ExtensionTableForm = () => {
-    
+
 
     //testing
     const [extension1Data, setExtension1Data] = useState([]);
@@ -161,7 +161,7 @@ const ExtensionTableForm = () => {
 
     const renderIndicatorRows = (indicatorArray, instructionType, extensionData) => {
         return indicatorArray.map((indicator, index) => {
-            const data = extensionData && extensionData[index] ? extension1Data[index] : {}; // Get the data for the current index or an empty object if not available
+            const data = extensionData[index] || {}; // Get the data for the current index or an empty object if not available
 
             console.log("Data::", data);
 
@@ -221,7 +221,7 @@ const ExtensionTableForm = () => {
                         </td>
                     </tr>
 
-                    {renderIndicatorRows(extension1Indicators, "extension1")}
+                    {renderIndicatorRows(extension1Indicators, "extension1", extension1Data)}
 
                 </tbody>
             </table>

@@ -13,7 +13,7 @@ export default async function handler(req, res) {
                 // Update the instruction property for the logged-in user
                 const updatedUser = await Faculty.findOneAndUpdate(
                     { _id: loggedInUserId }, // Assuming the user's unique identifier is '_id'
-                    { admnistrativefunctionsProperty: userData }, // Update the entire extensionProperty with the provided userData
+                    { adminProperty: userData }, // Update the entire extensionProperty with the provided userData
                     { new: true }
                 );
 

@@ -241,12 +241,36 @@ const facultySchema = new mongoose.Schema({
             support9: [],
         }
     },
+    adminProperty: {
+        _id: false,
+        admin1: {
+            _id: false,
+            type: [{
+                target: {
+                    type: Number,
+                    required: false
+                },
+                accomplished: {
+                    type: Number,
+                    required: false
+                },
+                submissionDate: {
+                    type: String,
+                    required: false
+                },
+                submittedDate: {
+                    type: String,
+                    required: false
+                }
+            }],
+        },
+
+        default: [],
 
 
 
-
+    }
 })
-
 
 
 const Superadmin = mongoose.models.Superadmin || mongoose.model('Superadmin', superadminSchema)
