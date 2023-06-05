@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
-
 import TableFormContainer from './TableFormContainer';
 import { useSession } from 'next-auth/react';
+import Btndashboard from './Btndashboard';
 
-const Dashboard = () => {
+const Dashboard = ({  }) => {
   const [selectedCollection, setSelectedCollection] = useState(null);
+  const [selectedButton, setSelectedButton] = useState(null);
   const router = useRouter()
   const { data: session, status } = useSession()
 
@@ -29,10 +29,10 @@ const Dashboard = () => {
 
 
   return (
-    <div>
 
+    <div className="h-screen flex overflow-auto">
       <TableFormContainer />
-
+     
     </div>
   );
 };

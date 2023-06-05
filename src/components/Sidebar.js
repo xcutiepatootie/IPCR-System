@@ -55,7 +55,7 @@ const Sidebar = ({ handleItemClick }) => {
 
           {user && (user.role === 'faculty' || user.role === 'dean') && (
             <>
-              <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6 hover:bg-gray-300  hover:text-blue-950 rounded-md" onClick={() => handleItemClick('Instruction')}>
+              <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6 h-full transition-all duration-300 active:bg-gray-300 focus:ring focus:ring-gray-300 hover:bg-gray-300  hover:text-blue-950 rounded-md" onClick={() => handleItemClick('Instruction')}>
               <Link href="#">Instruction</Link>
               </li>
               <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6 hover:bg-gray-300  hover:text-blue-950 rounded-md" onClick={() => handleItemClick('Research')}>

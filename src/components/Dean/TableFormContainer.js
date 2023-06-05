@@ -7,12 +7,18 @@ import UserList from "./ListUsers/ListFacultyUsers"
 import Sidebar from "../Sidebar";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
+import Btndashboard from "./Btndashboard";
 
 const TableFormContainer = () => {
 
     const [selectedCollection, setSelectedCollection] = useState(null);
+    const [selected, setSelected] = useState(false);
 
+    const handleButtonItemClick = (option) => {
+        setSelectedCollection(option)
+        setSelected(true)
 
+    }
 
 
 
@@ -53,12 +59,17 @@ const TableFormContainer = () => {
 
 
     return (
+        <>
+            <div className="flex">
+                <Sidebar handleItemClick={handleSidebarItemClick} />
 
+                {renderContent()}
+            </div>
 
-        <div className="flex">
-            <Sidebar handleItemClick={handleSidebarItemClick} />
-            {renderContent()}
-        </div>
+            <div className="flex">
+            {selected ? null : <Btndashboard handleItemClick={handleButtonItemClick} />}{/*  */}
+        </div >
+        </>
 
     )
 }

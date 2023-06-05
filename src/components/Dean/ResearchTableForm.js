@@ -240,56 +240,60 @@ const ResearchTableForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <table className="w-full border border-black">
-                <thead>
-                    <tr>
-                        <th className="border border-black p-2">Performance Indicator</th>
-                        <th className="border border-black p-2">Target</th>
-                        <th className="border border-black p-2">Accomplished</th>
-                        <th className="border border-black p-2">Date Of Submission/Completion(Deadline)</th>
-                        <th className="border border-black p-2">Date Submitted/Completed</th>
-                        <th className="border border-black p-2" colspan={4}>Ratings</th>
-                        <th className="border border-black p-2">Remarks</th>
-                    </tr>
-                    <tr className="border-gray-800">
-                        <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                        <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                        <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                        <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                        <td colspan="1" className="py-2 px-4 border-r text-center border-gray-800"></td>
-                        <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">QTY</td>
-                        <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">QL/E
-                        </td>
-                        <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">T</td>
-                        <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">A</td>
-                        <td colspan="1" className="py-2 px-4 border-r text-center border-gray-800"></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr className='border-b border-black'>
-                        <td className="border-b border-black p-2">
-                            <h1>Research</h1>
-                        </td>
-                    </tr>
+        <div className="h-screen flex overflow-auto">
+            <div className="m-4">
+                <form onSubmit={handleSubmit}>
+                    <table className="w-full border border-black">
+                        <thead>
+                            <tr>
+                                <th className="border border-black p-2">Performance Indicator</th>
+                                <th className="border border-black p-2">Target</th>
+                                <th className="border border-black p-2">Accomplished</th>
+                                <th className="border border-black p-2">Date Of Submission/Completion(Deadline)</th>
+                                <th className="border border-black p-2">Date Submitted/Completed</th>
+                                <th className="border border-black p-2" colspan={4}>Ratings</th>
+                                <th className="border border-black p-2">Remarks</th>
+                            </tr>
+                            <tr className="border-gray-800">
+                                <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colspan="1" className="py-2 px-4 border-r text-center border-gray-800"></td>
+                                <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">QTY</td>
+                                <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">QL/E
+                                </td>
+                                <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">T</td>
+                                <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">A</td>
+                                <td colspan="1" className="py-2 px-4 border-r text-center border-gray-800"></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className='border-b border-black'>
+                                <td colspan="10" className="border-b border-t border-black p-2">
+                                    <h1>Research</h1>
+                                </td>
+                            </tr>
 
-                    <tr className='border-b border-black'>
-                        <td className="border-b border-black p-2">
-                            <h1>8.   Research program/projects/studies.</h1>
-                        </td>
-                    </tr>
+                            <tr className='border-b border-black'>
+                                <td colspan="10" className="border-b border-black p-2">
+                                    <h1>8.   Research program/projects/studies.</h1>
+                                </td>
+                            </tr>
 
-                    {renderIndicatorRows(research1Indicators, "research1", research1Data)}
+                            {renderIndicatorRows(research1Indicators, "research1", research1Data)}
 
-                </tbody>
-            </table>
-            <button
-                type="submit"
-                className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-            >
-                Submit
-            </button>
-        </form>
+                        </tbody>
+                    </table>
+                    <button
+                        type="submit"
+                        className="mt-4 mb-4 px-10 py-2 bg-blue-950 text-white rounded hover:bg-blue-600"
+                    >
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
     );
 };
 
@@ -297,10 +301,10 @@ export default ResearchTableForm;
 
 const research1Indicators = [
     { id: "indicator1", label: 'a) Research Proposal submitted/ Activity Conducted' },
-    { id: "indicator2", label: 'b) Research Implemented and/or Completed within the Timeframe' },
-    { id: "indicator3", label: 'c) Research Presented in Regional/National/International Conferences' },
-    { id: "indicator4", label: 'd) Research Published in Peer-reviewed Journals' },
-    { id: "indicator5", label: 'e) Filed/Published/Approved Intellectual Property Rights' },
-    { id: "indicator6", label: 'f) Research Utilized/Deployed through Commercialization/Extension/Policy)' },
+    { id: "indicator2", label: 'b) Research Implemented and/ or Completed within the Timeframe' },
+    { id: "indicator3", label: 'c) Research Presented in Regional/National/ International Conferences' },
+    { id: "indicator4", label: 'd) Research Published in  Peer-reviewed Journals' },
+    { id: "indicator5", label: 'e) Filed/Published/ Approved Intellectual Property Rights' },
+    { id: "indicator6", label: 'f) Research Utilized/Deployed through Commercialization/ Extension/Policy)' },
     { id: "indicator7", label: 'g) Number of citations in journals/books' }
 ];
