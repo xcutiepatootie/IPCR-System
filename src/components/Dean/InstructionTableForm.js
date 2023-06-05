@@ -14,7 +14,6 @@ const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionT
     const [ratingA_, setRatingA_] = useState('');
     const [remarksValue, setRemarksValue] = useState('');
 
-
     useEffect(() => {
         if (data.target !== undefined) {
             setTargetValue(data.target);
@@ -430,12 +429,15 @@ const InstructionTableForm = () => {
                                     <h1>1. Plan and Prepare Instructional Materials to Enhance Instruction</h1>
                                 </td>
                             </tr>
+
                             {renderIndicatorRows(instruction1Indicators, "instruction1", instruction1Data)}
+
                             <tr className="border-b border-black">
                                 <td colSpan="10" className="border-b border-black p-2">
                                     <h1>2. Organizes Classroom Instruction</h1>
                                 </td>
                             </tr>
+
                             {renderIndicatorRows(instruction2Indicators, "instruction2", instruction2Data)}
 
                             <tr className='border-b border-black'>
