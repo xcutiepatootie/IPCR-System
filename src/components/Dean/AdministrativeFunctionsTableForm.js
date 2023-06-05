@@ -257,7 +257,7 @@ const AdministrativeFunctionsTableForm = () => {
                 console.log(userData.administrativefunctionsProperty)
 
                 // Initialize the form data state with the retrieved user data
-                setAdministrativeFunctions1Data(userData?.administrativeFunctionsProperty?.administrativeFunctions1 ?? []);
+                setAdministrativeFunctions1Data(userData?.administrativeFunctionsProperty ?? []);
 
 
 

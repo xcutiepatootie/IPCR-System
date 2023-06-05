@@ -259,7 +259,7 @@ const ExtensionTableForm = () => {
                 console.log(userData.extensionProperty)
 
                 // Initialize the form data state with the retrieved user data
-                setExtension1Data(userData.extensionProperty.extension1 || []);
+                setExtension1Data(userData.extensionProperty || []);
 
 
             } catch (error) {
