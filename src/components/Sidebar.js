@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useSession, signOut } from 'next-auth/react';
 import { FaRegUser } from 'react-icons/fa';
+import { FaChalkboardUser } from "react-icons/fa";
 
 const Sidebar = ({ handleItemClick }) => {
   const router = useRouter();
@@ -31,54 +32,53 @@ const Sidebar = ({ handleItemClick }) => {
         <ul className="">
           {user && user.role === 'superadmin' && (
             <>
-              <li className="mb-2 hover:bg-gray-300 rounded-md">
+              <li className="mb-2 hover:bg-gray-300 hover:text-blue-950 rounded-md">
                 <Link href="#" onClick={() => handleItemClick('Manage User')}>Manage User</Link>
               </li>
-              <li className="mb-2 hover:bg-gray-300 rounded-md">
+              <li className="mb-2 hover:bg-gray-300 hover:text-blue-950 rounded-md">
                 <Link href="#" onClick={() => handleItemClick('Create New User')}>Create New User</Link>
               </li>
             </>
           )}
 
-          <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6 hover:bg-gray-300 rounded-md" onClick={() => handleItemClick('Dashboard')}>
+          <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6 hover:bg-gray-300 hover:text-blue-950 rounded-md" onClick={() => handleItemClick('Dashboard')}>
             <Link href="#">Dashboard</Link>
           </li>
 
           {user && (user.role === 'faculty' || user.role === 'dean') && (
             <>
-              <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6 hover:bg-gray-300 rounded-md" onClick={() => handleItemClick('Instruction')}>
-                <Link href="#">Instruction</Link>
+              <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6 hover:bg-gray-300  hover:text-blue-950 rounded-md" onClick={() => handleItemClick('Instruction')}>
+              <Link href="#">Instruction</Link>
               </li>
-              <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6 hover:bg-gray-300 rounded-md" onClick={() => handleItemClick('Research')}>
+              <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6 hover:bg-gray-300  hover:text-blue-950 rounded-md" onClick={() => handleItemClick('Research')}>
                 <Link href="#">Research</Link>
               </li>
-              <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6 hover:bg-gray-300 rounded-md" onClick={() => handleItemClick('Extension')}>
+              <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6 hover:bg-gray-300  hover:text-blue-950 rounded-md" onClick={() => handleItemClick('Extension')}>
                 <Link href="#">Extension</Link>
               </li>
-
-              <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6 hover:bg-gray-300 rounded-md" onClick={() => handleItemClick('Support Function')}>
+              <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6 hover:bg-gray-300  hover:text-blue-950 rounded-md" onClick={() => handleItemClick('Support Function')}>
                 <Link href="#">Support Function</Link>
               </li>
-              <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6 hover:bg-gray-300 rounded-md" onClick={() => handleItemClick('Administrative Functions')}>
+              <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6 hover:bg-gray-300  hover:text-blue-950 rounded-md" onClick={() => handleItemClick('Administrative Functions')}>
                 <Link href="#">Administrative Function</Link>
               </li>
             </>
           )}
 
-          {user && (user.role !== 'faculty' && user.role === 'dean') && (
+          {/* {user && (user.role !== 'faculty' && user.role === 'dean') && (
             <>
               <li className="mb-2 hover:bg-gray-300 rounded-md" onClick={() => handleItemClick('Faculty')}>
                 <Link href="#">Faculty</Link>
               </li>
             </>
-          )}
+          )} */}
 
-          <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6 hover:bg-gray-300 rounded-md" onClick={() => handleItemClick('Report Generation')}>
+          <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6 hover:bg-gray-300 hover:text-blue-950 rounded-md" onClick={() => handleItemClick('Report Generation')}>
             <Link href="#">Report Generation</Link>
           </li>
         </ul>
 
-        <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-10 hover:bg-gray-300 rounded-md" onClick={() => signOut()}>
+        <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-10 hover:bg-gray-300 hover:text-blue-950 rounded-md" onClick={() => signOut()}>
           <Link href="#">Sign Out</Link>
         </li>
       </nav>

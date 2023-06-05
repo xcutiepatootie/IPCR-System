@@ -324,7 +324,7 @@ const InstructionTableForm = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className="border-b border-black">
+                            <tr className="border-b border-t border-black">
                                 <td colSpan="10" className="border-b border-black p-2">
                                     <h1>Instruction</h1>
                                 </td>
@@ -336,14 +336,14 @@ const InstructionTableForm = () => {
                             </tr>
                             {renderIndicatorRows(instruction1Indicators, "instruction1", instruction1Data)}
                             <tr className="border-b border-black">
-                                <td className="border-b border-black p-2">
+                                <td colSpan="10" className="border-b border-black p-2">
                                     <h1>2. Organizes Classroom Instruction</h1>
                                 </td>
                             </tr>
                             {renderIndicatorRows(instruction2Indicators, "instruction2", instruction2Data)}
 
                             <tr className='border-b border-black'>
-                                <td className="border-b border-black p-2">
+                                <td colSpan="10" className="border-b border-black p-2">
                                     <h1>3. Teaching Effectiveness</h1>
                                 </td>
                             </tr>
@@ -384,7 +384,7 @@ const InstructionTableForm = () => {
 
                         </tbody>
                     </table>
-                    <button type="submit">Submit</button>
+                    <button type="submit" className="mb-4 mt-4 px-10 py-2 bg-blue-950 text-white rounded hover:bg-blue-600">Submit</button>
                 </form>
             </div>
         </div>

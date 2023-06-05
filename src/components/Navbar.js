@@ -27,10 +27,10 @@ const Navbar = () => {
                 </h1>
 
                 <ul className="hidden md:flex">
-                    <li className="flex justify-end p-4 text-xl font-semibold hover:bg-indigo-700 hover:text-slate-100 rounded-lg transition-all">
+                    <li className="flex justify-end p-4 text-xl font-sans lg:text-2xl font-semibold hover:bg-blue-950 hover:text-slate-100 rounded-lg transition-all">
                         <Link href="/about">About</Link>
                     </li>
-                    <li className="flex justify-end p-4 text-xl font-semibold hover:bg-indigo-700 hover:text-slate-100 rounded-lg transition-all">
+                    <li className="flex justify-end p-4 text-xl font-sans lg:text-2xl font-semibold hover:bg-blue-950 hover:text-slate-100 rounded-lg transition-all">
                         <Link href="/contact">Contact</Link>
                     </li>
                 </ul>

@@ -1,8 +1,242 @@
 import React from 'react';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useSession } from "next-auth/react";
+
+const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionType, data }) => {
+    const [targetValue, setTargetValue] = useState('');
+    const [accomplishedValue, setAccomplishedValue] = useState('');
+    const [submissionDateValue, setSubmissionDateValue] = useState('');
+    const [submittedDateValue, setSubmittedDateValue] = useState('');
+
+    useEffect(() => {
+        if (data.target !== undefined) {
+            setTargetValue(data.target);
+            onUpdateValue(index, 'target', data.target, instructionType); // Call onUpdateValue with initial target value
+        }
+
+        if (data.accomplished !== undefined) {
+            setAccomplishedValue(data.accomplished);
+            onUpdateValue(index, 'accomplished', data.accomplished, instructionType); // Call onUpdateValue with initial accomplished value
+        }
+
+        if (data.submissionDate !== undefined) {
+            setSubmissionDateValue(data.submissionDate);
+            onUpdateValue(index, 'submissionDate', data.submissionDate, instructionType); // Call onUpdateValue with initial submissionDate value
+        }
+
+        if (data.submittedDate !== undefined) {
+            setSubmittedDateValue(data.submittedDate);
+            onUpdateValue(index, 'submittedDate', data.submittedDate, instructionType); // Call onUpdateValue with initial submittedDate value
+        }
+    }, [data.target, data.accomplished, data.submissionDate, data.submittedDate]);
+
+
+    const handleTargetChange = (e) => {
+        const value = e.target.value;
+        setTargetValue(value);
+        onUpdateValue(index, 'target', value, instructionType);
+    };
+
+    const handleAccomplishedChange = (e) => {
+        const value = e.target.value;
+        setAccomplishedValue(value);
+        onUpdateValue(index, 'accomplished', value, instructionType);
+    };
+
+    const handleSubmissionDateChange = (e) => {
+        const value = e.target.value;
+        setSubmissionDateValue(value);
+        onUpdateValue(index, 'submissionDate', value, instructionType);
+    };
+
+    const handleSubmittedDateChange = (e) => {
+        const value = e.target.value;
+        setSubmittedDateValue(value);
+        onUpdateValue(index, 'submittedDate', value, instructionType);
+    };
+
+    return (
+        <>
+            <tr className="border-gray-800">
+                <td className="py-2 px-4 border-b border border-gray-800">{indicator.label}</td>
+                <td className="py-2 px-4 border-b border border-gray-800">
+                    <input
+                        type="number"
+                        name={`target${index}`}
+                        className="w-full p-2 border border-black rounded"
+                        value={targetValue}
+                        onChange={handleTargetChange}
+                    />
+                </td>
+                <td className="py-2 px-4 border-b border border-gray-800">
+                    <input
+                        type="number"
+                        name={`accomplished${index}`}
+                        className="w-full p-2 border border-black rounded"
+                        value={accomplishedValue}
+                        onChange={handleAccomplishedChange}
+                    />
+                </td>
+                <td className="py-2 px-4 border-b border border-gray-800">
+                    <input
+                        type="date"
+                        name={`submission${index}`}
+                        className="w-full p-2 border border-black rounded"
+                        value={submissionDateValue}
+                        onChange={handleSubmissionDateChange}
+                    />
+                </td>
+                <td className="py-2 px-4 border-b border border-gray-800">
+                    <input
+                        type="date"
+                        name={`submitted${index}`}
+                        className="w-full p-2 border border-black rounded"
+                        value={submittedDateValue}
+                        onChange={handleSubmittedDateChange}
+                    />
+                </td>
+                <td className="py-2 px-4 border-b border border-gray-800">
+                    <input
+                        type="number"
+                        name={`target${index}`}
+                        className="w-full p-2 border border-black rounded"
+                        value={targetValue}
+                        onChange={handleTargetChange}
+                    />
+                </td>
+                <td className="py-2 px-4 border-b border border-gray-800">
+                    <input
+                        type="number"
+                        name={`accomplished${index}`}
+                        className="w-full p-2 border border-black rounded"
+                        value={accomplishedValue}
+                        onChange={handleAccomplishedChange}
+                    />
+                </td>
+                <td className="py-2 px-4 border-b border border-gray-800">
+                    <input
+                        type="number"
+                        name={`target${index}`}
+                        className="w-full p-2 border border-black rounded"
+                        value={targetValue}
+                        onChange={handleTargetChange}
+                    />
+                </td>
+                <td className="py-2 px-4 border-b border border-gray-800">
+                    <input
+                        type="number"
+                        name={`accomplished${index}`}
+                        className="w-full p-2 border border-black rounded"
+                        value={accomplishedValue}
+                        onChange={handleAccomplishedChange}
+                    />
+                </td>
+                <td className="py-2 px-4 border-b border border-gray-800">
+                    <input
+                        type="text"
+                        name={`accomplished${index}`}
+                        className="w-full p-2 border border-black rounded"
+                        value={accomplishedValue}
+                        onChange={handleAccomplishedChange}
+                    />
+                </td>
+            </tr>
+        </>
+    );
+};
 
 const ResearchTableForm = () => {
-    const handleSubmit = (e) => {
+
+    //testing
+    const [research1Data, setResearch1Data] = useState([]);
+
+    const [formData, setFormData] = useState([]);
+    const { data: session, status } = useSession();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+
+                // Make the API request to retrieve user data
+                const response = await axios.get("/api/faculty-up/fetchUserData", {
+                    params: {
+                        userId: session.user.id, // Pass the user ID as a parameter
+                    },
+                });
+
+                // Extract the user data from the response
+                const userData = response.data.userData;
+
+                console.log(userData.researchProperty)
+
+                // Initialize the form data state with the retrieved user data
+
+                setResearch1Data(userData.researchProperty || []);
+
+
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        };
+
+        // Fetch user data when the component mounts
+        fetchData();
+    }, [session]);
+
+    console.log("Research", research1Data)
+
+    useEffect(() => {
+        const initialData = Array(research1Indicators.length).fill({});
+        setFormData(initialData);
+    }, []);
+
+    const handleUpdateValue = (index, field, value, instructionType) => {
+        setFormData((prevData) => {
+            const updatedData = [...prevData];
+            const existingData = updatedData[index] || {}; // Use the index parameter directly
+            const newData = { ...existingData, [field]: value, instructionType };
+            updatedData[index] = newData;
+            delete updatedData[index]._id;
+            return updatedData;
+        });
+    };
+
+
+    const renderIndicatorRows = (indicatorArray, instructionType, researchData) => {
+        return indicatorArray.map((indicator, index) => {
+            const data = researchData[index] || {}; // Get the data for the current index or an empty object if not available
+
+
+            console.log("Data::", data)
+
+            return (
+                <PerformanceIndicatorRow
+                    key={indicator.id}
+                    indicator={indicator}
+                    index={index}
+                    onUpdateValue={handleUpdateValue}
+                    instructionType={instructionType}
+                    data={data}
+                />
+            );
+        });
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(formData);
+        try {
+            const response = await axios.post("/api/faculty-up/researchUpForm", {
+                userData: formData, // Pass instructionData instead of finalData
+                loggedInUserId: session.user.id,
+            });
+
+            console.log(response.data);
+            e.target.reset();
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     return (
@@ -15,11 +249,24 @@ const ResearchTableForm = () => {
                         <th className="border border-black p-2">Accomplished</th>
                         <th className="border border-black p-2">Date Of Submission/Completion(Deadline)</th>
                         <th className="border border-black p-2">Date Submitted/Completed</th>
+                        <th className="border border-black p-2" colspan={4}>Ratings</th>
+                        <th className="border border-black p-2">Remarks</th>
+                    </tr>
+                    <tr className="border-gray-800">
+                        <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                        <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                        <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                        <td colspan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                        <td colspan="1" className="py-2 px-4 border-r text-center border-gray-800"></td>
+                        <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">QTY</td>
+                        <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">QL/E
+                        </td>
+                        <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">T</td>
+                        <td colspan="1" className="py-2 px-4 border-t border-r text-center border-gray-800">A</td>
+                        <td colspan="1" className="py-2 px-4 border-r text-center border-gray-800"></td>
                     </tr>
                 </thead>
                 <tbody>
-                    
-
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
                             <h1>Research</h1>
@@ -32,145 +279,8 @@ const ResearchTableForm = () => {
                         </td>
                     </tr>
 
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>A) Research Proposal submitted/ Activity Conducted</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
+                    {renderIndicatorRows(research1Indicators, "research1", research1Data)}
 
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>B) Research Implemented and/or Completed within the Timeframe</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>C) Research Presented in Regional/National/International Conferences</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>D) Research Published in Peer-reviewed Journals</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>E) Filed/Published/Approved Intellectual Property Rights</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-
-                    <tr className=''>
-                        <td className="border border-black">
-                            <h1>F) Research Utilized/Deployed through Commercialization/Extension/Policy</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr><tr className=''>
-                        <td className="border border-black">
-                            <h1>G) Number of citations in journals/books</h1>
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                        <td className="border-b border-black p-2">
-                            <input
-                                type="number"
-                                name="age"
-                                className="w-full p-2 border border-black rounded"
-                            />
-                        </td>
-                    </tr>
-
-                    {}
                 </tbody>
             </table>
             <button
@@ -185,4 +295,12 @@ const ResearchTableForm = () => {
 
 export default ResearchTableForm;
 
-
+const research1Indicators = [
+    { id: "indicator1", label: 'a) Research Proposal submitted/ Activity Conducted' },
+    { id: "indicator2", label: 'b) Research Implemented and/or Completed within the Timeframe' },
+    { id: "indicator3", label: 'c) Research Presented in Regional/National/International Conferences' },
+    { id: "indicator4", label: 'd) Research Published in Peer-reviewed Journals' },
+    { id: "indicator5", label: 'e) Filed/Published/Approved Intellectual Property Rights' },
+    { id: "indicator6", label: 'f) Research Utilized/Deployed through Commercialization/Extension/Policy)' },
+    { id: "indicator7", label: 'g) Number of citations in journals/books' }
+];
