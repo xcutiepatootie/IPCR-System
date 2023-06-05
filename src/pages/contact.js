@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import { BsTelephone  } from "react-icons/bs";
+import { MdOutlineEmail  } from "react-icons/md";
+import { GrLocation  } from "react-icons/gr";
+import { AiTwotoneContacts  } from "react-icons/ai";
+
+
+
+
+
+
 
 const ContactPage = () => {
   const [nav, setNav] = useState(false);
@@ -56,17 +66,20 @@ const ContactPage = () => {
             >
               <h1
                 style={{
-                  textAlign: 'center-justify',
+                  textAlign: 'center',
                   marginBottom: '1rem',
                   color: '#172554',
                   fontSize: '1.5rem',
                   fontWeight: 'bold',
+                  
                 }}
               >
+                Contact Information:<br></br>
                 Location: Brgy, Del Remedio San Pablo City Laguna, San Pablo City, Philippines<br></br>
-                Telephone Number: (049) 554 9910<br></br>
+                Telephone Number:(049) 554 9910  
                 Email: icts_spc@lspu.edu.ph<br></br>
-                lspu.edu.ph/campus/home/spc
+                Link: lspu.edu.ph/campus/home/spc
+                
               </h1>
             </div>
           </div>
