@@ -3,11 +3,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 
-const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionType }) => {
-    const [targetValue, setTargetValue] = useState("");
-    const [accomplishedValue, setAccomplishedValue] = useState("");
-    const [submissionDateValue, setSubmissionDateValue] = useState("");
-    const [submittedDateValue, setSubmittedDateValue] = useState("");
+const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionType, data }) => {
+    const [targetValue, setTargetValue] = useState('');
+    const [accomplishedValue, setAccomplishedValue] = useState('');
+    const [submissionDateValue, setSubmissionDateValue] = useState('');
+    const [submittedDateValue, setSubmittedDateValue] = useState('');
+
 
     useEffect(() => {
         if (data.target !== undefined) {
@@ -35,25 +36,25 @@ const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionT
     const handleTargetChange = (e) => {
         const value = e.target.value;
         setTargetValue(value);
-        onUpdateValue(index, "target", value, instructionType);
+        onUpdateValue(index, 'target', value, instructionType);
     };
 
     const handleAccomplishedChange = (e) => {
         const value = e.target.value;
         setAccomplishedValue(value);
-        onUpdateValue(index, "accomplished", value, instructionType);
+        onUpdateValue(index, 'accomplished', value, instructionType);
     };
 
     const handleSubmissionDateChange = (e) => {
         const value = e.target.value;
         setSubmissionDateValue(value);
-        onUpdateValue(index, "submissionDate", value, instructionType);
+        onUpdateValue(index, 'submissionDate', value, instructionType);
     };
 
     const handleSubmittedDateChange = (e) => {
         const value = e.target.value;
         setSubmittedDateValue(value);
-        onUpdateValue(index, "submittedDate", value, instructionType);
+        onUpdateValue(index, 'submittedDate', value, instructionType);
     };
 
     return (
@@ -102,6 +103,7 @@ const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionT
 };
 
 const ExtensionTableForm = () => {
+    
 
     //testing
     const [extension1Data, setExtension1Data] = useState([]);
@@ -123,11 +125,11 @@ const ExtensionTableForm = () => {
                 // Extract the user data from the response
                 const userData = response.data.userData;
 
-                console.log(userData.researchProperty)
+                console.log(userData.extensionProperty)
 
                 // Initialize the form data state with the retrieved user data
 
-                setExtension1Data(userData.researchProperty || []);
+                setExtension1Data(userData.extensionProperty || []);
 
 
             } catch (error) {
@@ -157,12 +159,11 @@ const ExtensionTableForm = () => {
         });
     };
 
-    const renderIndicatorRows = (indicatorArray, instructionType) => {
+    const renderIndicatorRows = (indicatorArray, instructionType, extensionData) => {
         return indicatorArray.map((indicator, index) => {
-            const data = extensionData[index] || {}; // Get the data for the current index or an empty object if not available
+            const data = extensionData && extensionData[index] ? extension1Data[index] : {}; // Get the data for the current index or an empty object if not available
 
-
-            console.log("Data::", data)
+            console.log("Data::", data);
 
             return (
                 <PerformanceIndicatorRow
@@ -171,10 +172,13 @@ const ExtensionTableForm = () => {
                     index={index}
                     onUpdateValue={handleUpdateValue}
                     instructionType={instructionType}
+                    data={data}
                 />
             );
         });
     };
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -191,7 +195,6 @@ const ExtensionTableForm = () => {
             console.error(error);
         }
     };
-
 
     return (
         <form onSubmit={handleSubmit}>
@@ -211,6 +214,7 @@ const ExtensionTableForm = () => {
                             <h1>Extension</h1>
                         </td>
                     </tr>
+
                     <tr className='border-b border-black'>
                         <td className="border-b border-black p-2">
                             <h1>9.  Extension projects.</h1>

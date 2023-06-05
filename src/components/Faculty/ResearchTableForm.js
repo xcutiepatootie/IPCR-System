@@ -218,6 +218,7 @@ const ResearchTableForm = () => {
                             <h1>8.   Research program/projects/studies.</h1>
                         </td>
                     </tr>
+                    
                     {renderIndicatorRows(research1Indicators, "research1", research1Data)}
 
                 </tbody>

@@ -3,34 +3,58 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 
-const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionType }) => {
-    const [targetValue, setTargetValue] = useState("");
-    const [accomplishedValue, setAccomplishedValue] = useState("");
-    const [submissionDateValue, setSubmissionDateValue] = useState("");
-    const [submittedDateValue, setSubmittedDateValue] = useState("");
+const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionType, data }) => {
+    const [targetValue, setTargetValue] = useState('');
+    const [accomplishedValue, setAccomplishedValue] = useState('');
+    const [submissionDateValue, setSubmissionDateValue] = useState('');
+    const [submittedDateValue, setSubmittedDateValue] = useState('');
+
+
+    useEffect(() => {
+        if (data.target !== undefined) {
+            setTargetValue(data.target);
+            onUpdateValue(index, 'target', data.target, instructionType); // Call onUpdateValue with initial target value
+        }
+
+        if (data.accomplished !== undefined) {
+            setAccomplishedValue(data.accomplished);
+            onUpdateValue(index, 'accomplished', data.accomplished, instructionType); // Call onUpdateValue with initial accomplished value
+        }
+
+        if (data.submissionDate !== undefined) {
+            setSubmissionDateValue(data.submissionDate);
+            onUpdateValue(index, 'submissionDate', data.submissionDate, instructionType); // Call onUpdateValue with initial submissionDate value
+        }
+
+        if (data.submittedDate !== undefined) {
+            setSubmittedDateValue(data.submittedDate);
+            onUpdateValue(index, 'submittedDate', data.submittedDate, instructionType); // Call onUpdateValue with initial submittedDate value
+        }
+    }, [data.target, data.accomplished, data.submissionDate, data.submittedDate]);
+
 
     const handleTargetChange = (e) => {
         const value = e.target.value;
         setTargetValue(value);
-        onUpdateValue(index, "target", value, instructionType);
+        onUpdateValue(index, 'target', value, instructionType);
     };
 
     const handleAccomplishedChange = (e) => {
         const value = e.target.value;
         setAccomplishedValue(value);
-        onUpdateValue(index, "accomplished", value, instructionType);
+        onUpdateValue(index, 'accomplished', value, instructionType);
     };
 
     const handleSubmissionDateChange = (e) => {
         const value = e.target.value;
         setSubmissionDateValue(value);
-        onUpdateValue(index, "submissionDate", value, instructionType);
+        onUpdateValue(index, 'submissionDate', value, instructionType);
     };
 
     const handleSubmittedDateChange = (e) => {
         const value = e.target.value;
         setSubmittedDateValue(value);
-        onUpdateValue(index, "submittedDate", value, instructionType);
+        onUpdateValue(index, 'submittedDate', value, instructionType);
     };
 
     return (
@@ -79,8 +103,45 @@ const PerformanceIndicatorRow = ({ indicator, index, onUpdateValue, instructionT
 };
 
 const AdministrativeFunctionsTableForm = () => {
+
+
+    //testing
+    const [administrativefunctions1Data, setAdministrativefunctions1Data] = useState([]);
+
     const [formData, setFormData] = useState([]);
     const { data: session, status } = useSession();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+
+                // Make the API request to retrieve user data
+                const response = await axios.get("/api/faculty-up/fetchUserData", {
+                    params: {
+                        userId: session.user.id, // Pass the user ID as a parameter
+                    },
+                });
+
+                // Extract the user data from the response
+                const userData = response.data.userData;
+
+                console.log(userData.administrativefunctionsProperty)
+
+                // Initialize the form data state with the retrieved user data
+
+                setAdministrativefunctions1Data(userData.administrativefunctionsProperty || []);
+
+
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        };
+
+        // Fetch user data when the component mounts
+        fetchData();
+    }, [session]);
+
+    console.log("Administrativefunctions", administrativefunctions1Data)
 
     useEffect(() => {
         const initialData = Array(administrativefunctions1Indicators.length).fill({});
@@ -89,51 +150,42 @@ const AdministrativeFunctionsTableForm = () => {
 
     const handleUpdateValue = (index, field, value, instructionType) => {
         setFormData((prevData) => {
-            const administrativefunctions1Length = administrativefunctions1Indicators.length;
-
-            let adjustedIndex;
-
-            if (instructionType === "administrativefunctions1") {
-                adjustedIndex = index;
-            } else if (instructionType === "administrativefunctions2") {
-                adjustedIndex = instruction1Length + index;
-            } else if (instructionType === "administrativefunctions3") {
-                adjustedIndex = instruction1Length + instruction2Length + index;
-            } else if (instructionType === "administrativefunctions4") {
-                adjustedIndex = instruction1Length + instruction2Length + instruction3Length + index;
-            } else if (instructionType === "administrativefunctions5") {
-                adjustedIndex = instruction1Length + instruction2Length + instruction3Length + instruction4Length + index;
-            }
-
             const updatedData = [...prevData];
-            const existingData = updatedData[adjustedIndex] || {}; // Get the existing data for the adjusted index
-            const newData = { ...existingData, [field]: value, instructionType }; // Merge the existing data with the new field value
-            updatedData[adjustedIndex] = newData; // Update the data for the adjusted index
-            delete updatedData[adjustedIndex]._id;
+            const existingData = updatedData[index] || {}; // Use the index parameter directly
+            const newData = { ...existingData, [field]: value, instructionType };
+            updatedData[index] = newData;
+            delete updatedData[index]._id;
             return updatedData;
         });
     };
 
-    const renderIndicatorRows = (indicatorArray, instructionType) => {
-        //  console.log("Rendering indicator rows", indicatorArray); // Debugging statement
+    const renderIndicatorRows = (indicatorArray, instructionType, administrativefunctionsData) => {
+        return indicatorArray.map((indicator, index) => {
+            const data = administrativefunctionsData && administrativefunctionsData[index] ? admnistrativefunctions1Data[index] : {}; // Get the data for the current index or an empty object if not available
 
-        return indicatorArray.map((indicator, index) => (
-            <PerformanceIndicatorRow
-                key={indicator.id}
-                indicator={indicator}
-                index={index}
-                onUpdateValue={handleUpdateValue}
-                instructionType={instructionType}
-            />
-        ));
+            console.log("Data::", data);
+
+            return (
+                <PerformanceIndicatorRow
+                    key={indicator.id}
+                    indicator={indicator}
+                    index={index}
+                    onUpdateValue={handleUpdateValue}
+                    instructionType={instructionType}
+                    data={data}
+                />
+            );
+        });
     };
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(formData);
         try {
-            const response = await axios.post("/api/faculty-up/mergeUserData", {
-                userData: formData,
+            const response = await axios.post("/api/faculty-up/extensionUpForm", {
+                userData: formData, // Pass instructionData instead of finalData
                 loggedInUserId: session.user.id,
             });
 
@@ -158,15 +210,14 @@ const AdministrativeFunctionsTableForm = () => {
                 </thead>
                 <tbody>
                     <tr className='border-b border-black'>
-                        <td colspan="10" className="border-b border-black p-2">
+                        <td className="border-b border-black p-2">
                             <h1>Administrative Functions</h1>
                         </td>
-
                     </tr>
 
                     <tr className='border-b border-black'>
-                        <td colspan="10" className="border-b border-black p-2">
-                            <h1>19. Perform Administrative Designation Functions</h1>
+                        <td className="border-b border-black p-2">
+                            <h1>19. Perform Administrative Designation Functions.</h1>
                         </td>
                     </tr>
 
@@ -187,9 +238,9 @@ const AdministrativeFunctionsTableForm = () => {
 export default AdministrativeFunctionsTableForm;
 
 const administrativefunctions1Indicators = [
-    { id: "indicator1", label: 'a) Prepare...' },
-    { id: "indicator2", label: 'b) Submit...' },
-    { id: "indicator3", label: 'c) Increase...' },
-    { id: "indicator4", label: 'd) ...' },
-    { id: "indicator5", label: 'e) ...' }
+    { id: "indicator1", label: 'a. Prepare….' },
+    { id: "indicator2", label: 'b. Submit…' },
+    { id: "indicator3", label: 'c. Increase…' },
+    { id: "indicator4", label: 'd….' },
+    { id: "indicator5", label: 'e….' }
 ];
