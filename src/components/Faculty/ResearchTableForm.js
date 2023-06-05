@@ -195,41 +195,45 @@ const ResearchTableForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <table className="w-full border border-black">
-                <thead>
-                    <tr>
-                        <th className="border border-black p-2">Performance Indicator</th>
-                        <th className="border border-black p-2">Target</th>
-                        <th className="border border-black p-2">Accomplished</th>
-                        <th className="border border-black p-2">Date Of Submission/Completion(Deadline)</th>
-                        <th className="border border-black p-2">Date Submitted/Completed</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr className='border-b border-black'>
-                        <td className="border-b border-black p-2">
-                            <h1>Research</h1>
-                        </td>
-                    </tr>
+        <div className="h-screen flex overflow-auto">
+            <div className="m-4">
+                <form onSubmit={handleSubmit}>
+                    <table className="w-full border border-black">
+                        <thead>
+                            <tr>
+                                <th className="border border-black p-2">Performance Indicator</th>
+                                <th className="border border-black p-2">Target</th>
+                                <th className="border border-black p-2">Accomplished</th>
+                                <th className="border border-black p-2">Date Of Submission/Completion(Deadline)</th>
+                                <th className="border border-black p-2">Date Submitted/Completed</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className='border-b border-black'>
+                                <td className="border-b border-black p-2">
+                                    <h1>Research</h1>
+                                </td>
+                            </tr>
 
-                    <tr className='border-b border-black'>
-                        <td className="border-b border-black p-2">
-                            <h1>8.   Research program/projects/studies.</h1>
-                        </td>
-                    </tr>
-                    
-                    {renderIndicatorRows(research1Indicators, "research1", research1Data)}
+                            <tr className='border-b border-black'>
+                                <td className="border-b border-black p-2">
+                                    <h1>8.   Research program/projects/studies.</h1>
+                                </td>
+                            </tr>
 
-                </tbody>
-            </table>
-            <button
-                type="submit"
-                className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-            >
-                Submit
-            </button>
-        </form>
+                            {renderIndicatorRows(research1Indicators, "research1", research1Data)}
+
+                        </tbody>
+                    </table>
+                    <button
+                        type="submit"
+                        className="mt-4 px-10 py-2 bg-blue-950 text-white rounded hover:bg-blue-600"
+                    >
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
     );
 };
 

@@ -259,15 +259,8 @@ const InstructionTableForm = () => {
                                 <th className="border border-black p-2">Performance Indicator</th>
                                 <th className="border border-black p-2">Target</th>
                                 <th className="border border-black p-2">Accomplished</th>
-                                <th className="border border-black p-2">Date Of Submission/ Completion(Deadline)</th>
+                                <th className="border border-black p-2">Date Of Submission/Completion(Deadline)</th>
                                 <th className="border border-black p-2">Date Submitted/Completed</th>
-                            </tr>
-                            <tr className="border-gray-800">
-                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
-                                <td colSpan="1" className="py-2 px-4 border-r text-center border-gray-800"></td>
                             </tr>
                         </thead>
                         <tbody>
@@ -331,7 +324,7 @@ const InstructionTableForm = () => {
 
                         </tbody>
                     </table>
-                    <button type="submit">Submit</button>
+                    <button type="submit" className="mb-4 mt-4 px-10 py-2 bg-blue-950 text-white rounded hover:bg-blue-600">Submit</button>
                 </form>
             </div>
         </div>
