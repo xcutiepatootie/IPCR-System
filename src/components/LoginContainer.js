@@ -58,20 +58,12 @@ const LoginContainer = () => {
                                 <button className=" border-solid border-blue-950 border-2 text-blue-950 hover:bg-blue-950 hover:text-white font-bold h-28 w-28 rounded-[12px]" onClick={() => handleButtonClick('riuh')}> <BsFillPersonFill className='h-12 w-12 mt-2 ml-8 pb-1' />RIUH</button>
                             </div>
 
-                            <footer
-                                style={{
-                                    backgroundColor: '#ffffff',
-                                    textAlign: 'center',
-                                    padding: 0,
-                                    position: 'fixed',
-                                    bottom: 0,
-                                    left: 0,
-                                    right: 0,
-                                    zIndex: 2,
-                                }}
-                            >
-                                <p style={{ fontSize: 15 }}>Laguna State Polytechnic University © 2023. All Rights Reserved.</p>
+                            {/* <div>
+                                <footer>
+                                <p className="text-black text-center">Laguna State Polytechnic University © Copyright 2023. All Rights Reserved.</p>
                             </footer>
+                            </div>
+                             */}
                         </>
                         
 
