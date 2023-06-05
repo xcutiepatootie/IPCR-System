@@ -65,7 +65,7 @@ const Sidebar = ({ handleItemClick }) => {
             </>
           )}
 
-          {user && user.role !== 'faculty' && (
+          {user && (user.role !== 'faculty' && user.role === 'dean') && (
             <>
               <li className="mb-2 hover:bg-gray-300 rounded-md" onClick={() => handleItemClick('Faculty')}>
                 <Link href="#">Faculty</Link>
