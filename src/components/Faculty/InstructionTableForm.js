@@ -255,7 +255,20 @@ const InstructionTableForm = () => {
                 <form onSubmit={handleSubmit}>
                     <table className="w-full border border-black">
                         <thead>
-                            {/* Header rows */}
+                            <tr>
+                                <th className="border border-black p-2">Performance Indicator</th>
+                                <th className="border border-black p-2">Target</th>
+                                <th className="border border-black p-2">Accomplished</th>
+                                <th className="border border-black p-2">Date Of Submission/ Completion(Deadline)</th>
+                                <th className="border border-black p-2">Date Submitted/Completed</th>
+                            </tr>
+                            <tr className="border-gray-800">
+                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colSpan="1" className="py-2 px-4 text-center border-gray-800"></td>
+                                <td colSpan="1" className="py-2 px-4 border-r text-center border-gray-800"></td>
+                            </tr>
                         </thead>
                         <tbody>
                             <tr className="border-b border-black">

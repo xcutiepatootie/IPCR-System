@@ -42,7 +42,27 @@ const arraySchema = new mongoose.Schema({
     submittedDate: {
         type: String,
         required: false
-    }
+    },
+    QTY: {
+        type: Number,
+        required: false
+    },
+    QLE: {
+        type: Number,
+        required: false
+    },
+    T: {
+        type: Number,
+        required: false
+    },
+    A: {
+        type: Number,
+        required: false
+    },
+    remarks: {
+        type: String,
+        required: false
+    },
 
 });
 

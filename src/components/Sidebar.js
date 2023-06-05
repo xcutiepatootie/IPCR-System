@@ -44,6 +44,14 @@ const Sidebar = ({ handleItemClick }) => {
             <Link href="#">Dashboard</Link>
           </li>
 
+          {user && user.role !== 'faculty' && (
+            <>
+              <li className="mb-2 hover:bg-gray-300 rounded-md" onClick={() => handleItemClick('Faculty')}>
+                <Link href="#">List of Faculty</Link>
+              </li>
+            </>
+          )}
+
           {user && (user.role === 'faculty' || user.role === 'dean') && (
             <>
               <li className="mb-2 font-extrabold text-xl font-mono text-center opacity-80 leading m-6 hover:bg-gray-300 rounded-md" onClick={() => handleItemClick('Instruction')}>
@@ -65,7 +73,7 @@ const Sidebar = ({ handleItemClick }) => {
             </>
           )}
 
-          {user && (user.role !== 'faculty' && user.role === 'dean') && (
+          {user && user.role !== 'faculty' && (
             <>
               <li className="mb-2 hover:bg-gray-300 rounded-md" onClick={() => handleItemClick('Faculty')}>
                 <Link href="#">Faculty</Link>

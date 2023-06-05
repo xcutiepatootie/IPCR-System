@@ -22,22 +22,22 @@ export default async function handler(req, res) {
                     instruction7
                 } = userData;
 
-                const instructionProperty = {
-                    instruction1,
-                    instruction2,
-                    instruction3,
-                    instruction4,
-                    instruction5,
-                    instruction6,
-                    instruction7
+                const update = {
+                    $set: {
+                        'instructionProperty.instruction1': instruction1,
+                        'instructionProperty.instruction2': instruction2,
+                        'instructionProperty.instruction3': instruction3,
+                        'instructionProperty.instruction4': instruction4,
+                        'instructionProperty.instruction5': instruction5,
+                        'instructionProperty.instruction6': instruction6,
+                        'instructionProperty.instruction7': instruction7
+                    }
                 };
-
-                console.log(instructionProperty)
 
                 // Update the instruction property for the logged-in user
                 const updatedUser = await Faculty.findOneAndUpdate(
-                    { _id: loggedInUserId }, // Assuming the user's unique identifier is '_id'
-                    { instructionProperty },
+                    { _id: loggedInUserId },
+                    update,
                     { new: true }
                 );
 
