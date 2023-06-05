@@ -129,19 +129,19 @@ const SupportFunctionTableForm = () => {
                 // Extract the user data from the response
                 const userData = response.data.userData;
 
-                console.log(userData.supportFunction)
+                console.log(userData.supportProperty)
 
                 // Initialize the form data state with the retrieved user data
 
-                setSupport1Data(userData.supportFunction.instruction1 || []);
-                setSupport2Data(userData.supportFunction.instruction2 || []);
-                setSupport3Data(userData.supportFunction.instruction3 || []);
-                setSupport4Data(userData.supportFunction.instruction4 || []);
-                setSupport5Data(userData.supportFunction.instruction5 || []);
-                setSupport6Data(userData.supportFunction.instruction6 || []);
-                setSupport7Data(userData.supportFunction.instruction7 || []);
-                setSupport8Data(userData.supportFunction.instruction1 || []);
-                setSupport9Data(userData.supportFunction.instruction2 || []);
+                setSupport1Data(userData.supportProperty.support1 || []);
+                setSupport2Data(userData.supportProperty.support2 || []);
+                setSupport3Data(userData.supportProperty.support3 || []);
+                setSupport4Data(userData.supportProperty.support4 || []);
+                setSupport5Data(userData.supportProperty.support5 || []);
+                setSupport6Data(userData.supportProperty.support6 || []);
+                setSupport7Data(userData.supportProperty.support7 || []);
+                setSupport8Data(userData.supportProperty.support8 || []);
+                setSupport9Data(userData.supportProperty.support9 || []);
 
 
 
@@ -171,6 +171,7 @@ const SupportFunctionTableForm = () => {
             const supportfunctions6Length = supportfunctions6Indicators.length;
             const supportfunctions7Length = supportfunctions7Indicators.length;
             const supportfunctions8Length = supportfunctions8Indicators.length;
+            const supportfunctions9Length = supportfunctions9Indicators.length;
 
 
             let adjustedIndex;
@@ -227,9 +228,29 @@ const SupportFunctionTableForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(formData);
+
+        const supportTypes = ['support1', 'support2', 'support3', 'support4', 'support5', 'support6', 'support7', 'support8', 'support9'];
+        const supportData = {};
+
+        supportTypes.forEach((type, index) => {
+            supportData[type] = formData
+                .filter((data) => data.instructionType === `supportfunctions${index + 1}`)
+                .map(({ target, accomplished, submissionDate, submittedDate }) => ({
+                    target,
+                    accomplished,
+                    submissionDate,
+                    submittedDate
+                }));
+            console.log(`Support ${type} Data:`, supportData[type]);
+        });
+
+        console.log('Support Data:', supportData);
+
+
+
         try {
-            const response = await axios.post("/api/faculty-up/mergeUserData", {
-                userData: formData,
+            const response = await axios.post("/api/faculty-up/supportUpForm", {
+                userData: supportData,
                 loggedInUserId: session.user.id,
             });
 
